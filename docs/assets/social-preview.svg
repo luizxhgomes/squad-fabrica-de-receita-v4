@@ -1,22 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
   <defs>
-    <radialGradient id="bg" cx="0.66" cy="0.30" r="0.95">
+    <radialGradient id="bg" cx="0.5" cy="0.28" r="0.95">
       <stop offset="0" stop-color="#E50914"/>
       <stop offset="0.32" stop-color="#A50D0A"/>
       <stop offset="0.62" stop-color="#5D0B00"/>
       <stop offset="1" stop-color="#280000"/>
     </radialGradient>
-    <radialGradient id="glow" cx="0.80" cy="0.14" r="0.55">
-      <stop offset="0" stop-color="#FB2E0A" stop-opacity="0.55"/>
+    <radialGradient id="glow" cx="0.5" cy="0.10" r="0.6">
+      <stop offset="0" stop-color="#FB2E0A" stop-opacity="0.5"/>
       <stop offset="1" stop-color="#FB2E0A" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="0.5" stop-color="#FFDDA6"/>
-      <stop offset="1" stop-color="#FBAD56"/>
-    </linearGradient>
     <linearGradient id="goldrule" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#FBAD56"/>
+      <stop offset="0" stop-color="#FBAD56" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#FBAD56"/>
       <stop offset="1" stop-color="#FBAD56" stop-opacity="0"/>
     </linearGradient>
   </defs>
@@ -27,42 +23,36 @@
   <!-- painel de vidro premium -->
   <rect x="56" y="56" width="1168" height="528" rx="40" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="1.5"/>
 
-  <!-- logo V4 branca -->
-  <g transform="translate(104,96) scale(0.30)">
+  <!-- logo V4 branca (centralizada) -->
+  <g transform="translate(604,104) scale(0.36)">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M92.0992 113.423C91.9001 113.423 91.7057 113.361 91.5445 113.247C91.3785 113.137 91.2505 112.98 91.1746 112.799C91.0988 112.619 91.0798 112.419 91.1177 112.224C91.1557 112.029 91.2505 111.853 91.388 111.71L137.433 65.6217C137.575 65.4837 137.751 65.3838 137.95 65.3458C138.144 65.3077 138.348 65.3267 138.533 65.4028C138.718 65.479 138.874 65.6074 138.983 65.7691C139.092 65.9357 139.154 66.1259 139.154 66.3258L139.216 112.352C139.216 112.904 138.77 113.356 138.21 113.356L92.0992 113.413V113.423ZM173.9 202.721L25.884 202.916C11.7732 202.93 0.213396 191.423 0.19443 177.336L2.76672e-05 25.6226C-0.0189384 12.7352 9.71539 1.99807 22.214 0.780214C22.4321 0.499536 22.6218 0.547109 22.6265 0.761185L22.7403 90.3927C22.7403 90.4879 22.7783 90.583 23.077 90.6496L39.3546 106.672C39.0749 106.905 39.3119 106.9 39.4494 106.672L124.873 20.0519C125.1 19.5476 124.939 19.1575 124.617 19.1575L97.3244 19.1956C97.13 19.1956 97.0399 19.2336 96.9688 19.5381L44.4091 71.6158C44.4944 71.8442 43.7879 71.6824 43.7879 71.7347L43.9302 0.532837C43.9302 0.333032 43.859 0.171285 44.0582 0.166528L173.639 2.35558e-05C188.063 -0.0190055 199.31 11.4936 199.329 25.5798L199.442 113.385C199.442 113.48 199.404 113.57 199.338 113.641C199.272 113.708 199.177 113.751 199.082 113.751L171.283 113.784C171.211 113.784 171.145 113.765 171.083 113.737C171.022 113.708 170.965 113.665 170.917 113.613L170.804 23.7911C170.804 21.2745 168.917 20.3563 168.523 20.1898C168.48 20.1708 168.428 20.1613 168.381 20.1613L138.433 20.2041C138.334 20.2041 138.244 20.3706 138.182 20.3088L46.0069 112.543C43.4086 115.14 43.6409 118.394 43.7121 118.627C43.8069 118.727 43.8543 118.817 43.8543 118.927L44.0345 145.767C44.044 146.89 44.3616 147.232 45.1724 147.232L137.717 147.114C137.921 147.114 138.087 147.275 138.087 147.48L138.12 177.217C138.12 177.417 138.291 177.584 138.49 177.579L170.164 177.541C170.363 177.541 170.529 177.374 170.529 177.175L170.491 147.437C170.491 147.237 170.657 147.071 170.856 147.071L199.433 147.213C199.329 147.213 199.49 147.199 199.49 147.399L199.523 177.084C199.542 191.171 188.015 202.712 173.905 202.731L173.9 202.721Z" fill="white"/>
   </g>
 
   <!-- eyebrow -->
-  <text x="180" y="140" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="23" font-weight="600" letter-spacing="4" fill="#FFD9C2">SQUAD DE ORQUESTRAÇÃO DE AGENTES DE IA · CLAUDE CODE</text>
+  <text x="640" y="216" text-anchor="middle" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="24" font-weight="600" letter-spacing="5" fill="#FFD9C2">SQUAD DE ORQUESTRAÇÃO DE AGENTES DE IA</text>
 
   <!-- titulo -->
-  <text x="102" y="284" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="94" font-weight="800" letter-spacing="-1" fill="#FFFFFF">Fábrica de Receita <tspan fill="url(#gold)">V4</tspan></text>
+  <text x="640" y="330" text-anchor="middle" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="104" font-weight="800" letter-spacing="-1.5" fill="#FFFFFF">Fábrica de Receita</text>
 
-  <!-- filete dourado -->
-  <rect x="104" y="316" width="360" height="5" rx="2.5" fill="url(#goldrule)"/>
+  <!-- filete dourado centralizado -->
+  <rect x="490" y="362" width="300" height="5" rx="2.5" fill="url(#goldrule)"/>
 
   <!-- tagline -->
-  <text x="104" y="384" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="33" font-weight="500" fill="#FBE6DC">Estratégia de receita com Teoria das Restrições, hierarquia chief-first.</text>
+  <text x="640" y="424" text-anchor="middle" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="33" font-weight="500" fill="#FBE6DC">Estratégia de receita com Teoria das Restrições, hierarquia chief-first.</text>
 
-  <!-- card de vidro com stats -->
-  <rect x="104" y="436" width="676" height="116" rx="26" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="1.5"/>
+  <!-- card de vidro com stats (centralizado) -->
+  <rect x="300" y="472" width="680" height="80" rx="24" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="1.5"/>
   <g font-family="Avenir Next, Helvetica Neue, sans-serif" text-anchor="middle">
-    <text x="198" y="500" font-size="52" font-weight="800" fill="#FFFFFF">27</text>
-    <text x="198" y="530" font-size="21" font-weight="500" fill="#FFC9B3">agentes</text>
-    <text x="360" y="500" font-size="52" font-weight="800" fill="#FFFFFF">22</text>
-    <text x="360" y="530" font-size="21" font-weight="500" fill="#FFC9B3">tasks</text>
-    <text x="530" y="500" font-size="52" font-weight="800" fill="#FFFFFF">10</text>
-    <text x="530" y="530" font-size="21" font-weight="500" fill="#FFC9B3">workflows</text>
-    <text x="694" y="500" font-size="52" font-weight="800" fill="#FFFFFF">10</text>
-    <text x="694" y="530" font-size="21" font-weight="500" fill="#FFC9B3">skills</text>
+    <text x="400" y="516" font-size="46" font-weight="800" fill="#FFFFFF">27</text>
+    <text x="400" y="540" font-size="20" font-weight="500" fill="#FFC9B3">agentes</text>
+    <text x="560" y="516" font-size="46" font-weight="800" fill="#FFFFFF">22</text>
+    <text x="560" y="540" font-size="20" font-weight="500" fill="#FFC9B3">tasks</text>
+    <text x="720" y="516" font-size="46" font-weight="800" fill="#FFFFFF">10</text>
+    <text x="720" y="540" font-size="20" font-weight="500" fill="#FFC9B3">workflows</text>
+    <text x="880" y="516" font-size="46" font-weight="800" fill="#FFFFFF">10</text>
+    <text x="880" y="540" font-size="20" font-weight="500" fill="#FFC9B3">skills</text>
   </g>
-  <line x1="279" y1="462" x2="279" y2="524" stroke="#FFFFFF" stroke-opacity="0.12"/>
-  <line x1="445" y1="462" x2="445" y2="524" stroke="#FFFFFF" stroke-opacity="0.12"/>
-  <line x1="612" y1="462" x2="612" y2="524" stroke="#FFFFFF" stroke-opacity="0.12"/>
-
-  <!-- handles -->
-  <g font-family="Avenir Next, Helvetica Neue, sans-serif" text-anchor="end">
-    <text x="1172" y="486" font-size="27" font-weight="700" fill="#FFFFFF">github.com/luizxhgomes</text>
-    <text x="1172" y="524" font-size="24" font-weight="600" fill="#FFDDA6">Instagram @luizhenriquexpro</text>
-  </g>
+  <line x1="480" y1="492" x2="480" y2="532" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <line x1="640" y1="492" x2="640" y2="532" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <line x1="800" y1="492" x2="800" y2="532" stroke="#FFFFFF" stroke-opacity="0.12"/>
 </svg>
