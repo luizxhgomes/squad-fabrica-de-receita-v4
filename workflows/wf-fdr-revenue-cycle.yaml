@@ -1,0 +1,179 @@
+# ============================================================
+# WF-FDR-REVENUE-CYCLE, Ciclo Institucional de Revenue Engineering
+# Duração: multi-trimestre (por cliente V4)
+# Hierarquia: goldratt (advisor) -> dener-lippert (chief) ->
+#             fabrica-de-receita-master (sub-orchestrator) -> specialists
+# ============================================================
+
+id: wf-fdr-revenue-cycle
+name: FDR Revenue Cycle (Institutional)
+version: 1.1.0
+maturity: F4
+tier: institutional
+orchestrator: fabrica-de-receita-master
+approver: dener-lippert
+advisor: goldratt
+
+description: |
+  Multi-quarter cycle de revenue engineering per cliente V4.
+  Diagnóstico → travas → fábrica → escala → institucionalização.
+  Cada fase é um pipeline executável com agents donos, inputs e outputs
+  explícitos, tasks mapeadas e quality gates aplicados. O ciclo opera
+  sobre a taxonomia das 8 travas de receita (T1 Cegueira, T2 Retenção,
+  T3 Decisão, T4 Compromisso, T5 Qualificação, T6 Interesse,
+  T7 Atenção, T8 Exposição).
+
+trigger:
+  - command: "*revenue-cycle"
+  - event: "Novo ciclo trimestral de cliente aprovado pelo chief"
+  - upstream: "wf-diagnostico-completo concluído com trava confirmada"
+
+phases:
+  - id: diagnostico
+    label: "F1 Diagnóstico"
+    duration: 7-14 dias
+    agents:
+      - id: diagnosticador
+        role: "Analisa funnel atual e roda o diagnóstico das 8 travas"
+      - id: especialista-spiced
+        role: "Qualifica contexto do cliente e enriquece o diagnóstico com SPICED"
+      - id: goldratt
+        role: "Valida o constraint via TOC (advisor, veto estratégico)"
+    activities:
+      - "Diagnosticador analisa funnel atual"
+      - "Identifica travas (Goldratt TOC)"
+      - "Baseline CAC/LTV"
+    tasks:
+      - tasks/trava-diagnostico.md
+      - tasks/trava-identificacao.md
+    inputs:
+      - "Dados de funil do cliente (CRM, mídia, financeiro)"
+      - "Histórico de receita dos últimos 2 trimestres"
+    outputs:
+      - "Baseline CAC/LTV documentado"
+      - "Trava ativa confirmada pelo teste 2 de 3 (dado + sintoma + causa)"
+    quality_gates: [QG-001, QG-002]
+
+  - id: destravamento
+    label: "F2 Estratégia"
+    duration: 14-30 dias
+    agents:
+      - id: dr-chief
+        role: "Coordena a estratégia de destravamento do produto DR"
+      - id: specialist-da-trava-ativa
+        role: "Specialist dono da trava confirmada em F1 (roteado pelo sub-orchestrator)"
+      - id: dener-lippert
+        role: "Aprova o plano STEP (gate de aprovação do chief)"
+    activities:
+      - "Especialista SPICED qualifica"
+      - "Destrava Receita fix priorizado"
+      - "Plano STEP desenhado sobre a trava confirmada"
+    tasks:
+      - tasks/step-framework.md
+      - tasks/90-day-cycle.md
+    inputs:
+      - "Trava confirmada 2 de 3 (output de F1)"
+      - "Baseline CAC/LTV (output de F1)"
+    outputs:
+      - "Plano STEP aprovado pelo chief"
+    quality_gates: [QG-002]
+
+  - id: fabrica-construcao
+    label: "F3 Conversão"
+    duration: 30-60 dias
+    agents:
+      - id: fabricante-aquisicao
+        role: "Implementa a máquina de aquisição do plano STEP"
+      - id: conversion-optimizer
+        role: "Otimiza etapas de conversão do funil"
+      - id: maquina-comercial
+        role: "Estrutura o motor comercial (cadência, scripts, fechamento)"
+    activities:
+      - "Fabricante de aquisição implementa"
+      - "Conversion optimizer + Growth strategist"
+      - "Boards de execução 1 e 2 rodando em cadência"
+    tasks:
+      - tasks/gerar-artefato.md
+      - tasks/executar-board-1.md
+      - tasks/executar-board-2.md
+    inputs:
+      - "Plano STEP aprovado (output de F2)"
+    outputs:
+      - "Artefatos da trava implementados e em produção"
+    quality_gates: [QG-003]
+
+  - id: escala
+    label: "F4 Escala"
+    duration: 60-90 dias
+    agents:
+      - id: traffic-hunter
+        role: "Escala canais vencedores de mídia paga"
+      - id: growth-strategist
+        role: "Desenha compounding loops e alavancas de crescimento"
+    activities:
+      - "Scaling channels winning"
+      - "Compounding loops Goldratt-style"
+    tasks:
+      - tasks/executar-board-1.md
+      - tasks/executar-board-2.md
+    inputs:
+      - "Artefatos da trava validados em F3"
+      - "Métricas de eficiência por canal"
+    outputs:
+      - "Artefatos da trava escalados (canais, verbas, loops)"
+    quality_gates: [QG-003]
+
+  - id: post-cycle-audit
+    label: "F5 Institucionalização"
+    duration: 7-14 dias
+    agents:
+      - id: fdr-pattern-detector
+        role: "Extrai padrões vencedores e anti-padrões do ciclo"
+      - id: fdr-knowledge-architect
+        role: "Codifica os padrões validados na knowledge base do squad"
+    activities:
+      - "Revenue ROI measurement"
+      - "Pattern extraction → playbook"
+    tasks:
+      - tasks/monitor-regressao.md
+    inputs:
+      - "Outcomes do ciclo (ROI, canais, funil, artefatos)"
+    outputs:
+      - "Padrões codificados na KB (data/fabrica-de-receita-kb.md)"
+    quality_gates: [QG-004]
+
+quality_gates_applied:
+  QG-001:
+    name: "Validação de Entrada"
+    blocking: false
+    check: "Dados de funil e histórico de receita disponíveis antes de F1"
+  QG-002:
+    name: "Diagnóstico Validado"
+    blocking: true
+    check: "Trava confirmada pelo teste 2 de 3 e plano STEP aprovado pelo chief"
+  QG-003:
+    name: "Completude de Execução"
+    blocking: true
+    check: "Artefatos da trava implementados, boards 1 e 2 em cadência"
+  QG-004:
+    name: "Qualidade de Saída"
+    blocking: false
+    check: "ROI medido e ao menos 1 padrão codificado na KB"
+
+cross_squad_handoffs:
+  - "squad-sales/sales-chief, execução comercial da trava T3 Decisão (pipeline, MEDDPICC)"
+  - "squad-martech/crm-master, CRM e attribution para baseline CAC/LTV e boards"
+  - "squad-copy/copy-chief, messaging dos artefatos de conversão em F3"
+  - "squad-whatsapp/whatsapp-chief, régua de compromisso para trava T4 (anti no-show)"
+  - "squad-data/db-architect, Dashboard de Decisão para eliminar T1 Cegueira"
+
+cross_references:
+  data:
+    - data/8-travas.md
+    - data/fabrica-de-receita-kb.md
+  skills:
+    - skills/diagnostico-8-travas.skill.md
+    - skills/ciclo-90-dias.skill.md
+  workflows:
+    - workflows/wf-diagnostico-completo.yaml
+    - workflows/wf-fdr-postmortem-institutional.yaml

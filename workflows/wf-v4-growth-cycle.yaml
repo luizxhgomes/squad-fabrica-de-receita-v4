@@ -1,0 +1,224 @@
+# ============================================================
+# WF-V4-GROWTH-CYCLE, Ciclo Completo de Crescimento (90 dias)
+# Duração: 90 dias por ciclo
+# Owner: fabrica-de-receita-master (orquestrador operacional)
+# Chief: dener-lippert · Master Advisor: goldratt
+# ============================================================
+
+workflow:
+  id: wf-v4-growth-cycle
+  name: "V4 Growth Cycle, Ciclo Completo de Crescimento em 90 Dias"
+  version: "1.0.0"
+  orchestrator: "fabrica-de-receita-master"
+  description: |
+    Ciclo de crescimento completo baseado na metodologia dos 4 pilares
+    (Tráfego, Engajamento, Conversão, Retenção). Cada ciclo de 90 dias é
+    uma jornada em 5 fases com IA coordenando tudo:
+
+    DIAGNÓSTICO → ESTRATÉGIA → EXECUÇÃO → OTIMIZAÇÃO → ESCALA → PRÓXIMO CICLO
+
+    Growth loop documentado: tráfego de qualidade → engajamento com conteúdo
+    de valor → conversão para cliente → retenção e expansão (LTV) →
+    promotores que geram novo tráfego (loop de retenção para tráfego).
+  trigger: "*growth-cycle"
+  estimated_duration: "90 dias (ciclo completo)"
+  recurrence: "trimestral (o fechamento de um ciclo é o ponto de partida do próximo)"
+
+  metadata:
+    squad: "fabrica-de-receita-v4"
+    chief: "dener-lippert (aprova OKRs e decisões estratégicas do ciclo)"
+    master_advisor: "goldratt (TOC aplicada: priorizar o constraint do sistema)"
+    routing: "orchestrator"
+    origem: "convertido do workflow legado v4-growth-cycle.md"
+
+# ============================================================
+# PHASES
+# ============================================================
+
+phases:
+
+  phase_1_diagnostico:
+    label: "Fase 1: Diagnóstico (dias 1-14)"
+    duration: "14 dias"
+    execution_mode: PARALLEL
+    agents:
+      - id: orchestrator
+        role: "Coordena o audit, consolida gaps por pilar, define North Star Metric do ciclo e prioriza Top 5 iniciativas por ROI potencial (dias 6-7: síntese e priorização)"
+        tasks: ["growth-audit"]
+      - id: roi-analyst
+        role: "ROI Analysis (dias 4-5): cálculo de LTV:CAC, payback, ROI por canal, unit economics e benchmark vs mercado e concorrentes"
+        tasks: ["roi-analysis", "unit-economics"]
+      - id: traffic-hunter
+        role: "Audit de tráfego e canais (Pilar 1, dias 1-3)"
+        tasks: ["growth-audit"]
+      - id: content-engine
+        role: "Audit de engajamento e conteúdo (Pilar 2, dias 1-3)"
+        tasks: ["growth-audit"]
+      - id: conversion-optimizer
+        role: "Audit de funil e conversão (Pilar 3, dias 1-3)"
+        tasks: ["growth-audit"]
+      - id: retention-architect
+        role: "Audit de LTV e churn (Pilar 4, dias 1-3)"
+        tasks: ["growth-audit"]
+    output: |
+      Entregáveis da fase:
+      - Growth Audit Report (scorecard dos 4 pilares, validado por checklists/growth-audit-checklist.md)
+      - ROI Report (baseline do ciclo: LTV:CAC, payback, ROI por canal)
+      - Unit economics consolidada (base para metas realistas)
+    gate: "QG-001 Validação de Entrada (non-blocking)"
+
+  phase_2_estrategia:
+    label: "Fase 2: Estratégia e OKRs (dias 8-14, em paralelo com o fechamento do diagnóstico)"
+    duration: "7 dias"
+    execution_mode: SEQUENTIAL
+    agents:
+      - id: growth-strategist
+        role: "Dias 11-14: backlog de experimentos. Listar hipóteses de crescimento, aplicar ICE Score em todos os experimentos e selecionar Top 3 para executar no ciclo (templates/experiment-brief-template.md)"
+        tasks: ["growth-experiment", "forecast-receita"]
+      - id: dener-lippert
+        role: "Chief: aprova os OKRs do ciclo. Dias 8-10: North Star Metric com target numérico, Key Results mensuráveis por pilar, budget allocation por canal e por pilar"
+        commands: ["aprovar OKRs", "validar North Star Metric"]
+      - id: goldratt
+        role: "Master Advisor: valida que a priorização ataca o constraint real do sistema (TOC), não sintomas"
+        commands: ["validar constraint", "revisar árvore lógica"]
+    output: |
+      Entregáveis da fase:
+      - OKRs do ciclo aprovados pelo Chief (North Star + Key Results por pilar + budget allocation)
+      - Forecast de receita do ciclo (templates/forecast-template.md)
+      - Backlog priorizado de experimentos (ICE Score, Top 3 selecionados)
+    gate: "QG-002 Diagnóstico Validado (blocking): checklists/validar-diagnostico.md aprovado e OKRs assinados pelo Chief antes de liberar a execução"
+
+  phase_3_execucao:
+    label: "Fase 3: Execução (dias 15-56)"
+    duration: "42 dias"
+    execution_mode: PARALLEL
+    agents:
+      - id: traffic-hunter
+        role: "Pilar 1, Tráfego: estratégia de canais pagos do ciclo, budget allocation por plataforma, audiências e segmentações prioritárias, criativos e mensagens a testar"
+        tasks: ["traffic-strategy"]
+      - id: content-engine
+        role: "Pilar 2, Engajamento: calendário editorial alinhado ao funil, sequências de email por estágio, conteúdo de autoridade para SEO, social proof e case studies"
+        tasks: ["engagement-plan"]
+      - id: conversion-optimizer
+        role: "Pilar 3, Conversão: mapa de fricções prioritárias para eliminar, testes A/B de landing pages, otimizações de checkout e formulários, personalização por segmento"
+        tasks: ["conversion-funnel"]
+      - id: retention-architect
+        role: "Pilar 4, Retenção: playbook de onboarding, modelo de health score, playbook de resgate de churn, estratégia de upsell e cross-sell"
+        tasks: ["retention-playbook"]
+      - id: ai-marketing-engineer
+        role: "Suporte AI-First: automações prioritárias do ciclo, integrações de dados necessárias, modelos preditivos a implementar (checklists/ai-first-checklist.md)"
+        tasks: ["ai-automation"]
+    ritual_semanal: |
+      Sprint semanal (toda segunda-feira, ver wf-performance-sprint):
+      - Revisar KPIs da semana anterior: o que funcionou e por quê, o que não funcionou e por quê, o que ajustar
+      - Planejar a semana: status dos experimentos em andamento, novas ações aprovadas, recursos necessários
+    ritmo_de_execucao: |
+      - Dias 15-28: Quick Wins (impacto rápido com esforço baixo)
+      - Dias 29-56: Projetos Principais (iniciativas de maior impacto)
+      - Otimização e iteração dos experimentos continuam na Fase 4
+    output: "Iniciativas dos 4 pilares em produção + experimentos Top 3 rodando com briefs documentados"
+    gate: "QG-003 Completude de Execução (blocking): 100% das iniciativas priorizadas com dono, status e dados coletados"
+
+  phase_4_otimizacao:
+    label: "Fase 4: Otimização (dias 57-75)"
+    duration: "19 dias"
+    execution_mode: SEQUENTIAL
+    agents:
+      - id: orchestrator
+        role: "Análise dos experimentos: os que ganharam são documentados e preparados para escala; os que perderam geram aprendizado documentado e são descartados; os inconclusivos recebem decisão explícita de continuar ou encerrar"
+        tasks: ["weekly-performance", "growth-experiment"]
+      - id: roi-analyst
+        role: "Reprocessa ROI por iniciativa com dados acumulados do ciclo e recalibra o budget entre pilares"
+        tasks: ["roi-analysis"]
+      - id: fdr-quality-monitor
+        role: "Monitoramento contínuo de regressão: detecta quedas de funil, alerta desvios de meta e protege os ganhos já capturados"
+        tasks: ["monitor-regressao"]
+    output: "Lista de vencedores prontos para escala + aprendizados documentados + alertas de regressão tratados"
+    gate: "QG-003 Completude de Execução (blocking): todo experimento com veredito registrado (ganhou, perdeu ou encerrado)"
+
+  phase_5_escala_fechamento:
+    label: "Fase 5: Escala e Fechamento do Ciclo (dias 76-90)"
+    duration: "15 dias"
+    execution_mode: SEQUENTIAL
+    agents:
+      - id: orchestrator
+        role: "Escala dos vencedores + planejamento do próximo ciclo (dias 88-90): carry-forward (o que continua), new bets (o que tentar no próximo ciclo), lessons learned documentadas, novo growth audit como ponto de partida do ciclo seguinte"
+        tasks: ["90-day-cycle"]
+      - id: roi-analyst
+        role: "ROI Review do ciclo: comparação Metas (OKRs) vs Resultados, evolução de LTV:CAC no ciclo, performance da alocação de budget"
+        tasks: ["roi-analysis"]
+      - id: dener-lippert
+        role: "Chief: valida o relatório final do ciclo e aprova as apostas do próximo ciclo"
+        commands: ["aprovar fechamento de ciclo"]
+    output: "Relatório final do ciclo em templates/growth-report-template.md + plano do próximo ciclo aprovado"
+    gate: "QG-004 Qualidade de Saída (non-blocking): relatório final completo, com metas vs resultados, aprendizados e plano do próximo ciclo"
+
+# ============================================================
+# SUCCESS METRICS (KPIs do ciclo por pilar, preservados do workflow original)
+# ============================================================
+
+success_metrics:
+  primary:
+    trafego_cac: "-20% CAC no ciclo (KPI secundário: ROAS)"
+    engajamento_email_open_rate: "+5pp no ciclo (KPI secundário: NPS)"
+    conversao_cvr: "+20% CVR no ciclo (KPI secundário: CPA)"
+    retencao_churn: "-20% Churn no ciclo (KPI secundário: LTV)"
+    north_star: "definida na Fase 1 com target numérico aprovado pelo Chief"
+  secondary:
+    experimentos_com_veredito: "100% dos experimentos do ciclo com decisão registrada"
+    okrs_atingidos: ">= 70% dos Key Results do ciclo"
+    ciclo_seguinte_pronto: "novo growth audit iniciado até o dia 90"
+
+# ============================================================
+# QUALITY GATES
+# ============================================================
+
+quality_gates_applied:
+  QG-001: "Validação de Entrada (non-blocking): dados dos 4 pilares acessíveis, baseline de ROI calculável e escopo do ciclo definido"
+  QG-002: "Diagnóstico Validado (blocking): growth audit completo, checklists/validar-diagnostico.md aprovado, OKRs e budget assinados pelo Chief"
+  QG-003: "Completude de Execução (blocking): iniciativas dos 4 pilares entregues e todo experimento com veredito registrado"
+  QG-004: "Qualidade de Saída (non-blocking): relatório final do ciclo emitido via templates/growth-report-template.md com metas vs resultados e plano do próximo ciclo"
+
+# ============================================================
+# CROSS-SQUAD HANDOFFS
+# ============================================================
+
+cross_squad_handoffs:
+  squad_copy:
+    role: "Criativos e mensagens dos testes de tráfego e sequências de email"
+    cross_ref: "squad-copy/copy-chief"
+  squad_martech:
+    role: "Automações de CRM, RevOps e integrações de dados do ciclo"
+    cross_ref: "squad-martech/crm-master"
+  squad_sales:
+    role: "Qualificação e pipeline dos leads gerados pelo ciclo"
+    cross_ref: "squad-sales/sales-chief"
+  squad_dr:
+    role: "Pesquisa profunda de mercado e benchmark de concorrentes para o diagnóstico"
+    cross_ref: "squad-dr/dr-orchestrator"
+
+# ============================================================
+# CROSS-REFERENCES
+# ============================================================
+
+cross_references:
+  data:
+    - "data/v4-pillars.md"
+    - "data/v4-laws.md"
+    - "data/fabrica-de-receita-kb.md"
+    - "data/8-travas.md"
+    - "data/toc-ltp-fieldbook.md"
+  skills:
+    - "skills/ciclo-90-dias.skill.md"
+    - "skills/diagnostico-8-travas.skill.md"
+    - "skills/benchmark-funil.skill.md"
+    - "skills/toc-aplicada.skill.md"
+    - "skills/icp-scoring.skill.md"
+  scripts:
+    - "scripts/v4-compliance-check.sh (gate de compliance para artefatos HTML gerados no ciclo)"
+  agents:
+    - "fabrica-de-receita-master (orquestrador operacional)"
+    - "dener-lippert (chief) + goldratt (master advisor)"
+    - "orchestrator (routing) + roi-analyst"
+    - "Especialistas dos 4 pilares: traffic-hunter, content-engine, conversion-optimizer, retention-architect"
+    - "growth-strategist + ai-marketing-engineer + fdr-quality-monitor"

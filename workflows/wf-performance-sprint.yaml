@@ -1,0 +1,191 @@
+# ============================================================
+# WF-PERFORMANCE-SPRINT, Ritual Semanal de Performance (30 min)
+# Duração: 25-30 minutos · Recorrência: semanal
+# Owner: fabrica-de-receita-master (orquestrador operacional)
+# ============================================================
+
+workflow:
+  id: wf-performance-sprint
+  name: "Performance Sprint, Ciclo Semanal de Performance"
+  version: "1.0.0"
+  orchestrator: "fabrica-de-receita-master"
+  description: |
+    Ritual semanal completo de performance: review de KPIs dos 4 pilares,
+    análise consolidada, decisões de alocação (kill, scale, iterate) e
+    definição das prioridades da semana. Máximo de 30 minutos, decisões
+    baseadas em dados e cada prioridade com dono e deadline.
+  trigger: "*sprint"
+  estimated_duration: "25-30 minutos"
+  recurrence: "weekly (toda segunda-feira ou início de semana)"
+
+  metadata:
+    squad: "fabrica-de-receita-v4"
+    chief: "dener-lippert"
+    master_advisor: "goldratt"
+    routing: "orchestrator"
+    origem: "convertido do workflow legado performance-sprint.md"
+
+# ============================================================
+# PHASES
+# ============================================================
+
+phases:
+
+  phase_1_coleta_kpis:
+    label: "Fase 1: Coleta de KPIs (5 min)"
+    duration: "5 minutos"
+    execution_mode: PARALLEL
+    agents:
+      - id: traffic-hunter
+        role: "Reportar KPIs do Pilar 1 (Tráfego)"
+      - id: content-engine
+        role: "Reportar KPIs do Pilar 2 (Engajamento)"
+      - id: conversion-optimizer
+        role: "Reportar KPIs do Pilar 3 (Conversão)"
+      - id: retention-architect
+        role: "Reportar KPIs do Pilar 4 (Retenção)"
+      - id: fdr-quality-monitor
+        role: "Rodar monitoramento de regressão em paralelo à coleta: quedas de funil e desvios de meta entram como alertas do sprint"
+        tasks: ["monitor-regressao"]
+    formato_de_reporte: |
+      Cada agente reporta no formato:
+      KPI: [nome]
+      Meta: [valor]
+      Real: [valor]
+      Delta: [+/-X%]
+      Status: VERDE / AMARELO / VERMELHO
+      Ação necessária: [obrigatória se AMARELO ou VERMELHO]
+    output: "KPIs dos 4 pilares reportados + alertas de regressão do monitor"
+
+  phase_2_analise:
+    label: "Fase 2: Análise Consolidada (5 min)"
+    duration: "5 minutos"
+    execution_mode: SEQUENTIAL
+    agents:
+      - id: roi-analyst
+        role: |
+          Consolidar todos os KPIs em dashboard único e identificar:
+          - Top 3 alertas vermelhos (ação imediata)
+          - Tendências preocupantes (amarelos)
+          - Oportunidades de escala (verdes acima da meta)
+          - Progresso do ciclo de 90 dias: [X]% da meta
+        tasks: ["roi-analysis"]
+    output: "Dashboard consolidado da semana com alertas, tendências e oportunidades"
+
+  phase_3_decisoes:
+    label: "Fase 3: Decisões de Alocação, kill / scale / iterate (10 min)"
+    duration: "10 minutos"
+    execution_mode: SEQUENTIAL
+    agents:
+      - id: orchestrator
+        role: |
+          Para cada iniciativa ativa, decidir com apoio do roi-analyst:
+          - ESCALAR: ROI confirmado, dobrar a aposta
+          - MANTER: dentro do esperado, aguardar
+          - PIVOTAR: não está funcionando, mudar a abordagem
+          - MATAR: sem sinal após N dias, liberar o budget
+    regras_de_decisao:
+      - "Matar campanhas com CPL acima do benchmark após 7 dias e 1000 impressões"
+      - "Escalar campanhas com ROAS acima da meta por 2 semanas consecutivas"
+      - "Pivotar experimentos sem dados positivos após 14 dias"
+    output: "Decisão registrada (escalar, manter, pivotar ou matar) para 100% das iniciativas ativas"
+
+  phase_4_prioridades:
+    label: "Fase 4: Prioridades da Semana + Síntese (5-7 min)"
+    duration: "5-7 minutos"
+    execution_mode: SEQUENTIAL
+    agents:
+      - id: fabrica-de-receita-master
+        role: |
+          Definir as Top 3 prioridades da semana:
+          1. O mais crítico baseado nos alertas vermelhos
+          2. A maior oportunidade de escala
+          3. O experimento mais promissor
+
+          Cada prioridade tem: responsável (agente), entregável específico,
+          critério de sucesso e deadline (dia da semana).
+
+          Fechar com a síntese executiva: headline da semana (1 frase),
+          o que funcionou, o que não funcionou + aprendizado, foco da
+          próxima semana e status do ciclo de 90 dias.
+    output: "Relatório semanal do sprint emitido via templates/growth-report-template.md"
+    gate: "QG-004 Qualidade de Saída (non-blocking)"
+
+# ============================================================
+# OUTPUT DO WORKFLOW (formato preservado do original)
+# ============================================================
+
+output_format: |
+  PERFORMANCE SPRINT, [DATA]
+  Status do Ciclo: Semana [X]/13 | [X]% para a meta
+
+  ALERTAS VERMELHOS: [X] itens → [ações tomadas]
+  OPORTUNIDADES VERDES: [X] itens → [escalas decididas]
+  TOP 3 PRIORIDADES: [lista com dono, entregável, critério de sucesso e deadline]
+
+  Próximo sprint: [data]
+
+# ============================================================
+# BUSINESS RULES (regras do workflow, preservadas do original)
+# ============================================================
+
+business_rules:
+  timing: "Máximo de 30 minutos, sem análises longas durante o sprint"
+  decisoes: "Baseadas em dados, não em feeling"
+  foco: "Um problema por semana, não tentar resolver tudo"
+  accountability: "Cada prioridade tem dono e deadline"
+
+# ============================================================
+# SUCCESS METRICS
+# ============================================================
+
+success_metrics:
+  primary:
+    duracao_do_sprint: "<= 30 minutos"
+    pilares_reportados: "4/4 no formato padrão de reporte"
+    iniciativas_com_decisao: "100% das iniciativas ativas com decisão registrada"
+    prioridades_definidas: "Top 3 com responsável, entregável, critério de sucesso e deadline"
+  secondary:
+    alertas_vermelhos_com_acao: "100% dos vermelhos com ação imediata atribuída"
+    relatorio_emitido: "relatório semanal publicado no mesmo dia do sprint"
+
+# ============================================================
+# QUALITY GATES
+# ============================================================
+
+quality_gates_applied:
+  QG-001: "Validação de Entrada (non-blocking): KPIs dos 4 pilares disponíveis no formato padrão antes da análise"
+  QG-002: "Diagnóstico Validado (blocking): dashboard consolidado com Top 3 vermelhos, tendências e oportunidades identificadas"
+  QG-003: "Completude de Execução (blocking): decisão registrada para todas as iniciativas ativas segundo as regras de decisão"
+  QG-004: "Qualidade de Saída (non-blocking): relatório semanal emitido via templates/growth-report-template.md com síntese executiva completa"
+
+# ============================================================
+# CROSS-SQUAD HANDOFFS
+# ============================================================
+
+cross_squad_handoffs:
+  squad_copy:
+    role: "Novos criativos e ângulos quando a decisão da semana for pivotar mensagem"
+    cross_ref: "squad-copy/copy-chief"
+  squad_martech:
+    role: "Ajustes de automação e CRM derivados das decisões de alocação"
+    cross_ref: "squad-martech/crm-master"
+
+# ============================================================
+# CROSS-REFERENCES
+# ============================================================
+
+cross_references:
+  data:
+    - "data/v4-pillars.md"
+    - "data/fabrica-de-receita-kb.md"
+  skills:
+    - "skills/benchmark-funil.skill.md"
+    - "skills/ciclo-90-dias.skill.md"
+  scripts: []
+  agents:
+    - "fabrica-de-receita-master (orquestrador do sprint)"
+    - "orchestrator (decisões de alocação)"
+    - "roi-analyst (análise consolidada)"
+    - "Especialistas dos 4 pilares: traffic-hunter, content-engine, conversion-optimizer, retention-architect"
+    - "fdr-quality-monitor (monitor de regressão)"

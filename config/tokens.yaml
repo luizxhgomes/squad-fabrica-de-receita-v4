@@ -1,0 +1,385 @@
+# Fábrica de Receita V4, Design Tokens
+# Fonte da verdade: design/tokens/tokens.json (paleta V4 Company 2026, v2.1.0)
+# Regenerado em 2026-07-02. Autoridade: baziotti (design system do squad).
+# Regra ZERO_AZUL: proibição absoluta de azul em qualquer papel da paleta.
+# CTA é verde (#00A86B), nunca vermelho. Logos oficiais intactas em design/logos/, nunca recriar.
+# Tipografia oficial: Morganite e Fjalla One (display) + IBM Plex Sans (body). Nunca serif.
+
+meta:
+  name: "Fábrica de Receita V4, Design Tokens"
+  version: "3.0.0"
+  source: "design/tokens/tokens.json"
+  updated: "2026-07-02"
+  owner: "baziotti"
+  notes: >
+    Derivado 100% do tokens.json canônico do squad. Em caso de divergência,
+    o tokens.json prevalece. Este YAML existe para consumo rápido por agentes
+    e scripts, e carrega a seção spacing.fluid exigida pela regra
+    RESPONSIVE_PROPORTIONALITY do squad.yaml.
+
+# ============================================================
+# CORES
+# ============================================================
+
+colors:
+
+  # --- Marca (rampa vermelha 2026) ---
+  brand:
+    red-v4:
+      value: "#E50914"
+      description: Primária da marca (brand book 2026)
+      usage: Logo, CTAs textuais, destaques, links, filete de assinatura
+    flame:
+      value: "#FB2E0A"
+      description: Vermelho alaranjado
+      usage: Stop final dos gradientes, glow quente
+    red:
+      value: "#C41E08"
+      description: Vermelho médio
+      usage: Stop intermediário dos gradientes
+    red-mid:
+      value: "#8B1205"
+      description: Vermelho escuro
+      usage: Stop do gradiente subtle
+    red-deep:
+      value: "#7A0A02"
+      description: Vermelho profundo
+      usage: Stop inicial dos gradientes
+    maroon:
+      value: "#560303"
+      description: Marrom avermelhado
+      usage: Base escura dos gradientes e fundos premium
+    dark-red:
+      value: "#280000"
+      description: Vermelho quase preto
+      usage: Base de gradiente e fundo radial das fotos oficiais
+
+  # --- Neutros ---
+  neutral:
+    black:
+      value: "#050505"
+      usage: Texto principal, backgrounds escuros
+    white:
+      value: "#FFFFFF"
+      usage: Fundos claros, texto sobre escuro
+    light-gray:
+      value: "#F2F2F2"
+      usage: Cards, backgrounds secundários claros
+    gray:
+      value: "#606060"
+      usage: Bordas, placeholders, texto de apoio
+    dark-gray:
+      value: "#1E2124"
+      usage: Texto sobre claro, superfícies escuras neutras
+    black-70:
+      value: "#1c1c1cb3"
+      usage: Texto sobre fundo claro (70%)
+    white-70:
+      value: "#ffffffb3"
+      usage: Texto sobre fundo escuro (70%)
+
+  # --- Acentos ---
+  accent:
+    yellow:
+      value: "#FDFF87"
+      usage: Acento e ativação, highlights
+    yellow-alt:
+      value: "#FFDD00"
+      usage: Amarelo saturado, badges, tags, avisos
+
+  # --- Acento da linha Destrava Receita ---
+  accent_dr:
+    value: "#FF003F"
+    description: >
+      Accent exclusivo da linha Destrava Receita (DR), extraído do deck
+      oficial do produto. Uso pontual em destaques e grafismos de peças DR.
+      Nunca substitui o vermelho primário da marca nem o CTA verde.
+    usage: Peças da linha DR (destaques, grafismos, dados em evidência)
+
+  # --- CTA (conversão) ---
+  cta:
+    green:
+      value: "#00A86B"
+      description: Verde conversão, EXCLUSIVO de CTA
+      usage: Botões. Texto branco SOMENTE grande/bold (contraste limítrofe)
+    green-alt:
+      value: "#0E8420"
+      description: Verde escuro de CTA
+      usage: Use com texto branco em tamanho normal (contraste WCAG AA)
+    hover-orange:
+      value: "#FF6200"
+      usage: Laranja de hover de CTA
+    active-orange:
+      value: "#E55700"
+      usage: Laranja escuro de estado ativo de CTA
+
+  # --- Semânticas ---
+  semantic:
+    positive:
+      value: "#09E50D"
+      description: >
+        Verde semântico de dado positivo/destravado (gráficos de benchmark).
+        NÃO é CTA.
+      usage: Dataviz de benchmark, indicadores destravados
+    # Não existe cor informativa azul na paleta: a regra ZERO_AZUL (proibição
+    # absoluta) cobre todos os papéis. Informação neutra usa neutros ou amarelo.
+
+  # --- Código de cores das 8 travas (rampa vermelho/laranja/âmbar + neutro) ---
+  # T1 é neutro máximo (cegueira, sem dados não há cor). De T8 para T2 a rampa
+  # esquenta do âmbar ao vermelho conforme a proximidade da receita.
+  travas:
+    t1-cegueira:
+      value: "#050505"
+      usage: Neutro máximo. Sem dados não há diagnóstico
+    t2-retencao:
+      value: "#C41E08"
+      usage: Vermelho profundo. Perder cliente caro é dupla penalidade
+    t3-decisao:
+      value: "#E50914"
+      usage: Vermelho V4 pleno. Prospect qualificado que não fecha
+    t4-compromisso:
+      value: "#FB2E0A"
+      usage: Vermelho alaranjado. Abandono no momento crítico
+    t5-qualificacao:
+      value: "#FF4820"
+      usage: Laranja avermelhado (stop do gradiente ember). Leads errados no pipeline
+    t6-interesse:
+      value: "#FF6200"
+      usage: Laranja. Visitante não vira lead
+    t7-atencao:
+      value: "#F97316"
+      usage: Laranja âmbar. Exposição ignorada
+    t8-exposicao:
+      value: "#F59E0B"
+      usage: Âmbar pleno. Sem alcance ao público
+    restricao-ativa:
+      value: "#E50914"
+      usage: Trava ativa (restrição do sistema) recebe o vermelho primário + glow red-spread
+
+# ============================================================
+# GRADIENTES
+# ============================================================
+
+gradients:
+  primary:
+    value: "linear-gradient(135deg, #560303 0%, #7A0A02 40%, #FB2E0A 100%)"
+    usage: Gradiente primário da marca. Heros, sections de destaque
+  subtle:
+    value: "linear-gradient(160deg, #560303 0%, #8B1205 50%, #C41E08 100%)"
+    usage: Fundos secundários, cards premium
+  radial:
+    value: "radial-gradient(ellipse at 20% 80%, #FB2E0A 0%, #7A0A02 40%, #560303 100%)"
+    usage: Glow e profundidade
+  black-radial-yellow:
+    value: "radial-gradient(circle at 100% 150%, rgba(253,255,135,1) 0%, rgba(5,5,5,1) 50%)"
+    usage: Radial preto para amarelo, fundos de transição
+  reverb:
+    value: "linear-gradient(to right, #7A0A02 0%, #C41E08 35%, #E50914 65%, #FB2E0A 100%)"
+    usage: Plano cromático horizontal dos grafismos de reverberação
+  photo-radial:
+    value: "radial-gradient(circle at 50% 45%, #FF481F 0%, #E50914 45%, #280000 100%)"
+    usage: Fundo radial obrigatório das fotos oficiais (retangular e circular)
+  ember:
+    value: "linear-gradient(135deg, #650E0E 0%, #AF1116 30%, #EF151F 55%, #FA371E 80%, #FF4820 100%)"
+    usage: Brasa, assinatura de objeto (ícones e esferas)
+  sphere:
+    value: "radial-gradient(circle, #FE471E 0%, #F72C20 25%, #D7121B 55%, #930B0F 80%, #280000 100%)"
+    usage: Orbe, gradiente mais usado dos decks. Para objeto/esfera, não fundo de foto
+  gold-accent:
+    value: "linear-gradient(135deg, #FFFFFF 0%, #FBAD56 100%)"
+    usage: Dourado de acento (metal quente), reconcilia com accent.yellow
+  hero-cine:
+    value: "linear-gradient(135deg, #280000 0%, #79080D 31%, #D4111A 64%, #FC3F1F 100%)"
+    usage: Fundo cinematográfico de capa
+
+# ============================================================
+# TIPOGRAFIA
+# ============================================================
+
+typography:
+
+  # Licenciamento: fontes self-hosted pelo usuário (woff2 próprios).
+  # NUNCA embutir fontes licenciadas de terceiros no repositório.
+  fonts:
+    display:
+      family: "Morganite"
+      stack: "'Morganite', 'Fjalla One', Impact, sans-serif"
+      weights: [500, 600, 700]
+      hosting: self-hosted (woff2)
+      usage: Impacto e headlines, condensada, uso pontual
+    display-alt:
+      family: "Fjalla One"
+      stack: "'Fjalla One', 'Morganite', Impact, sans-serif"
+      weights: [400]
+      hosting: self-hosted (woff2)
+      usage: Display alternativa (peso único 400)
+    body:
+      family: "IBM Plex Sans"
+      stack: "'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif"
+      weights: [400, 500, 600]
+      hosting: self-hosted pelo usuário ou Google Fonts
+      usage: Heading, corpo e UI
+
+  # Escala fluida (clamp) canônica do tokens.json
+  scale:
+    h1:
+      value: "clamp(2.7rem, 2.7rem + ((1vw - 0.363rem) * 5.359), 115px)"
+      usage: Hero gigante (max 115px)
+    h2:
+      value: "clamp(2.188rem, 2.188rem + ((1vw - 0.363rem) * 4.104), 90px)"
+      usage: Heading principal (max 90px)
+    h3:
+      value: "clamp(1.75rem, 1.75rem + ((1vw - 0.363rem) * 2.687), 64px)"
+      usage: Heading secundário (max 64px)
+    h4:
+      value: "clamp(28px, 1.75rem + ((1vw - 5.8px) * 1.493), 48px)"
+      usage: Heading terciário (max 48px)
+    h5:
+      value: "clamp(26px, 1.625rem + ((1vw - 5.8px) * 0.448), 32px)"
+      usage: Heading de quarto nível (max 32px)
+    x-large:
+      value: "clamp(25.014px, 1.563rem + ((1vw - 5.8px) * 1.268), 42px)"
+      usage: Destaque de texto (max 42px)
+    large:
+      value: "clamp(22.041px, 1.378rem + ((1vw - 5.8px) * 1.042), 36px)"
+      usage: Subtítulo (max 36px)
+    p1:
+      value: "clamp(1.2rem, 1.2rem + ((1vw - 0.363rem) * 0.358), 24px)"
+      usage: Body grande (max 24px)
+    p2:
+      value: "clamp(1rem, 1rem + ((1vw - 0.363rem) * 0.374), 21px)"
+      usage: Body (max 21px)
+    p3:
+      value: "clamp(1rem, 1rem + ((1vw - 0.363rem) * 0.149), 18px)"
+      usage: Body pequeno (max 18px)
+    p4:
+      value: "clamp(0.875rem, 0.875rem + ((1vw - 0.363rem) * 0.149), 16px)"
+      usage: Caption (max 16px)
+    small:
+      value: "12px"
+      usage: Texto pequeno fixo
+
+  weights:
+    regular: 400
+    medium: 500
+    semibold: 600
+    bold: 700
+
+# ============================================================
+# ESPAÇAMENTO
+# ============================================================
+
+spacing:
+
+  # Escala canônica do tokens.json
+  scale:
+    s20: "0.44rem"
+    s30: "24px"
+    s40: "clamp(0.75rem, 0.1549rem + 1.6418vw, 2.125rem)"
+    s50: "clamp(1.625rem, 1.0299rem + 1.6418vw, 3rem)"
+    s60: "clamp(2rem, 1.2425rem + 2.0896vw, 3.75rem)"
+    s70: "clamp(3.125rem, 1.7724rem + 3.7313vw, 6.25rem)"
+    s80: "clamp(4.375rem, 2.2108rem + 5.9701vw, 9.375rem)"
+    s90: "clamp(5rem, 1.7537rem + 8.9552vw, 12.5rem)"
+    page-pad: "clamp(1.5rem, -0.556rem + 5.6716vw, 6.25rem)"
+
+  # Respiros FLUIDOS, escalam com o viewport (regra RESPONSIVE_PROPORTIONALITY
+  # do squad.yaml). Razão de aproximadamente 2 entre níveis adjacentes.
+  # Doc canônico: design/RESPONSIVE-PROPORTIONALITY.md
+  fluid:
+    section: "clamp(56px, 10vw, 140px)"   # entre blocos macro
+    block:   "clamp(28px, 5vw, 56px)"     # interno de cards grandes / blocos de seção
+    group:   "clamp(20px, 3.5vw, 40px)"   # entre grupos
+    element: "clamp(12px, 2vw, 24px)"     # entre elementos
+    tight:   "clamp(8px, 1.2vw, 14px)"    # gap pequeno (label-valor, icon-text)
+    gutter:  "clamp(14px, 4vw, 32px)"     # padding lateral único de seções fullbleed
+
+  # Máximos canônicos para containers de prose e shell
+  max_width:
+    shell: "1320px"     # container principal
+    wide:  "1440px"     # heros e showcases
+    prose: "60ch"       # body text legível
+    title: "14ch"       # quebra natural de títulos longos
+    label: "36ch"       # subtitles, deck
+
+# ============================================================
+# BORDER RADIUS
+# ============================================================
+
+radius:
+  sm: "10px"
+  md: "15px"            # padrão legado para cards
+  lg: "25px"
+  pill: "9999px"        # botões pill, chips
+  card: "36px"          # card dominante
+  sphere: "30px"        # card escuro sphere
+  card-glass: "22px"    # glass card da linha DR
+
+# ============================================================
+# EASING E SOMBRAS
+# ============================================================
+
+easing:
+  out-expo: "cubic-bezier(0.19, 1, 0.22, 1)"
+  out-quint: "cubic-bezier(0.23, 1, 0.32, 1)"
+  in-out: "cubic-bezier(0.65, 0, 0.35, 1)"
+
+shadows:
+  card: "0 4px 24px rgba(0,0,0,0.3)"
+
+# ============================================================
+# EFEITOS (glass-first, extraídos do tokens.json)
+# ============================================================
+
+effects:
+  glass:
+    bg: "rgba(255, 255, 255, 0.04)"
+    blur: "blur(24px) saturate(180%)"
+    border: "1px solid rgba(255, 255, 255, 0.35)"
+    shadow: "inset 0 0 150px rgba(255,255,255,0.18), inset 0 0 10px rgba(255,255,255,0.45), inset 0 0 10px rgba(255,255,255,0.45), inset 0 0 100px rgba(255,255,255,0.22), -5px 5px 20px rgba(0,0,0,0.10)"
+  surface-glass:
+    fill: "linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.02) 9%, rgba(16,6,6,0.50) 42%, rgba(8,3,3,0.60) 100%)"
+    fill-dark: "linear-gradient(180deg, rgba(255,255,255,0.07) 0%, rgba(0,0,0,0.36) 12%, rgba(0,0,0,0.50) 100%)"
+    stroke: "linear-gradient(180deg, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.08) 48%, rgba(255,255,255,0.14) 100%)"
+    blur: "22px"
+    blur-lg: "40px"
+    shadow: "inset 0 1px 0 rgba(255,255,255,0.10), 0 14px 38px rgba(0,0,0,0.46)"
+    shadow-inset-red: "inset 0 4.49px 33.77px 10.10px rgba(150,1,9,0.16)"
+  glow:
+    red: "0 0 81.6px rgba(255,17,17,0.6)"
+    red-spread: "0 0 39.3px 8.8px rgba(255,0,0,0.51)"
+    gold: "0 0 107px rgba(255,220,107,0.85)"
+    positive: "radial-gradient(circle, #18E509 0%, #41F14A 70%, rgba(140,255,127,0) 100%)"
+  rail:
+    red: "3px solid #E50914"
+    tech-grid: "1px solid rgba(255,255,255,0.08)"
+  overlay:
+    hero: "linear-gradient(90deg, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.55) 45%, rgba(5,5,5,0) 100%)"
+    name-band: "linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0) 100%)"
+  fallback:
+    surface-card-dark: "rgba(255,255,255,0.03)"   # fallback do glass sem backdrop-filter
+    border-card-dark: "rgba(255,255,255,0.08)"    # fallback do stroke glass
+
+# ============================================================
+# LOGOS (assets oficiais, NUNCA recriar)
+# ============================================================
+
+logos:
+  dir: "design/logos/"
+  rule: >
+    NUNCA inventar, recriar ou gerar logo (regra NUNCA_INVENTAR_LOGO do
+    squad.yaml). Usar SOMENTE os arquivos existentes em design/logos/.
+    Se o asset correto não existir, parar a produção e solicitar ao brand-chief.
+  assets:
+    icon-vermelho:
+      file: "design/logos/v4-icon-vermelho.jpg"
+      usage: Ícone V4 vermelho, uso primário sobre fundo claro
+    icon-branco:
+      file: "design/logos/v4-icon-branco.png"
+      usage: Ícone V4 branco, sobre fundo escuro ou vermelho
+    icon-preto:
+      file: "design/logos/v4-icon-preto.jpg"
+      usage: Ícone V4 preto, impressão P&B e fundos neutros claros
+  favicon:
+    file: "design/logos/v4-icon-preto.jpg"
+    rule: Favicon obrigatório em toda página HTML produzida pelo squad

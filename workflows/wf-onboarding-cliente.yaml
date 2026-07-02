@@ -1,0 +1,180 @@
+# ============================================================
+# WF-ONBOARDING-CLIENTE, Pós-Venda de um Produto DR
+# Duração: 3-5 semanas até operação contínua
+# Hierarquia: goldratt (advisor) -> dener-lippert (chief) ->
+#             fabrica-de-receita-master (sub-orchestrator) -> specialists
+# ============================================================
+
+id: wf-onboarding-cliente
+name: Onboarding de Cliente (Pós-Venda Produto DR)
+version: 1.0.0
+maturity: F4
+tier: institutional
+orchestrator: fabrica-de-receita-master
+approver: dener-lippert
+advisor: goldratt
+
+description: |
+  Workflow de pós-venda de um produto Destrava Receita. Do contrato
+  assinado até a operação contínua: setup de dados e tracking (elimina
+  T1 Cegueira antes de qualquer decisão), baseline de unit economics e
+  ICP, desenho do Revenue Team com rituais e SLAs, kickoff do ciclo 1
+  de 90 dias e ativação dos rituais recorrentes de performance.
+
+trigger:
+  - command: "*onboarding-cliente"
+  - event: "Contrato de produto DR assinado (handoff do comercial)"
+
+estimated_duration: "3-5 semanas"
+
+inputs:
+  required:
+    - contrato_e_escopo: "Produto DR contratado, tier e entregáveis acordados"
+    - devolutiva_diagnostico: "Artefatos do wf-diagnostico-completo (trava confirmada + plano de 90 dias)"
+  optional:
+    - acessos_ferramentas: "CRM, gerenciadores de mídia, analytics, financeiro"
+
+phases:
+  - id: f1-setup-dados-tracking
+    label: "F1 Setup de Dados e Tracking"
+    duration: 5-7 dias
+    agents:
+      - id: ops-dr
+        role: "Provisiona acessos, integra fontes e monta a operação de dados"
+      - id: ai-marketing-engineer
+        role: "Implementa tracking, eventos e pipelines de mensuração"
+    activities:
+      - "Auditar e integrar fontes de dados (CRM, mídia, analytics, financeiro)"
+      - "Implementar tracking de eventos ponta a ponta"
+      - "Construir o Dashboard de Decisão do cliente"
+    outputs:
+      - artefato: "f1-dashboard-de-decisao"
+        conteudo: "Dashboard de Decisão no ar, eliminando T1 Cegueira antes de qualquer decisão de ciclo"
+    quality_gates: [QG-001]
+
+  - id: f2-baseline-icp
+    label: "F2 Baseline e ICP"
+    duration: 4-6 dias
+    agents:
+      - id: roi-analyst
+        role: "Calcula unit economics e estabelece o baseline financeiro"
+      - id: especialista-spiced
+        role: "Refina o ICP e o scoring com dados reais do cliente"
+    tasks:
+      - tasks/unit-economics.md
+    skills:
+      - skills/icp-scoring.skill.md
+      - skills/benchmark-funil.skill.md
+    activities:
+      - "Levantar CAC, LTV, payback e margem por canal"
+      - "Pontuar ICP com dados reais e comparar funil contra benchmark"
+    outputs:
+      - artefato: "f2-baseline-unit-economics.md"
+        conteudo: "Unit economics baseline + ICP score + benchmark de funil"
+
+  - id: f3-revenue-team
+    label: "F3 Revenue Team"
+    duration: 3-5 dias
+    agents:
+      - id: revenue-team-architect
+        role: "Desenha a arquitetura do time de receita, rituais e SLAs"
+    tasks:
+      - tasks/revenue-architecture.md
+    activities:
+      - "Definir papéis e responsabilidades do Revenue Team do cliente"
+      - "Estabelecer rituais (dailies, weeklies, review de ciclo) e SLAs entre áreas"
+      - "Formalizar o contrato operacional entre marketing, vendas e CS"
+    outputs:
+      - artefato: "f3-revenue-team-blueprint.md"
+        conteudo: "Blueprint do Revenue Team com rituais, SLAs e matriz de responsabilidade"
+
+  - id: f4-kickoff-ciclo-1
+    label: "F4 Kickoff do Ciclo 1"
+    duration: 3-5 dias
+    agents:
+      - id: fabrica-de-receita-master
+        role: "Orquestra o kickoff, roteia specialists e ativa os boards de execução"
+    tasks:
+      - tasks/90-day-cycle.md
+      - tasks/executar-board-1.md
+      - tasks/executar-board-2.md
+    activities:
+      - "Instanciar o ciclo 1 de 90 dias a partir do plano da devolutiva"
+      - "Ativar boards de execução 1 e 2 com owners e cadência definidos"
+      - "Realizar reunião de kickoff com o Revenue Team do cliente"
+    outputs:
+      - artefato: "f4-kickoff-ciclo-1.md"
+        conteudo: "Ciclo 1 instanciado com boards ativos, owners e marcos quinzenais"
+    quality_gates: [QG-003]
+
+  - id: f5-rituais-recorrentes
+    label: "F5 Rituais Recorrentes"
+    duration: contínuo
+    agents:
+      - id: fdr-quality-monitor
+        role: "Monitora regressões e a saúde do funil em cadência contínua"
+    tasks:
+      - tasks/monitor-regressao.md
+    activities:
+      - "Ativar o workflows/performance-sprint.md em cadência semanal"
+      - "Agendar monitor de regressão contínuo sobre o Dashboard de Decisão"
+      - "Formalizar o handoff para a operação contínua do squad"
+    outputs:
+      - artefato: "f5-operacao-continua.md"
+        conteudo: "Calendário de rituais ativo (sprint semanal + monitor de regressão) e handoff registrado"
+    handoff_to: "Operação contínua do squad (wf-fdr-revenue-cycle + performance-sprint semanal)"
+
+quality_gates_applied:
+  QG-001:
+    name: "Validação de Entrada"
+    blocking: false
+    check: "Contrato, escopo e acessos mínimos disponíveis; Dashboard de Decisão publicado ao fim de F1"
+  QG-002:
+    name: "Diagnóstico Validado"
+    blocking: true
+    check: "Trava confirmada herdada do wf-diagnostico-completo antes do kickoff do ciclo"
+  QG-003:
+    name: "Completude de Execução"
+    blocking: true
+    check: "Ciclo 1 instanciado com boards 1 e 2 ativos, owners nomeados e rituais agendados"
+  QG-004:
+    name: "Qualidade de Saída"
+    blocking: false
+    check: "Handoff para operação contínua registrado com calendário de rituais ativo"
+
+success_metrics:
+  primary:
+    tempo_ate_dashboard: "Dashboard de Decisão no ar em até 7 dias do kickoff"
+    ciclo_1_ativo: "Boards 1 e 2 rodando em cadência ao fim de F4"
+  secondary:
+    adocao_rituais: "100% dos rituais do blueprint acontecendo na cadência definida após 30 dias"
+    baseline_completo: "Unit economics e ICP score documentados antes do kickoff"
+
+cross_squad_handoffs:
+  - "squad-data/db-architect, construção do Dashboard de Decisão que elimina T1 Cegueira"
+  - "squad-martech/crm-master, setup de CRM e attribution para baseline e boards"
+  - "squad-sales/sales-chief, integração do Revenue Team com a execução comercial (T3 Decisão)"
+  - "squad-whatsapp/whatsapp-chief, régua de compromisso T4 nos rituais de agendamento (anti no-show)"
+  - "squad-copy/copy-chief, messaging dos ativos de aquisição do ciclo 1"
+
+cross_references:
+  data:
+    - data/8-travas.md
+    - data/icp-destrava.md
+    - data/fabrica-de-receita-kb.md
+  skills:
+    - skills/icp-scoring.skill.md
+    - skills/benchmark-funil.skill.md
+    - skills/anti-no-show.skill.md
+    - skills/ciclo-90-dias.skill.md
+  tasks:
+    - tasks/unit-economics.md
+    - tasks/revenue-architecture.md
+    - tasks/90-day-cycle.md
+    - tasks/executar-board-1.md
+    - tasks/executar-board-2.md
+    - tasks/monitor-regressao.md
+  workflows:
+    - workflows/wf-diagnostico-completo.yaml
+    - workflows/wf-fdr-revenue-cycle.yaml
+    - workflows/performance-sprint.md

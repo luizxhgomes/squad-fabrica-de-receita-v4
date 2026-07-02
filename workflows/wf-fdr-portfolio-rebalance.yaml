@@ -1,0 +1,135 @@
+# ============================================================
+# WF-FDR-PORTFOLIO-REBALANCE, Rebalance Trimestral de Portfólio
+# Cadência: TRIMESTRAL
+# Hierarquia: goldratt (advisor) -> dener-lippert (chief) ->
+#             fdr-portfolio-strategist (orchestrator deste workflow)
+# ============================================================
+
+id: wf-fdr-portfolio-rebalance
+name: FDR Portfolio Rebalance (Institutional)
+version: 1.1.0
+maturity: F4
+tier: institutional
+cadence: TRIMESTRAL
+orchestrator: fdr-portfolio-strategist
+approver: dener-lippert
+
+description: |
+  Cross-client revenue portfolio rebalance trimestral. Budget reallocation
+  by CAC/LTV per channel. O fdr-portfolio-strategist consome o snapshot
+  cross-cliente produzido pelo fdr-quality-monitor, aplica a matriz de
+  decisão KEEP/EXTEND/SUNSET com thresholds numéricos de LTV:CAC e entrega
+  a realocação de budget do trimestre seguinte para aprovação do chief.
+
+trigger:
+  - command: "*portfolio-rebalance"
+  - event: "Fechamento de trimestre (cadência trimestral agendada)"
+
+inputs:
+  required:
+    - snapshot_cross_cliente: "Snapshot de portfólio produzido pelo fdr-quality-monitor via tasks/monitor-regressao.md (CAC/LTV por canal, funnel health por cliente, tendência de 2 ciclos)"
+  optional:
+    - restricoes_orcamentarias: "Tetos de investimento definidos pelo chief para o trimestre"
+    - hipoteses_de_experimento: "Backlog de apostas novas candidatas ao buffer de experimentação"
+
+phases:
+  - id: portfolio-snapshot
+    label: "F1 Snapshot de Portfólio"
+    duration: 2-3 dias
+    agents:
+      - id: fdr-quality-monitor
+        role: "Consolida o snapshot cross-cliente e sinaliza regressões"
+    activities:
+      - "Cross-client revenue snapshot"
+      - "Channel CAC/LTV"
+      - "Funnel health per client"
+    tasks:
+      - tasks/monitor-regressao.md
+    outputs:
+      - "Snapshot cross-cliente com LTV:CAC por canal e tendência de 2 ciclos"
+
+  - id: pattern-audit
+    label: "F2 Auditoria de Padrões"
+    duration: 2-3 dias
+    agents:
+      - id: fdr-portfolio-strategist
+        role: "Cruza snapshot com padrões vencedores do trimestre"
+      - id: fdr-pattern-detector
+        role: "Aponta leaky funnels e anti-padrões recorrentes"
+    activities:
+      - "Winning channels last quarter"
+      - "Leaky funnels"
+      - "Attribution accuracy"
+    outputs:
+      - "Mapa de canais classificáveis com evidência por cliente"
+
+  - id: decisions
+    label: "F3 Decisões KEEP/EXTEND/SUNSET"
+    duration: 1-2 dias
+    agents:
+      - id: fdr-portfolio-strategist
+        role: "Aplica a decision_matrix e monta a proposta de realocação"
+      - id: dener-lippert
+        role: "Aprova a realocação final (gate do chief)"
+    activities:
+      - "KEEP/EXTEND/SUNSET per channel"
+      - "Q+1 budget allocation"
+      - "Reserva do buffer de experimentação (20% do budget)"
+    outputs:
+      - "Realocação de budget do trimestre seguinte aprovada pelo chief"
+
+  - id: playbook-update
+    label: "F4 Atualização de Playbook"
+    duration: 1 dia
+    agents:
+      - id: fdr-knowledge-architect
+        role: "Registra decisões e racional na knowledge base do squad"
+    activities:
+      - "V4 Method refresh"
+      - "Destrava Receita playbook updated"
+    outputs:
+      - "KB atualizada com decisões do rebalance e thresholds observados"
+
+decision_matrix:
+  criterio_base: "LTV:CAC por canal, medido no snapshot cross-cliente"
+  regras:
+    - verdict: KEEP
+      condition: "LTV:CAC maior ou igual a 3:1 e tendência estável nos últimos 2 ciclos"
+      action: "Manter budget do canal no patamar atual"
+    - verdict: EXTEND
+      condition: "LTV:CAC acima de 5:1 com headroom de audiência e capacidade operacional"
+      action: "Aumentar budget do canal no trimestre seguinte"
+    - verdict: SUNSET
+      condition: "LTV:CAC abaixo de 2:1 por 2 ciclos consecutivos"
+      action: "Encerrar ou pausar o canal e realocar a verba"
+  zona_cinzenta: "LTV:CAC entre 2:1 e 3:1 ou tendência instável: manter em observação por 1 ciclo com plano de correção antes de decidir"
+  buffer_experimentacao:
+    percentual: "20% do budget total do trimestre"
+    regra: "Reservado para apostas novas fora da matriz; nenhum experimento consome verba de canal KEEP/EXTEND"
+
+output:
+  - realocacao_q1_seguinte: "Tabela de budget por canal e por cliente, aprovada pelo chief"
+  - decisoes: "Lista KEEP/EXTEND/SUNSET com evidência numérica por canal"
+  - buffer: "Alocação do buffer de experimentação de 20% com apostas nomeadas"
+
+quality_gates_applied:
+  QG-004:
+    name: "Qualidade de Saída"
+    blocking: false
+    check: "Realocação aprovada pelo chief, com evidência LTV:CAC por decisão e buffer de 20% reservado"
+
+cross_squad_handoffs:
+  - "squad-martech/crm-master, attribution accuracy do snapshot (CRM e pipelines de dados)"
+  - "squad-data/db-architect, Dashboard de Decisão consolidando LTV:CAC cross-cliente (elimina T1 Cegueira)"
+  - "squad-sales/sales-chief, impacto das decisões de canal na execução comercial (T3 Decisão)"
+
+cross_references:
+  data:
+    - data/fabrica-de-receita-kb.md
+  skills:
+    - skills/benchmark-funil.skill.md
+  tasks:
+    - tasks/monitor-regressao.md
+    - tasks/unit-economics.md
+  workflows:
+    - workflows/wf-fdr-revenue-cycle.yaml

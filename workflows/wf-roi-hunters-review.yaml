@@ -1,0 +1,207 @@
+# ============================================================
+# WF-ROI-HUNTERS-REVIEW, Review Semanal de ROI (padrão ROI Hunters V4)
+# Duração: 30-60 minutos · Recorrência: semanal (toda sexta-feira)
+# Owner: roi-analyst (executor principal) sob orquestração do
+# fabrica-de-receita-master
+# ============================================================
+
+workflow:
+  id: wf-roi-hunters-review
+  name: "ROI Hunters V4, Review Semanal de Performance"
+  version: "1.0.0"
+  orchestrator: "fabrica-de-receita-master"
+  description: |
+    Review semanal de ROI no padrão ROI Hunters V4: honesta, baseada em
+    dados, sem eufemismos. O que funcionou, o que não funcionou, o que
+    fazer diferente e para onde vai o budget.
+
+    Tom da review: sem rodeios. Se o ROAS está abaixo de 3x, a campanha
+    morre. Se o CAC ultrapassou a relação LTV:CAC de 3:1, paramos
+    imediatamente. Dados não mentem. Feeling não decide.
+  trigger: "*roi-review"
+  estimated_duration: "30-60 minutos"
+  recurrence: "weekly (toda sexta-feira)"
+
+  metadata:
+    squad: "fabrica-de-receita-v4"
+    chief: "dener-lippert"
+    master_advisor: "goldratt"
+    routing: "orchestrator"
+    origem: "convertido do workflow legado roi-hunters-review.md"
+
+# ============================================================
+# PHASES
+# ============================================================
+
+phases:
+
+  phase_1_numeros_da_semana:
+    label: "Fase 1: Números da Semana (10 min)"
+    duration: "10 minutos"
+    execution_mode: SEQUENTIAL
+    agents:
+      - id: roi-analyst
+        role: "Levantar e validar os números da semana em todos os pilares e consolidar o ROI geral"
+        tasks: ["roi-analysis"]
+    estrutura_de_numeros: |
+      TRÁFEGO
+        - Impressões: [X] (vs semana anterior: +/-X%)
+        - Cliques: [X] (CTR: X%)
+        - Custo: R$ [X]
+        - CAC: R$ [X]
+
+      ENGAJAMENTO
+        - Email Open Rate: X%
+        - CTR de email: X%
+        - Engajamento social: X%
+
+      CONVERSÃO
+        - Leads gerados: [X]
+        - Taxa de conversão: X%
+        - CPA: R$ [X]
+        - Receita gerada: R$ [X]
+
+      RETENÇÃO
+        - Churn da semana: X%
+        - NPS (se disponível): X
+        - Upsells: [X] / R$ [X]
+
+      ROI GERAL DA SEMANA
+        - Investimento: R$ [X]
+        - Receita atribuída: R$ [X]
+        - ROI: X%
+        - ROAS: Xx
+    output: "Números da semana validados + North Star Metric da semana vs meta"
+
+  phase_2_experimentos_ativos:
+    label: "Fase 2: Experimentos Ativos (10 min)"
+    duration: "10 minutos"
+    execution_mode: SEQUENTIAL
+    agents:
+      - id: roi-analyst
+        role: |
+          Para cada experimento em andamento, registrar:
+          - Nome: [experimento]
+          - Status: Em andamento / Concluído
+          - Dados coletados: [métricas]
+          - Significância estatística: X%
+          - Projeção: WIN / FAIL / MUITO CEDO PARA SABER
+    output: "Status e projeção de todos os experimentos ativos"
+
+  phase_3_funcionou_nao_funcionou:
+    label: "Fase 3: O Que Funcionou / O Que Não Funcionou + Decisões (10 min)"
+    duration: "10 minutos"
+    execution_mode: SEQUENTIAL
+    agents:
+      - id: orchestrator
+        role: |
+          Consolidar as decisões da semana com base nos números:
+          - MANTER (está funcionando): [canal/campanha/ação] e o dado que sustenta
+          - ESCALAR (superou a meta): [canal/campanha/ação], de quanto para quanto, e o ROAS/ROI que justifica
+          - PAUSAR (abaixo do aceitável): [canal/campanha/ação] e o dado que condena
+          - TESTAR PRÓXIMA SEMANA: [hipótese] e o resultado esperado
+
+          Registrar também: top win da semana (o que funcionou melhor e por quê)
+          e maior problema da semana (o que não funcionou e a hipótese do motivo).
+    output: "Decisões da semana registradas: manter, escalar, pausar e testar"
+
+  phase_4_realocacao_budget:
+    label: "Fase 4: Realocação de Budget + Dashboard (10-15 min)"
+    duration: "10-15 minutos"
+    execution_mode: SEQUENTIAL
+    agents:
+      - id: growth-planner
+        role: "Traduzir as decisões em realocação concreta de budget entre canais e campanhas, respeitando as regras de corte (ROAS abaixo de 3x morre; LTV:CAC abaixo de 3:1 para imediatamente) e atualizar o dashboard de ROI"
+    output: "templates/roi-dashboard-template.md atualizado com os números, decisões e nova alocação de budget da semana"
+    gate: "checklists/roi-validation-checklist.md aplicado + QG-004 Qualidade de Saída (non-blocking)"
+
+# ============================================================
+# TEMPLATE DE RELATÓRIO (estrutura preservada do original)
+# ============================================================
+
+report_structure: |
+  # ROI Hunters V4 Review, Semana [X] ([Data])
+
+  ## North Star Metric da Semana
+  [Valor] vs Meta [Valor] → Status: VERDE / AMARELO / VERMELHO
+
+  ## Scorecard Semanal
+  | Métrica | Esta Semana | Semana Anterior | Variação |
+  |---------|-------------|-----------------|----------|
+  | CAC     | R$          | R$              | %        |
+  | ROAS    | x           | x               | %        |
+  | CVR     | %           | %               | pp       |
+  | Churn   | %           | %               | pp       |
+  | ROI     | %           | %               | pp       |
+
+  ## Top Win da Semana
+  [O que funcionou melhor e por quê]
+
+  ## Maior Problema da Semana
+  [O que não funcionou e a hipótese do motivo]
+
+  ## Decisões Tomadas
+  - Escalar: [X]
+  - Pausar: [Y]
+  - Testar: [Z]
+
+  ## Próxima Semana
+  [Top 3 prioridades]
+
+# ============================================================
+# SUCCESS METRICS
+# ============================================================
+
+success_metrics:
+  primary:
+    numeros_completos: "4 pilares + ROI geral preenchidos e validados na fonte"
+    decisoes_registradas: "100% dos canais e campanhas ativos com decisão (manter, escalar, pausar ou testar)"
+    dashboard_atualizado: "templates/roi-dashboard-template.md atualizado no mesmo dia da review"
+  secondary:
+    experimentos_com_projecao: "100% dos experimentos ativos com projeção WIN / FAIL / MUITO CEDO PARA SABER"
+    checklist_aplicado: "checklists/roi-validation-checklist.md 100% percorrido antes de publicar"
+
+# ============================================================
+# QUALITY GATES
+# ============================================================
+
+quality_gates_applied:
+  QG-001: "Validação de Entrada (non-blocking): dados da semana disponíveis nos 4 pilares antes de abrir a review"
+  QG-002: "Diagnóstico Validado (blocking): números conferidos na fonte e North Star da semana calculada"
+  QG-003: "Completude de Execução (blocking): decisões registradas para todas as frentes ativas e checklists/roi-validation-checklist.md aplicado"
+  QG-004: "Qualidade de Saída (non-blocking): roi-dashboard-template atualizado com scorecard, decisões e realocação de budget"
+
+# ============================================================
+# CROSS-SQUAD HANDOFFS
+# ============================================================
+
+cross_squad_handoffs:
+  squad_martech:
+    role: "Atribuição de receita e dashboards de RevOps que alimentam os números da review"
+    cross_ref: "squad-martech/crm-master"
+  squad_copy:
+    role: "Novos ângulos e criativos quando a decisão for testar hipótese de mensagem"
+    cross_ref: "squad-copy/copy-chief"
+
+# ============================================================
+# CROSS-REFERENCES
+# ============================================================
+
+cross_references:
+  data:
+    - "data/v4-laws.md"
+    - "data/fabrica-de-receita-kb.md"
+    - "data/v4-pillars.md"
+  skills:
+    - "skills/benchmark-funil.skill.md"
+    - "skills/toc-aplicada.skill.md"
+  scripts: []
+  agents:
+    - "roi-analyst (executor principal dos números)"
+    - "growth-planner (realocação de budget)"
+    - "orchestrator (decisões da semana)"
+    - "fabrica-de-receita-master (orquestrador)"
+  checklists:
+    - "checklists/roi-validation-checklist.md (gate da fase final)"
+  templates:
+    - "templates/roi-dashboard-template.md (artefato de saída)"

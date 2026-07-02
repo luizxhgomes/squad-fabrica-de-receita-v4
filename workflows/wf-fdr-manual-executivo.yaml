@@ -1,0 +1,280 @@
+# ============================================================
+# Parâmetros configuráveis por instalação (resolver antes de executar):
+#   {deploy_target} : URL base de publicação dos artefatos (domínio do painel da instalação)
+#   {output_dir}    : diretório raiz de saída dos artefatos gerados (repositório de deploy da instalação)
+# ============================================================
+
+id: wf-fdr-manual-executivo
+name: Manual Executivo V4 Elite Deck (LP + PPT + PDF)
+version: 1.0.0
+maturity: F4
+tier: institutional
+owner: fabrica-de-receita-master
+brand_authority: baziotti
+voice_authority: dener-lippert
+created: 2026-05-15
+
+description: |
+  Workflow institucional para produção de decks executivos V4 em formato triplo:
+  Landing Page one-section ({deploy_target}/{slug}) + PPTX (16:9 padrão V4) + PDF (margem corporativa).
+  Aplica persona "V4 Elite Deck Architect" sobre o conteúdo, garante compliance Baziotti integral,
+  zera invenções (logo, fonte, cor), e entrega bundle pronto para deploy via @devops.
+
+trigger_pattern: |
+  Acionado quando comando do operador especifica:
+  - 1 deck executivo (slides estruturados em capa + diagnóstico + diretriz + padrões + accountability + KPIs + fechamento)
+  - Destino: subpath em {deploy_target} (ex: /manual-executivo, /manual-comercial, /manual-{vertical})
+  - Outputs duais: PPTX (apresentação) + PDF (leitura/impressão)
+
+inputs:
+  required:
+    - briefing_estrutural: "Roteiro slide-a-slide com título + conteúdo de cada slide"
+    - slug_destino: "subpath dentro de {deploy_target} (ex: manual-executivo)"
+    - persona_override: "Persona de copy a aplicar (default: V4 Elite Deck Architect)"
+  optional:
+    - badge_status: "Etiqueta na capa (ex: 'Manual Executivo', 'Confidencial V4', 'Padrão Interno')"
+    - tema_visual: "dark (default) | light (corporativo)"
+    - publico_alvo: "Coordenadores | Diretores | Times de Assessoria | Board"
+
+outputs:
+  artifacts:
+    - path: "{output_dir}/{slug}/index.html"
+      tipo: "Landing Page one-section"
+      regras_aplicadas: ["DS oficial v1.2.0", "Anti-órfãs tipográficas", "Favicon defense-in-depth", "Glow vermelho CTA", "Responsivo fluid clamp()"]
+    - path: "{output_dir}/{slug}/{slug}-v4.pptx"
+      tipo: "Apresentação PPTX 16:9"
+      specs: "10×5.6 pol · Morganite display + IBM Plex Sans 39pt headings · IBM Plex Sans 12pt body · paleta Vermelho V4 2026"
+    - path: "{output_dir}/{slug}/{slug}-v4.pdf"
+      tipo: "PDF corporativo"
+      specs: "Margens 2.5cm topo/base + 2cm laterais · Morganite/IBM Plex Sans títulos · IBM Plex Sans 10-12pt body · Rodapé institucional V4 + pag"
+    - path: "{output_dir}/{slug}/roteiro.md"
+      tipo: "Single source canônico"
+      uso: "Fonte única de conteúdo para HTML/PPT/PDF: garante paridade visual e textual 1:1"
+
+design_source_of_truth:
+  primary: "{deploy_target}/manual-marca.html"
+  depth_1: "design/DESIGN.md v1.1.0 (master)"
+  depth_2: "design/RESPONSIVE-PROPORTIONALITY.md v2.0"
+  depth_3: "design/tokens/tokens.json"
+  depth_4: "design/logos/ (PNG canônicos, JAMAIS inventar)"
+  voice: "data/dener-voice-manual.md"
+  ignore: "TODA referência visual do briefing de entrada deve ser substituída pelo DS oficial sem exceção"
+
+phases:
+  - id: phase-1-copy-validation
+    name: "Validação e Reescrita de Copy (V4 Elite Deck Architect)"
+    duration: "15-30 min"
+    executor: "dener-lippert + baziotti (review)"
+    activities:
+      - "Aplicar persona Diretor de Operações ROI-focused"
+      - "Validar vocabulário obrigatório (Rigor, Auditoria, Inegociável, Elite, Lucratividade, KPI, ROI, Protocolo, Cientista do Marketing, trava, destrava, receita, pipeline, previsibilidade, fábrica, ciclo, governança)"
+      - "Reescrever títulos no padrão [VERBO DE AÇÃO] + [OBJETIVO]"
+      - "Eliminar voz passiva, encurtar frases, eliminar 'talvez/acho/poderia/esperamos'"
+      - "ZERO travessão (substituir por ponto, vírgula, dois pontos, parênteses)"
+      - "Português impecável (acentuação completa, jamais ASCII substituto)"
+      - "Adicionar social proof numérico quando aplicável (13+ anos, 30k+ clientes, 100× em 5 anos, 82% assertividade)"
+    output: "roteiro.md (single source canônico)"
+    gate: QG-001
+
+  - id: phase-2-lp-generation
+    name: "Geração da Landing Page one-section"
+    duration: "30-45 min"
+    executor: "baziotti (DS) + revenue-team-architect (estrutura UX)"
+    activities:
+      - "Replicar tokens CSS exatos de manual-marca.html (coerência cromática + tipográfica)"
+      - "Construir <head> com favicon NON_NEGOTIABLE: <link rel='icon' type='image/jpeg' href='/logos/v4-icon-vermelho.jpg'> + <link rel='apple-touch-icon' href='/logos/v4-icon-vermelho.jpg'>"
+      - "Aplicar hero gradient (dark crimson → blood red → deep red) com radial-gradient glow"
+      - "Logo institucional V4 PNG canônico (versão branca em design/logos/ para fundo dark)"
+      - "1 seção única: badge + título serif accent + subtítulo + visão geral 12 slides + CTA dual download"
+      - "Anti-órfãs: text-wrap balance em h1/h2/h3, text-wrap pretty em p, &nbsp; nas 2 últimas palavras de hooks"
+      - "CTAs glow vermelho: var(--shadow-glow-red-strong) com hover scale 1.02 transition 250ms ease-out"
+      - "Tokens fluid clamp(): --space-section/block/group/element/tight + --gutter + escala tipográfica"
+      - "Travas anti-overflow: min-width 0 em grids, max-width ch em prose, aspect-ratio em imagens, box-sizing global"
+    output: "index.html (autocontido, CSS inline)"
+    gate: QG-002
+
+  - id: phase-3-pptx-generation
+    name: "Geração de PPTX via skill /pptx"
+    duration: "20-40 min"
+    executor: "baziotti (compliance) + skill /pptx (engine)"
+    activities:
+      - "Invocar skill /pptx com brief estruturado: 10×5.6 pol (16:9), paleta DS, fonts DS, 12 slides"
+      - "Slide-master: background vermelho profundo (#280000) ou gradiente primary, logo institucional V4 branco no canto, número de slide rodapé"
+      - "Capa: badge 'Manual Executivo' + título Morganite display + subtítulo IBM Plex Sans + linha vermelha separadora"
+      - "Slides internos: Morganite/IBM Plex Sans Bold 39pt H1 Vermelho V4 (#E50914), IBM Plex Sans 12pt body branco, ícones funcionais (check/bolt/shield/database)"
+      - "Negrito em termos técnicos + números (manter regra do briefing)"
+      - "Slide de fechamento: frase 'chamada para guerra' em Morganite caixa alta + glow vermelho"
+    output: "manual-executivo-v4.pptx"
+    gate: QG-003
+
+  - id: phase-4-pdf-generation
+    name: "Geração de PDF via skill /pdf"
+    duration: "15-30 min"
+    executor: "baziotti (compliance) + skill /pdf (engine)"
+    activities:
+      - "Invocar skill /pdf com paridade visual 1:1 ao PPTX"
+      - "Margens: 2.5cm topo/base + 2cm laterais"
+      - "Cabeçalho: logo institucional V4 vermelho + linha separadora #E50914 + título da seção"
+      - "Títulos: Morganite display ou IBM Plex Sans SemiBold (cor #E50914)"
+      - "Body: IBM Plex Sans 10-12pt cor #050505 sobre branco"
+      - "Rodapé: 'V4 · Manual Executivo · pág X de Y' + favicon"
+      - "12 páginas equivalentes aos slides"
+    output: "manual-executivo-v4.pdf"
+    gate: QG-003
+
+  - id: phase-5-quality-gate
+    name: "Validação Baziotti pré-publicação"
+    duration: "10-15 min"
+    executor: "baziotti + fdr-quality-monitor"
+    activities:
+      - "Rodar checklist Baziotti (16 itens identidade + tipografia + elementos + conteúdo + imagens)"
+      - "Rodar checklist responsividade (11 itens: tokens fluid + clamp + container query + travas + breakpoints visuais)"
+      - "Verificar: ZERO azul · ZERO #000 puro · ZERO travessão · ZERO Morganite em body (display só em impacto) · ZERO logo inventada · ZERO copy fraco (talvez/acho/poderia)"
+      - "Testar LP visualmente em 320/480/768/1024/1440/1920 px"
+      - "Validar favicon: curl -I {url}/favicon.ico retorna 301 → /logos/v4-icon-vermelho.jpg"
+      - "Validar contraste WCAG AA (4.5:1 body, 3:1 large)"
+      - "Encadear workflow wf-v4-compliance-check sobre {output_dir}/{slug}/index.html (script relativo do squad: scripts/v4-compliance-check.sh); veredito APPROVED ou APPROVED_WITH_NOTES é pré-requisito para a phase-6"
+    output: "quality-report.md (PASS | CONCERNS | FAIL)"
+    gate: QG-004
+
+  - id: phase-6-deploy-handoff
+    name: "Handoff de Deploy para @devops"
+    duration: "5-10 min"
+    executor: "fabrica-de-receita-master → @devops (Gage)"
+    activities:
+      - "Gerar handoff artifact em .aiox/handoffs/"
+      - "Empacotar bundle: HTML + PPTX + PDF + assets (se houver imagens novas)"
+      - "Documentar passos de deploy: git commit no repositório de deploy ({output_dir}) + build + publicação conforme a infraestrutura da instalação"
+      - "Validação pós-deploy: curl {deploy_target}/{slug}/ + curl HEAD dos downloads"
+      - "NÃO executar git push (autoridade exclusiva @devops)"
+    output: "handoff-fabrica-de-receita-v4-to-devops-{timestamp}.yaml"
+    gate: QG-004
+
+chained_workflows:
+  - id: wf-v4-compliance-check
+    when: "Gate final: entre phase-5-quality-gate e phase-6-deploy-handoff"
+    blocking: true
+    input: "{output_dir}/{slug}/index.html"
+    pass_condition: "verdict APPROVED ou APPROVED_WITH_NOTES (exit code 0 do validador)"
+
+quality_gates:
+  - id: QG-001
+    name: "Input Validation"
+    severity: "non-blocking"
+    checks:
+      - "Briefing tem 12 slides estruturados (capa + 11 conteúdo + fechamento) ou variação documentada"
+      - "Slug destino é válido (kebab-case, ASCII-safe)"
+      - "Persona de copy especificada (ou default Elite Deck Architect)"
+
+  - id: QG-002
+    name: "Diagnostic Completeness (Copy + DS)"
+    severity: "blocking"
+    checks:
+      - "Roteiro reescrito passa em 100% do checklist de tom de voz Dener"
+      - "Vocabulário obrigatório presente (≥6 termos)"
+      - "ZERO termos proibidos (talvez/acho/poderia/esperamos)"
+      - "ZERO travessão"
+      - "DS oficial aplicado integralmente (tokens, fonts, cores, gradientes)"
+
+  - id: QG-003
+    name: "Execution Completeness (3 artefatos)"
+    severity: "soft-blocking"
+    checks:
+      - "index.html renderiza em 320/480/768/1024/1440/1920 sem quebra"
+      - "PPTX abre em PowerPoint/Keynote/Google Slides sem erro"
+      - "PDF abre em browser + Preview sem fontes faltantes"
+      - "Paridade 1:1 entre PPTX e PDF (mesmo conteúdo, mesma ordem)"
+      - "CTAs da LP linkam corretamente para PPTX e PDF"
+
+  - id: QG-004
+    name: "Output Quality (Baziotti Compliance)"
+    severity: "blocking"
+    checks:
+      - "16/16 itens checklist Baziotti passam"
+      - "11/11 itens checklist responsividade passam"
+      - "Contraste WCAG AA validado em todos textos"
+      - "Favicon defense-in-depth (link + apple-touch + nginx 301) ativo"
+      - "Logos PNG canônicos usados (nenhuma fonte tipografada simulando logo)"
+
+quality_criteria:
+  copy_quality:
+    applies_to: QG-002
+    thresholds:
+      vocabulario_obrigatorio_min: 6
+      termos_proibidos_max: 0
+      voz_passiva_max: 0
+      travessao_max: 0
+      social_proof_numerico_min: 2
+
+  visual_compliance:
+    applies_to: QG-004
+    thresholds:
+      contraste_wcag_aa_min: "4.5:1 body, 3:1 large"
+      fontes_por_peca_max: 2
+      border_radius_range_px: [12, 16]
+      glow_vermelho_em_cta_dark_bg: required
+
+  responsiveness:
+    applies_to: QG-003
+    thresholds:
+      breakpoints_testados: [320, 480, 768, 1024, 1440, 1920]
+      overflow_horizontal_px: 0
+      orfas_tipograficas_max: 0
+
+cross_squad_handoffs:
+  - to: "@devops (Gage)"
+    when: "phase-6-deploy-handoff"
+    artifact: ".aiox/handoffs/handoff-fabrica-de-receita-v4-to-devops-{timestamp}.yaml"
+    instructions:
+      - "Git commit no repositório de deploy ({output_dir}); o squad fabrica-de-receita-v4 NÃO executa git push"
+      - "Build + publicação conforme a infraestrutura da instalação"
+      - "Validação curl pós-deploy (HTTP 200 + favicon 301)"
+
+  - to: "@baziotti (Brand Chief)"
+    when: "phase-5-quality-gate (todas as fases visuais)"
+    artifact: "quality-report.md"
+    instructions:
+      - "Veto final em qualquer violação de zero-azul, zero-travessão, logo invented, copy fraco"
+      - "Revisar manualmente capa e fechamento (slides de maior impacto)"
+
+  - to: "@aiox-master (Orion)"
+    when: "qualquer FAIL em quality gates"
+    artifact: "escalation-{timestamp}.yaml"
+    instructions:
+      - "Mediar conflito entre velocidade de entrega e compliance de marca"
+      - "Acionar agentes adicionais se gap técnico"
+
+philosophy:
+  principles:
+    - "Source-of-truth única: roteiro.md gera HTML, PPT, PDF, garantindo paridade 1:1"
+    - "DS é lei: ignorar 100% das referências visuais do briefing de entrada"
+    - "Persona Elite Deck Architect sobrescreve copy original (autoridade de tom de voz)"
+    - "Compliance Baziotti é blocking gate, não advisory"
+    - "Deploy é autoridade exclusiva @devops: workflow termina em handoff"
+  anti_patterns:
+    - "❌ Inventar logo em texto tipográfico (Morganite/IBM Plex Sans/Fjalla One)"
+    - "❌ Gerar logo via IA (Midjourney/DALL-E/etc)"
+    - "❌ Usar #000000 puro (substituir por #050505 preto V4 ou #280000 vermelho profundo)"
+    - "❌ Usar QUALQUER tom de azul"
+    - "❌ Usar travessão em texto"
+    - "❌ Padding fixo + 4 breakpoints (usar clamp())"
+    - "❌ Copy fraco: 'talvez', 'acho que', 'poderia', 'esperamos'"
+    - "❌ Workflow agente faz git push direto"
+
+execution_modes:
+  yolo:
+    description: "Autônomo, sem interação humana, para slugs/temas onde briefing está completo"
+    usado_em: "Manuais recorrentes, decks de update, padrões internos"
+  guided:
+    description: "Para-e-confirma em cada quality gate, para apresentações de alto stake"
+    usado_em: "Board, comunicação externa, manifestos institucionais"
+  pre_flight:
+    description: "Dry-run gerando apenas roteiro.md + LP, sem PPT/PDF"
+    usado_em: "Validação rápida de tom de voz antes do investimento de PPT/PDF"
+
+aiox_compliance:
+  story_driven: true
+  agent_authority_respected: true
+  no_invention_principle: true
+  quality_first: true
+  cli_first: true

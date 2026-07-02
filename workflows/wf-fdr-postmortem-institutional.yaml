@@ -1,0 +1,118 @@
+# ============================================================
+# WF-FDR-POSTMORTEM-INSTITUTIONAL, Postmortem Mensal Blameless
+# Cadência: MENSAL
+# Owner: fdr-pattern-detector (handoff final: fdr-knowledge-architect)
+# ============================================================
+
+id: wf-fdr-postmortem-institutional
+name: FDR Postmortem Institutional (Etsy Blameless)
+version: 1.1.0
+maturity: F4
+tier: institutional
+cadence: MENSAL
+owner: fdr-pattern-detector
+
+description: |
+  Cross-client revenue postmortem mensal. Aggregate wins/losses cross-client.
+  Pipeline blameless que transforma outcomes do mês em padrões candidatos,
+  valida cada candidato por recorrência (2+ ocorrências) e entrega os padrões
+  validados ao fdr-knowledge-architect para codificação na knowledge base.
+
+trigger:
+  - command: "*postmortem-mensal"
+  - event: "Fechamento do mês (cadência mensal agendada)"
+
+inputs:
+  required:
+    - outcomes_do_mes: "Wins e losses de receita do mês, cross-cliente (canais, funis, artefatos, boards)"
+  optional:
+    - alertas_regressao: "Sinais do fdr-quality-monitor via tasks/monitor-regressao.md"
+
+pipeline: "coleta → 5 whys → padrão candidato → validação (2+ ocorrências) → handoff ao fdr-knowledge-architect para codificar na KB"
+
+phases:
+  - id: aggregation
+    label: "F1 Coleta"
+    duration: 1-2 dias
+    agents:
+      - id: fdr-pattern-detector
+        role: "Agrega outcomes do mês cross-cliente"
+      - id: fdr-quality-monitor
+        role: "Fornece métricas e regressões detectadas no período"
+    activities:
+      - "Revenue outcomes month cross-client"
+      - "Channel wins/losses"
+      - "Funnel breakdowns"
+    outputs:
+      - "Inventário de wins/losses do mês com contexto por cliente"
+
+  - id: root-cause
+    label: "F2 Causa Raiz (5 Whys)"
+    duration: 2 dias
+    agents:
+      - id: fdr-pattern-detector
+        role: "Conduz 5 Whys por perda e fatores de sucesso por win"
+    activities:
+      - "5 Whys per perda"
+      - "Success factors per win"
+    outputs:
+      - "Causa raiz documentada por outcome relevante"
+
+  - id: pattern-extraction
+    label: "F3 Padrão Candidato + Validação"
+    duration: 1-2 dias
+    agents:
+      - id: fdr-pattern-detector
+        role: "Formula padrões candidatos e valida recorrência"
+    activities:
+      - "Codify winning patterns"
+      - "Document leaky-funnel anti-patterns"
+      - "Validar cada candidato por recorrência: mínimo de 2 ocorrências em clientes ou ciclos distintos"
+    validation_rule: "Um padrão candidato só é promovido com 2 ou mais ocorrências documentadas; candidato com 1 ocorrência fica em observação para o próximo postmortem"
+    outputs:
+      - "Lista de padrões validados (2+ ocorrências) e lista de candidatos em observação"
+
+  - id: kb-update
+    label: "F4 Codificação na KB"
+    duration: 1 dia
+    agents:
+      - id: fdr-knowledge-architect
+        role: "Recebe handoff dos padrões validados e codifica na knowledge base"
+    activities:
+      - "V4 Method playbook refresh"
+      - "22 mind-clones canonicals updated"
+    outputs:
+      - "Padrões promovidos e codificados em data/fabrica-de-receita-kb.md"
+
+blameless_principles:
+  - "Lost revenue = funnel gap, não closer"
+  - "Postmortem investiga sistema e processo, nunca pessoas"
+  - "Toda perda vira aprendizado codificável ou candidato em observação"
+
+success_metrics:
+  primary:
+    padroes_promovidos_por_mes: "Pelo menos 1 padrão promovido e codificado na KB por mês"
+  secondary:
+    cobertura_5whys: "100% das perdas relevantes do mês com 5 Whys documentado"
+    fila_observacao: "Candidatos com 1 ocorrência revisitados no postmortem seguinte"
+
+quality_gates_applied:
+  QG-004:
+    name: "Qualidade de Saída"
+    blocking: false
+    check: "Ao menos 1 padrão promovido no mês, com 2+ ocorrências evidenciadas e entrada codificada na KB"
+
+cross_squad_handoffs:
+  - "squad-sales/sales-chief, losses de execução comercial (T3 Decisão) alimentam win/loss debrief"
+  - "squad-martech/crm-master, dados de CRM e attribution para reconstruir a linha do tempo dos outcomes"
+  - "squad-copy/copy-chief, padrões de messaging vencedores identificados no mês"
+
+cross_references:
+  data:
+    - data/fabrica-de-receita-kb.md
+    - data/8-travas.md
+  tasks:
+    - tasks/monitor-regressao.md
+  workflows:
+    - workflows/wf-fdr-revenue-cycle.yaml
+    - workflows/wf-fdr-portfolio-rebalance.yaml

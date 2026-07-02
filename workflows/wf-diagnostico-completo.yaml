@@ -1,0 +1,213 @@
+# ============================================================
+# WF-DIAGNOSTICO-COMPLETO, Jornada de Entrada Padrão do Squad
+# Duração: 2-4 semanas
+# Hierarquia: goldratt (advisor) -> dener-lippert (chief) ->
+#             fabrica-de-receita-master (sub-orchestrator) -> specialists
+# ============================================================
+
+id: wf-diagnostico-completo
+name: Diagnóstico Completo de Receita (8 Travas + TOC + SPICED)
+version: 1.0.0
+maturity: F4
+tier: institutional
+orchestrator: fabrica-de-receita-master
+approver: dener-lippert
+advisor: goldratt
+
+description: |
+  Jornada de entrada padrão do squad para qualquer cliente ou prospect.
+  Parte de uma hipótese de constraint via TOC, roda o diagnóstico das
+  8 travas de receita (T1 Cegueira, T2 Retenção, T3 Decisão,
+  T4 Compromisso, T5 Qualificação, T6 Interesse, T7 Atenção,
+  T8 Exposição), qualifica via SPICED, valida a trava com árvore de
+  realidade atual (CRT) e entrega plano de 90 dias com devolutiva
+  comercial. Nenhuma fase de execução começa sem trava confirmada
+  (QG-002 blocking em F3).
+
+trigger:
+  - command: "*diagnostico-completo"
+  - event: "Onboarding de novo cliente ou prospect qualificado"
+
+estimated_duration: "2-4 semanas"
+
+inputs:
+  required:
+    - contexto_cliente: "Segmento, modelo de negócio, ticket, canais atuais"
+    - dados_de_funil: "Métricas disponíveis de aquisição, conversão e retenção"
+  optional:
+    - historico_receita: "Receita dos últimos 2 trimestres"
+    - diagnosticos_anteriores: "Auditorias ou diagnósticos prévios, se existirem"
+
+phases:
+  - id: f0-hipotese-constraint
+    label: "F0 Hipótese de Constraint"
+    duration: 1-2 dias
+    agents:
+      - id: goldratt
+        role: "Formula a hipótese de constraint do sistema via TOC e árvores lógicas"
+    skills:
+      - skills/toc-aplicada.skill.md
+      - skills/ltp-arvores-logicas.skill.md
+    activities:
+      - "Mapear o sistema de receita do cliente como cadeia de dependências"
+      - "Formular hipótese do constraint dominante"
+    outputs:
+      - artefato: "f0-hipotese-toc.md"
+        conteudo: "Hipótese TOC do constraint dominante com premissas explícitas"
+
+  - id: f1-diagnostico-8-travas
+    label: "F1 Diagnóstico das 8 Travas"
+    duration: 3-5 dias
+    agents:
+      - id: diagnosticador
+        role: "Roda o diagnóstico completo das 8 travas e aplica o teste 2 de 3"
+    tasks:
+      - tasks/trava-diagnostico.md
+      - tasks/trava-identificacao.md
+    skills:
+      - skills/diagnostico-8-travas.skill.md
+    activities:
+      - "Varredura das 8 travas (T1 a T8) contra os dados do cliente"
+      - "Aplicar o teste 2 de 3 (dado + sintoma + causa) em cada trava candidata"
+    outputs:
+      - artefato: "f1-diagnostico-8-travas.md"
+        conteudo: "Scorecard das 8 travas com trava candidata confirmada pelo teste 2 de 3"
+    quality_gates: [QG-001, QG-002]
+
+  - id: f2-qualificacao-spiced
+    label: "F2 Qualificação SPICED"
+    duration: 2-3 dias
+    agents:
+      - id: especialista-spiced
+        role: "Qualifica o cliente via SPICED e pontua fit de ICP"
+    skills:
+      - skills/spiced-framework.skill.md
+      - skills/icp-scoring.skill.md
+    templates:
+      - templates/spiced-template.md
+    activities:
+      - "Preencher SPICED completo (Situation, Pain, Impact, Critical Event, Decision)"
+      - "Pontuar ICP e priorizar segmentos"
+    outputs:
+      - artefato: "f2-spiced-qualificacao.md"
+        conteudo: "SPICED preenchido no template canônico + score de ICP"
+
+  - id: f3-validacao-toc
+    label: "F3 Validação TOC (CRT)"
+    duration: 2-3 dias
+    agents:
+      - id: goldratt
+        role: "Constrói a árvore de realidade atual (CRT) e confronta a hipótese de F0 com a trava de F1"
+    templates:
+      - templates/crt-template.md
+    checklists:
+      - checklists/validar-diagnostico.md
+    activities:
+      - "Construir CRT ligando efeitos indesejados à causa raiz"
+      - "Rodar o checklist de validação de diagnóstico"
+      - "Confirmar ou refutar a trava candidata; se refutada, retornar a F1"
+    outputs:
+      - artefato: "f3-crt-validacao.md"
+        conteudo: "CRT no template canônico + veredito de validação da trava"
+    quality_gates: [QG-002]
+    gate_rule: "QG-002 é BLOCKING nesta fase: o workflow não avança para F4 sem trava confirmada pela CRT e pelo checklist"
+
+  - id: f4-plano-90-dias
+    label: "F4 Plano de 90 Dias"
+    duration: 3-5 dias
+    agents:
+      - id: fabrica-de-receita-master
+        role: "Orquestra a montagem do plano e roteia specialists por trava"
+      - id: growth-planner
+        role: "Estrutura o ciclo de 90 dias com marcos, boards e forecast"
+    tasks:
+      - tasks/step-framework.md
+      - tasks/90-day-cycle.md
+      - tasks/forecast-receita.md
+    skills:
+      - skills/ciclo-90-dias.skill.md
+    activities:
+      - "Desenhar plano STEP sobre a trava confirmada"
+      - "Estruturar ciclo de 90 dias com marcos quinzenais"
+      - "Projetar forecast de receita do ciclo"
+    outputs:
+      - artefato: "f4-plano-90-dias.md"
+        conteudo: "Plano STEP + ciclo de 90 dias + forecast de receita"
+
+  - id: f5-devolutiva
+    label: "F5 Devolutiva"
+    duration: 2-3 dias
+    agents:
+      - id: destrava-receita-consultant
+        role: "Monta e apresenta o pitch de devolutiva com tiers de investimento"
+      - id: dener-lippert
+        role: "Valida a voz e o tom da devolutiva (gate do chief)"
+      - id: baziotti
+        role: "Valida o visual e a experiência da peça de devolutiva"
+    tasks:
+      - tasks/destrava-pitch.md
+    skills:
+      - skills/pricing-tiers-dr.skill.md
+    activities:
+      - "Consolidar diagnóstico, validação e plano em narrativa de devolutiva"
+      - "Aplicar tiers de precificação do produto DR"
+      - "Passar pela validação de voz (chief) e visual (baziotti)"
+    outputs:
+      - artefato: "f5-devolutiva-destrava.md"
+        conteudo: "Pitch de devolutiva aprovado em voz e visual, pronto para apresentação"
+    quality_gates: [QG-004]
+
+quality_gates_applied:
+  QG-001:
+    name: "Validação de Entrada"
+    blocking: false
+    check: "Contexto do cliente e dados de funil mínimos disponíveis antes de F1"
+  QG-002:
+    name: "Diagnóstico Validado"
+    blocking: true
+    check: "Trava confirmada pelo teste 2 de 3 (F1) e pela CRT + checklist (F3); sem isso o workflow não avança"
+  QG-003:
+    name: "Completude de Execução"
+    blocking: true
+    check: "Todos os artefatos por fase (F0 a F5) produzidos e nomeados conforme especificação"
+  QG-004:
+    name: "Qualidade de Saída"
+    blocking: false
+    check: "Devolutiva validada em voz pelo chief e em visual pelo baziotti"
+
+success_metrics:
+  primary:
+    trava_confirmada: "100% dos diagnósticos entregues com trava validada por CRT"
+    devolutiva_aprovada: "Pitch aprovado em voz e visual antes da apresentação"
+  secondary:
+    tempo_de_ciclo: "Diagnóstico completo em até 4 semanas"
+    retorno_a_f1: "Taxa de refutação em F3 documentada para calibrar o diagnosticador"
+
+cross_squad_handoffs:
+  - "squad-data/db-architect, Dashboard de Decisão quando o diagnóstico confirma T1 Cegueira"
+  - "squad-sales/sales-chief, execução comercial quando a trava confirmada é T3 Decisão"
+  - "squad-whatsapp/whatsapp-chief, régua de compromisso quando a trava confirmada é T4 Compromisso"
+  - "squad-copy/copy-chief, messaging da devolutiva e dos artefatos de interesse (T6)"
+  - "squad-martech/crm-master, CRM e attribution para sustentar baseline e forecast"
+
+cross_references:
+  data:
+    - data/8-travas.md
+    - data/toc-ltp-fieldbook.md
+    - data/icp-destrava.md
+  skills:
+    - skills/toc-aplicada.skill.md
+    - skills/ltp-arvores-logicas.skill.md
+    - skills/diagnostico-8-travas.skill.md
+    - skills/spiced-framework.skill.md
+    - skills/icp-scoring.skill.md
+    - skills/ciclo-90-dias.skill.md
+    - skills/pricing-tiers-dr.skill.md
+  templates:
+    - templates/spiced-template.md
+    - templates/crt-template.md
+  checklists:
+    - checklists/validar-diagnostico.md
+  workflows:
+    - workflows/wf-fdr-revenue-cycle.yaml
+    - workflows/wf-onboarding-cliente.yaml

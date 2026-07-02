@@ -1,0 +1,18 @@
+# Segredos e ambiente local (NUNCA commitar)
+.env
+.env.*
+!.env.example
+*.local
+
+# Configuração local do Claude Code
+.claude/settings.local.json
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs e temporários
+*.log
+qa/
+scratch/
+tmp/

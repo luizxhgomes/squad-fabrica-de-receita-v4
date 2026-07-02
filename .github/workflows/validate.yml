@@ -1,0 +1,49 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar dependencias
+        run: pip install pyyaml
+      - name: Validar integridade do squad
+        run: bash scripts/validate-squad.sh --ci
+
+  public-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gate de seguranca de conteudo publico
+        run: bash scripts/check-public-safety.sh .
+
+  style:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: yamllint (relaxado)
+        run: |
+          pip install yamllint
+          yamllint -d relaxed squad.yaml workflows/*.yaml config/tokens.yaml || true
+      - name: Heuristica de acentuacao (aviso)
+        run: bash scripts/check-public-safety.sh --accent-heuristic . || true
