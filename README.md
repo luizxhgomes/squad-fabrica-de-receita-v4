@@ -13,6 +13,32 @@
 
 Criado e mantido por **Luiz Henrique** ([@luizhenriquexpro](https://instagram.com/luizhenriquexpro)).
 
+**Idioma:** [🇧🇷 Português](#visão-geral) · [🇺🇸 English](#english-overview)
+
+---
+
+## Visão geral
+
+O **Squad Fábrica de Receita V4** é um squad de estratégia de receita com 27 personas para o Claude Code. Ele empacota um método completo para encontrar e remover a única restrição que limita a receita de um negócio, e então executar contra ela em ciclos focados de 90 dias. A espinha teórica é a Teoria das Restrições (todo sistema tem um único elo mais fraco, e otimizar qualquer coisa que não seja esse elo é desperdício), combinada com a metodologia Fábrica de Receita da V4 e suas 8 travas de receita.
+
+O que o torna interessante é o modelo de orquestração. O squad opera uma hierarquia de comando em 3 camadas: um Master Advisor (a persona Goldratt, que aplica a Teoria das Restrições), um Chief (a persona Dener Lippert, o cientista do marketing que dá a palavra final) e um Sub-Orchestrator que roteia o trabalho aos especialistas dos 7 fluxos estratégicos. A invocação é chief-first por design: o comando sempre carrega o Chief, o Chief sempre monta um plano de ação e delega, e nenhum comando executa uma task diretamente. Esse é o protocolo Prioridade 0, inegociável.
+
+A qualidade é garantida de forma estrutural. Quatro Quality Gates canônicos protegem a validação de entrada, o diagnóstico, a execução e a saída. Sete business rules codificam a matemática dura (LTV dividido por CAC em 3 para 1 ou melhor, 1 trava por ciclo, confirmação de diagnóstico 2 de 3). Uma persona de autoridade visual (Baziotti) faz o gate de toda peça publicável, e um conjunto de regras de saída inegociáveis mantém a escrita limpa.
+
+Todo o conteúdo dos agentes é escrito em português brasileiro por design. O método, as personas e os frameworks foram concebidos em português, e o squad exige português impecável com acentuação completa como quality gate. Este README tem uma seção em inglês para alcance, mas o conteúdo operacional que você lê dentro do squad é em português.
+
+As mentes nomeadas (Goldratt, Dener Lippert, Baziotti) são personas educacionais baseadas em obra publicada e material público. Este projeto não representa afiliação oficial.
+
+**Quickstart (3 comandos):**
+
+```bash
+git clone https://github.com/luizxhgomes/squad-fabrica-de-receita-v4.git
+cd squad-fabrica-de-receita-v4
+claude
+```
+
+Depois, dentro do Claude Code, rode `/fdr-v4 minha receita estagnou em X, diagnostique a trava`. O Chief abre com um plano de ação antes de qualquer execução.
+
 ---
 
 ## English overview
@@ -39,9 +65,9 @@ Then, inside Claude Code, run `/fdr-v4 my revenue stalled at X, diagnose the loc
 
 ---
 
-## O que é
+## Como funciona
 
-O **Squad Fábrica de Receita V4** é uma infraestrutura de orquestração de agentes de IA para o Claude Code, especializada em **estratégia de receita**. Ele empacota a metodologia **Fábrica de Receita**: a ideia de que toda empresa é uma fábrica cujo produto final não é o serviço, é a receita. Como todo sistema, essa fábrica tem uma única restrição ativa por vez, a trava, e melhorar qualquer coisa que não seja a trava é otimização local, ou seja, desperdício.
+A metáfora central é a **Fábrica de Receita**: toda empresa é uma fábrica cujo produto final não é o serviço, é a receita. Como todo sistema, essa fábrica tem uma única restrição ativa por vez, a **trava**, e melhorar qualquer coisa que não seja a trava é otimização local, ou seja, desperdício.
 
 A partir dessa premissa, o squad faz 3 coisas em sequência:
 
