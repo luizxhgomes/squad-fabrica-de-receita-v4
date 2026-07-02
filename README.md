@@ -83,6 +83,11 @@ A espinha teórica é a **Teoria das Restrições** aplicada a receita (Throughp
 
 O squad opera em 3 camadas de comando acima dos especialistas. O comando `/fdr-v4` sempre entra pelo topo dessa cadeia.
 
+![Hierarquia de comando do Squad Fábrica de Receita V4: Goldratt como Master Advisor sobre Dener Lippert como Chief, que ramifica em Baziotti (Brand Chief) e no Sub-Orchestrator, distribuindo para os 7 fluxos estratégicos.](docs/assets/command-hierarchy.png)
+
+<details>
+<summary>Ver como diagrama de texto (Mermaid)</summary>
+
 ```mermaid
 graph TD
     G["Goldratt<br/>Master Advisor · Teoria das Restrições"]
@@ -99,8 +104,11 @@ graph TD
     M --> F3["Engajamento e Conversão<br/>Pilares 2 e 3"]
     M --> F4["Retenção<br/>Pilar LTV"]
     M --> F5["Inteligência e Performance<br/>ROI e flywheel"]
-    M --> F6["Produto Destrava Receita<br/>execução com IA"]
+    M --> F6["Produto Destrava<br/>DR-X a DR-E"]
+    B --> F7["Brand e Design<br/>autoridade visual"]
 ```
+
+</details>
 
 O **Master Advisor** (Goldratt) aplica a Teoria das Restrições e devolve ao Chief onde está o gargalo. O **Chief** (Dener Lippert) decide com base em Vantagem Competitiva, LTV por CAC e a Pirâmide de Decisão, e define qual fluxo ativar. O **Sub-Orchestrator** (fabrica-de-receita-master) roteia a execução aos especialistas dos fluxos. O **Brand Chief** (Baziotti) é o gate visual: nenhuma peça publicável sai sem passar por ele. Detalhes tier a tier em [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
