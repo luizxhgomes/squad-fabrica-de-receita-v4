@@ -3,6 +3,8 @@
 Obrigado pelo interesse em contribuir. Este squad é uma infraestrutura de orquestração de agentes
 de IA para Claude Code, e a qualidade do conteúdo é o que o torna útil.
 
+Criador principal e mantenedor: **Luiz Henrique** ([@luizhenriquexpro](https://instagram.com/luizhenriquexpro)).
+
 ## Antes de começar
 
 1. Leia `docs/ARCHITECTURE.md` para entender a hierarquia de comando e os fluxos estratégicos.

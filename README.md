@@ -1,5 +1,7 @@
 # Squad Fábrica de Receita V4
 
+![Squad Fábrica de Receita V4](docs/assets/social-preview.png)
+
 > Squad de estratégia de receita para o Claude Code. 27 personas em hierarquia de comando chief-first, Teoria das Restrições aplicada a receita, metodologia Fábrica de Receita e produtos Destrava Receita.
 
 ![validate](https://github.com/luizxhgomes/squad-fabrica-de-receita-v4/actions/workflows/validate.yml/badge.svg)
@@ -7,6 +9,9 @@
 ![release](https://img.shields.io/badge/release-v1.0.0-E50914)
 ![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 ![conteúdo](https://img.shields.io/badge/conte%C3%BAdo-PT--BR-009B3A)
+[![Instagram](https://img.shields.io/badge/Instagram-@luizhenriquexpro-E4405F?logo=instagram&logoColor=white)](https://instagram.com/luizhenriquexpro)
+
+Criado e mantido por **Luiz Henrique** ([@luizhenriquexpro](https://instagram.com/luizhenriquexpro)).
 
 ---
 
@@ -225,4 +230,6 @@ MIT. Veja [LICENSE](LICENSE).
 
 ## Autor
 
-Luiz Henrique. Publicado sob a conta `luizxhgomes`.
+Criador principal e mantenedor: **Luiz Henrique** ([@luizhenriquexpro](https://instagram.com/luizhenriquexpro) no Instagram). Publicado sob a conta GitHub [`luizxhgomes`](https://github.com/luizxhgomes).
+
+Este repositório é open-source sob licença MIT: você pode clonar, fazer fork, usar e adaptar livremente, preservando o aviso de copyright e a atribuição ao criador. Veja [AUTHORS](AUTHORS) e [CONTRIBUTING.md](CONTRIBUTING.md).
