@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0.32" r="0.9">
+      <stop offset="0" stop-color="#6E0F05"/>
+      <stop offset="0.4" stop-color="#4A0A02"/>
+      <stop offset="0.72" stop-color="#2A0300"/>
+      <stop offset="1" stop-color="#150000"/>
+    </radialGradient>
+    <radialGradient id="topglow" cx="0.5" cy="0.06" r="0.5">
+      <stop offset="0" stop-color="#FB2E0A" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#FB2E0A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFF2DC"/>
+      <stop offset="0.5" stop-color="#FFD79E"/>
+      <stop offset="1" stop-color="#FBAD56"/>
+    </linearGradient>
+    <linearGradient id="goldrule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FBAD56" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#FBAD56"/>
+      <stop offset="1" stop-color="#FBAD56" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="herocard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.045"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#topglow)"/>
+
+  <!-- cabecalho -->
+  <text x="800" y="62" text-anchor="middle" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="22" font-weight="600" letter-spacing="6" fill="#FFC9B3">MAPA DE COMPONENTES</text>
+  <rect x="700" y="80" width="200" height="4" rx="2" fill="url(#goldrule)"/>
+
+  <!-- faixa: manifesto / fonte da verdade -->
+  <rect x="64" y="104" width="1472" height="66" rx="18" fill="#FFFFFF" fill-opacity="0.05" stroke="#FBAD56" stroke-opacity="0.32" stroke-width="1.3"/>
+  <text x="94" y="145" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">squad.yaml <tspan font-weight="500" fill="#FFD79E">· manifesto e fonte da verdade</tspan></text>
+  <text x="1506" y="145" text-anchor="end" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="20" font-weight="600" fill="#FFC9B3">comando /fdr-v4 · chief-first</text>
+
+  <!-- ===== CARD HERO: 27 AGENTES ===== -->
+  <rect x="64" y="192" width="1472" height="188" rx="24" fill="url(#herocard)" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="1.5"/>
+  <rect x="64" y="192" width="7" height="188" rx="3.5" fill="url(#gold)"/>
+  <text x="112" y="290" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="86" font-weight="800" fill="#FFFFFF">27</text>
+  <text x="112" y="330" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF">Agentes</text>
+  <text x="112" y="358" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="17" font-weight="500" fill="#F0B9A6">6 tiers + camada meta</text>
+
+  <!-- chips de tiers -->
+  <g font-family="Avenir Next, Helvetica Neue, sans-serif">
+    <!-- linha 1 -->
+    <rect x="360" y="222" width="270" height="66" rx="14" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="384" y="252" font-size="18" font-weight="700" fill="#FFFFFF">Tier 0 · Conselho</text>
+    <text x="384" y="275" font-size="15" font-weight="500" fill="#F0B9A6">Goldratt, Dener, Baziotti</text>
+
+    <rect x="648" y="222" width="252" height="66" rx="14" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="672" y="252" font-size="18" font-weight="700" fill="#FFFFFF">Tier 1 · Orquestração</text>
+    <text x="672" y="275" font-size="15" font-weight="500" fill="#F0B9A6">roteia e delega</text>
+
+    <rect x="918" y="222" width="252" height="66" rx="14" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="942" y="252" font-size="18" font-weight="700" fill="#FFFFFF">Tier 2 · Diagnóstico</text>
+    <text x="942" y="275" font-size="15" font-weight="500" fill="#F0B9A6">identifica a trava</text>
+
+    <rect x="1188" y="222" width="324" height="66" rx="14" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="1212" y="252" font-size="18" font-weight="700" fill="#FFFFFF">Tier 3 · Execução</text>
+    <text x="1212" y="275" font-size="15" font-weight="500" fill="#F0B9A6">aquisição, conversão, retenção</text>
+
+    <!-- linha 2 -->
+    <rect x="360" y="300" width="270" height="66" rx="14" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="384" y="330" font-size="18" font-weight="700" fill="#FFFFFF">Tier 4 · Inteligência</text>
+    <text x="384" y="353" font-size="15" font-weight="500" fill="#F0B9A6">ROI, forecast, flywheel</text>
+
+    <rect x="648" y="300" width="252" height="66" rx="14" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <text x="672" y="330" font-size="18" font-weight="700" fill="#FFFFFF">Tier 5 · Produto</text>
+    <text x="672" y="353" font-size="15" font-weight="500" fill="#F0B9A6">Destrava Receita</text>
+
+    <rect x="918" y="300" width="594" height="66" rx="14" fill="#FFFFFF" fill-opacity="0.05" stroke="#FBAD56" stroke-opacity="0.3"/>
+    <text x="942" y="330" font-size="18" font-weight="700" fill="#FFFFFF">Camada Meta · governança</text>
+    <text x="942" y="353" font-size="15" font-weight="500" fill="#FFD79E">portfolio-strategist, quality-monitor, pattern-detector, knowledge-architect</text>
+  </g>
+
+  <!-- ===== GRID 4x2: DEMAIS COMPONENTES ===== -->
+  <!-- cards w=344, x=64,440,816,1192 ; y linha1=404 linha2=622 ; h=190 -->
+  <g font-family="Avenir Next, Helvetica Neue, sans-serif">
+    <!-- Tasks -->
+    <rect x="64" y="404" width="344" height="190" rx="20" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1.3"/>
+    <circle cx="94" cy="440" r="6" fill="#FBAD56"/>
+    <text x="88" y="512" font-size="64" font-weight="800" fill="#FFFFFF">22</text>
+    <text x="88" y="548" font-size="23" font-weight="700" fill="#FFFFFF">Tasks</text>
+    <text x="88" y="576" font-size="16" font-weight="500" fill="#F0B9A6">unidades executáveis</text>
+    <!-- Workflows -->
+    <rect x="440" y="404" width="344" height="190" rx="20" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1.3"/>
+    <circle cx="470" cy="440" r="6" fill="#FF8A3C"/>
+    <text x="464" y="512" font-size="64" font-weight="800" fill="#FFFFFF">10</text>
+    <text x="464" y="548" font-size="23" font-weight="700" fill="#FFFFFF">Workflows</text>
+    <text x="464" y="576" font-size="16" font-weight="500" fill="#F0B9A6">pipelines multi-fase</text>
+    <!-- Skills -->
+    <rect x="816" y="404" width="344" height="190" rx="20" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1.3"/>
+    <circle cx="846" cy="440" r="6" fill="#FF6200"/>
+    <text x="840" y="512" font-size="64" font-weight="800" fill="#FFFFFF">10</text>
+    <text x="840" y="548" font-size="23" font-weight="700" fill="#FFFFFF">Skills</text>
+    <text x="840" y="576" font-size="16" font-weight="500" fill="#F0B9A6">habilidades operacionais</text>
+    <!-- Data -->
+    <rect x="1192" y="404" width="344" height="190" rx="20" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1.3"/>
+    <circle cx="1222" cy="440" r="6" fill="#FB2E0A"/>
+    <text x="1216" y="512" font-size="64" font-weight="800" fill="#FFFFFF">8</text>
+    <text x="1216" y="548" font-size="23" font-weight="700" fill="#FFFFFF">Data</text>
+    <text x="1216" y="576" font-size="16" font-weight="500" fill="#F0B9A6">base de conhecimento</text>
+
+    <!-- Templates -->
+    <rect x="64" y="622" width="344" height="190" rx="20" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1.3"/>
+    <circle cx="94" cy="658" r="6" fill="#E50914"/>
+    <text x="88" y="730" font-size="64" font-weight="800" fill="#FFFFFF">6</text>
+    <text x="88" y="766" font-size="23" font-weight="700" fill="#FFFFFF">Templates</text>
+    <text x="88" y="794" font-size="16" font-weight="500" fill="#F0B9A6">modelos de saída</text>
+    <!-- Checklists -->
+    <rect x="440" y="622" width="344" height="190" rx="20" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1.3"/>
+    <circle cx="470" cy="658" r="6" fill="#C41E08"/>
+    <text x="464" y="730" font-size="64" font-weight="800" fill="#FFFFFF">5</text>
+    <text x="464" y="766" font-size="23" font-weight="700" fill="#FFFFFF">Checklists</text>
+    <text x="464" y="794" font-size="16" font-weight="500" fill="#F0B9A6">gates operacionais</text>
+    <!-- Quality Gates -->
+    <rect x="816" y="622" width="344" height="190" rx="20" fill="#FFFFFF" fill-opacity="0.05" stroke="#FBAD56" stroke-opacity="0.32" stroke-width="1.3"/>
+    <circle cx="846" cy="658" r="6" fill="#FBAD56"/>
+    <text x="840" y="730" font-size="64" font-weight="800" fill="#FFFFFF">4</text>
+    <text x="840" y="766" font-size="23" font-weight="700" fill="#FFFFFF">Quality Gates</text>
+    <text x="840" y="794" font-size="16" font-weight="500" fill="#FFD79E">QG-001 a QG-004</text>
+    <!-- Business Rules -->
+    <rect x="1192" y="622" width="344" height="190" rx="20" fill="#FFFFFF" fill-opacity="0.05" stroke="#FBAD56" stroke-opacity="0.32" stroke-width="1.3"/>
+    <circle cx="1222" cy="658" r="6" fill="#FBAD56"/>
+    <text x="1216" y="730" font-size="64" font-weight="800" fill="#FFFFFF">7</text>
+    <text x="1216" y="766" font-size="23" font-weight="700" fill="#FFFFFF">Business Rules</text>
+    <text x="1216" y="794" font-size="16" font-weight="500" fill="#FFD79E">BR-001 a BR-007</text>
+  </g>
+
+  <!-- rodape -->
+  <text x="800" y="864" text-anchor="middle" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="16" font-weight="500" letter-spacing="1" fill="#C98A7E">Todo componente é declarado no squad.yaml e validado pelo CI. Índice completo em docs/COMPONENTS.md.</text>
+</svg>

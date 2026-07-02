@@ -13,8 +13,6 @@
 
 Criado e mantido por **Luiz Henrique** ([@luizhenriquexpro](https://instagram.com/luizhenriquexpro)).
 
-**Idioma:** [🇧🇷 Português](#visão-geral) · [🇺🇸 English](#english-overview)
-
 ---
 
 ## Visão geral
@@ -25,7 +23,7 @@ O que o torna interessante é o modelo de orquestração. O squad opera uma hier
 
 A qualidade é garantida de forma estrutural. Quatro Quality Gates canônicos protegem a validação de entrada, o diagnóstico, a execução e a saída. Sete business rules codificam a matemática dura (LTV dividido por CAC em 3 para 1 ou melhor, 1 trava por ciclo, confirmação de diagnóstico 2 de 3). Uma persona de autoridade visual (Baziotti) faz o gate de toda peça publicável, e um conjunto de regras de saída inegociáveis mantém a escrita limpa.
 
-Todo o conteúdo dos agentes é escrito em português brasileiro por design. O método, as personas e os frameworks foram concebidos em português, e o squad exige português impecável com acentuação completa como quality gate. Este README tem uma seção em inglês para alcance, mas o conteúdo operacional que você lê dentro do squad é em português.
+Todo o conteúdo dos agentes é escrito em português brasileiro por design. O método, as personas e os frameworks foram concebidos em português, e o squad exige português impecável com acentuação completa como quality gate.
 
 As mentes nomeadas (Goldratt, Dener Lippert, Baziotti) são personas educacionais baseadas em obra publicada e material público. Este projeto não representa afiliação oficial.
 
@@ -38,30 +36,6 @@ claude
 ```
 
 Depois, dentro do Claude Code, rode `/fdr-v4 minha receita estagnou em X, diagnostique a trava`. O Chief abre com um plano de ação antes de qualquer execução.
-
----
-
-## English overview
-
-**Squad Fábrica de Receita V4** is a 27-persona revenue-strategy squad for Claude Code. It packages a full method for finding and removing the single constraint that limits a business revenue, then executing against it in focused 90-day cycles. The intellectual backbone is the Theory of Constraints (every system has one weakest link, and optimizing anything other than that link is waste), combined with the V4 revenue-factory methodology and its 8 revenue locks.
-
-What makes it interesting is the orchestration model. The squad runs a 3-tier command hierarchy: a Master Advisor (a Goldratt persona that applies Theory of Constraints), a Chief (a Dener Lippert persona, the marketing scientist who makes the final call), and a Sub-Orchestrator that routes work to the specialists across 7 strategic flows. Invocation is chief-first by design: the command always loads the Chief, the Chief always drafts an action plan and delegates, and no command ever runs a task directly. This is a non-negotiable Priority 0 protocol.
-
-Quality is enforced structurally. Four canonical Quality Gates guard input validation, diagnosis, execution and output. Seven business rules encode the hard math (LTV divided by CAC at 3 to 1 or better, 1 lock per cycle, a 2-of-3 diagnostic confirmation). A visual authority persona (Baziotti) gates every publishable asset, and a set of non-negotiable output rules keep the writing clean.
-
-All agent content is written in Brazilian Portuguese by design. The method, the personas and the frameworks were authored in Portuguese, and the squad enforces impeccable Portuguese with full accentuation as a quality gate. This README carries an English section for discovery, but the operating content you will read once inside the squad is Portuguese.
-
-The named minds (Goldratt, Dener Lippert, Baziotti) are educational personas based on published work and public material. This project does not represent an official affiliation.
-
-**Quickstart (3 commands):**
-
-```bash
-git clone https://github.com/luizxhgomes/squad-fabrica-de-receita-v4.git
-cd squad-fabrica-de-receita-v4
-claude
-```
-
-Then, inside Claude Code, run `/fdr-v4 my revenue stalled at X, diagnose the lock`. The Chief opens with an action plan before any execution.
 
 ---
 
@@ -156,6 +130,8 @@ Você recebe o plano primeiro, depois o resultado. Nunca uma task solta sem orqu
 ---
 
 ## Componentes
+
+![Mapa de componentes do Squad Fábrica de Receita V4: squad.yaml como manifesto e fonte da verdade, 27 agentes em 6 tiers mais camada meta, e os componentes 22 tasks, 10 workflows, 10 skills, 8 data, 6 templates, 5 checklists, 4 Quality Gates e 7 business rules.](docs/assets/component-map.png)
 
 | Categoria | Quantidade | O que é |
 |-----------|:----------:|---------|
