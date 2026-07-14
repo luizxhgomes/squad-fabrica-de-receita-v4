@@ -2,7 +2,7 @@
 # install.sh
 # Squad: fabrica-de-receita (repositorio publico)
 # Instalador Modo B: instala o squad em OUTRO projeto Claude Code do usuario.
-# Copia o command .claude/commands/fdr-v4.md para o projeto destino reescrevendo
+# Copia o command .claude/commands/fdr.md para o projeto destino reescrevendo
 # a linha SQUAD_ROOT para o caminho absoluto deste clone, e (opcional) gera os
 # thin-loaders fdr-* globais em ~/.claude/agents.
 #
@@ -13,7 +13,7 @@
 #   ./install.sh --help
 #
 # Flags:
-#   --target DIR     projeto destino (recebe .claude/commands/fdr-v4.md)
+#   --target DIR     projeto destino (recebe .claude/commands/fdr.md)
 #   --with-agents    tambem instala loaders fdr-* em ~/.claude/agents (absoluto)
 #   --uninstall      remove o command do destino e os loaders fdr-* globais
 #   --check          verifica que os loaders fdr-* em ~/.claude/agents apontam
@@ -91,7 +91,7 @@ fi
 if [ "$UNINSTALL" -eq 1 ]; then
   [ -n "$TARGET" ] || { echo "${RED}--uninstall exige --target DIR${NC}" >&2; exit 2; }
   removed=0
-  cmd="$TARGET/.claude/commands/fdr-v4.md"
+  cmd="$TARGET/.claude/commands/fdr.md"
   if [ -f "$cmd" ]; then
     rm -f "$cmd"; echo "${GRN}removido:${NC} $cmd"; removed=$((removed + 1))
   else
@@ -113,11 +113,11 @@ fi
 [ -n "$TARGET" ] || { echo "${RED}informe o projeto destino com --target DIR (ou use --check / --help)${NC}" >&2; exit 2; }
 [ -d "$TARGET" ] || { echo "${RED}destino invalido (nao e diretorio): $TARGET${NC}" >&2; exit 2; }
 
-SRC_CMD="$CLONE/.claude/commands/fdr-v4.md"
+SRC_CMD="$CLONE/.claude/commands/fdr.md"
 [ -f "$SRC_CMD" ] || { echo "${RED}command de origem ausente: $SRC_CMD${NC}" >&2; exit 1; }
 
 DEST_DIR="$TARGET/.claude/commands"
-DEST_CMD="$DEST_DIR/fdr-v4.md"
+DEST_CMD="$DEST_DIR/fdr.md"
 
 if [ -f "$DEST_CMD" ] && [ "$FORCE" -eq 0 ]; then
   echo "${RED}ja existe: $DEST_CMD${NC}" >&2

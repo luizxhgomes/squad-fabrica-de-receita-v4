@@ -111,7 +111,7 @@ PYRC=$?
 
 # [5] Banner Prioridade 0 no command distribuido
 if [ -f .claude/commands/fdr.md ]; then
-  grep -q "Prioridade 0" .claude/commands/fdr.md && pass "command fdr-v4 tem banner Prioridade 0" || fail "command fdr-v4 sem banner Prioridade 0"
+  grep -q "Prioridade 0" .claude/commands/fdr.md && pass "command fdr tem banner Prioridade 0" || fail "command fdr sem banner Prioridade 0"
 else
   warn ".claude/commands/fdr.md ausente (ok fora do export)"
 fi
