@@ -689,7 +689,7 @@ components:
     # Ciclos e rituais de growth
     - wf-growth-cycle.yaml
     - wf-performance-sprint.yaml
-    - wf-roi-hunters-review.yaml
+    - wf-roi-review.yaml
     # Jornadas Fábrica de Receita
     - wf-diagnostico-completo.yaml
     - wf-onboarding-cliente.yaml

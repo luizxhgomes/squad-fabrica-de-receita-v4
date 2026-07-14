@@ -70,7 +70,7 @@
 |---|---|
 | `wf-growth-cycle.yaml` | Growth Cycle, Ciclo Completo de Crescimento em 90 Dias |
 | `wf-performance-sprint.yaml` | Performance Sprint, Ciclo Semanal de Performance |
-| `wf-roi-hunters-review.yaml` | ROI-first, Review Semanal de Performance |
+| `wf-roi-review.yaml` | ROI-first, Review Semanal de Performance |
 | `wf-diagnostico-completo.yaml` | Diagnóstico Completo de Receita (8 Travas + TOC + SPICED) |
 | `wf-onboarding-cliente.yaml` | Onboarding de Cliente (Pós-Venda Produto DR) |
 | `wf-fdr-revenue-cycle.yaml` | FDR Revenue Cycle (Institutional) |
