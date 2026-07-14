@@ -6,6 +6,7 @@
 
 # Configuração local do Claude Code
 .claude/settings.local.json
+.claude/agent-memory/
 
 # Sistema operacional
 .DS_Store
