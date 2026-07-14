@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Gate de seguranca de conteudo publico
-        run: bash scripts/check-public-safety.sh.
+        run: bash scripts/check-public-safety.sh .
 
   style:
     runs-on: ubuntu-latest
@@ -46,4 +46,4 @@ jobs:
           pip install yamllint
           yamllint -d relaxed squad.yaml workflows/*.yaml config/tokens.yaml || true
       - name: Heuristica de acentuacao (aviso)
-        run: bash scripts/check-public-safety.sh --accent-heuristic. || true
+        run: bash scripts/check-public-safety.sh --accent-heuristic . || true
