@@ -29,7 +29,7 @@ Esta tabela é a única taxonomia válida. Toda referência a travas neste repos
 | T3 | Decisão | Persuasão | Arsenal de Fechamento | O lead comparece à reunião e fecha? |
 | T4 | Compromisso | No-Show | Kit Anti-No-Show | O lead qualificado aparece na reunião agendada? |
 | T5 | Qualificação | Ruído | Playbook de Qualificação | Os leads têm perfil, capacidade e intenção real? |
-| T6 | Interesse | Rejeição | Landing Page V4 | O clique vira conversão na página? |
+| T6 | Interesse | Rejeição | Landing Page | O clique vira conversão na página? |
 | T7 | Atenção | Irrelevância | Pack de Criativos | O mercado vê a mensagem e se importa? |
 | T8 | Exposição | Invisibilidade | Setup de Mídia Otimizado | A marca aparece para a audiência certa? |
 
@@ -132,7 +132,7 @@ Esta tabela é a única taxonomia válida. Toda referência a travas neste repos
 
 **Causas comuns:** promessa fraca ou genérica, fricção no formulário, ausência de prova social, quebra de coerência entre anúncio e página, página lenta.
 
-**Artefato de solução:** Landing Page V4.
+**Artefato de solução:** Landing Page.
 
 **Métricas de saída:** CVR da LP, custo por lead, taxa de rejeição, tempo de carregamento.
 

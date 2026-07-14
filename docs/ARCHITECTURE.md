@@ -1,6 +1,6 @@
 # Arquitetura
 
-Este documento descreve como o Squad Fábrica de Receita V4 está organizado: a hierarquia de comando tier a tier, os 7 fluxos estratégicos, o protocolo de invocação, os Quality Gates, as business rules e as decisões de design que sustentam tudo.
+Este documento descreve como o Squad Fábrica de Receita está organizado: a hierarquia de comando tier a tier, os 7 fluxos estratégicos, o protocolo de invocação, os Quality Gates, as business rules e as decisões de design que sustentam tudo.
 
 ---
 
@@ -12,8 +12,8 @@ O squad é um sistema de comando em camadas. No topo, uma dupla decide (Master A
 graph TD
     subgraph T0["Tier 0 · Conselho e Marca"]
         G["Goldratt<br/>Master Advisor · TOC"]
-        D["Dener Lippert<br/>Chief · decisão final"]
-        B["Baziotti<br/>Brand Chief · gate visual"]
+        D["Cientista de Marketing<br/>Chief · decisão final"]
+        B["Experience Designer<br/>Brand Chief · gate visual"]
     end
 
     subgraph T1["Tier 1 · Orquestração"]
@@ -58,8 +58,8 @@ graph TD
 O topo da cadeia. Aqui se decide, não se executa.
 
 - **Goldratt (Master Advisor).** Clone mental do criador da Teoria das Restrições. Antes de qualquer recomendação do Chief, ele valida: qual é o constraint real que limita o Throughput, como subordinar todo o resto a esse constraint, como elevá-lo, e quando ele mudar, voltar ao passo 1. Aplica os 5 Focusing Steps e o método socrático (pergunta antes de responder).
-- **Dener Lippert (Chief).** Clone mental do Cientista do Marketing. É a autoridade de decisão final. Opera pela hierarquia de valores (Vantagem Competitiva primeiro, depois Dados, Teste, Margem, Retenção, Sistema, Longo Prazo) e pela equação fundamental Marketing igual a LTV dividido por CAC, com regra de ouro de 3 para 1. Decide qual fluxo ativar.
-- **Baziotti (Brand Chief).** Autoridade visual. Governa identidade, tipografia, acessibilidade WCAG AA e a proibição absoluta de azul. Atua como gate de qualidade criativa: nenhuma peça publicável sai do squad sem passar por ele.
+- **Cientista de Marketing (Chief).** Clone mental do Cientista do Marketing. É a autoridade de decisão final. Opera pela hierarquia de valores (Vantagem Competitiva primeiro, depois Dados, Teste, Margem, Retenção, Sistema, Longo Prazo) e pela equação fundamental Marketing igual a LTV dividido por CAC, com regra de ouro de 3 para 1. Decide qual fluxo ativar.
+- **Experience Designer (Brand Chief).** Autoridade visual. Governa identidade, tipografia, acessibilidade WCAG AA e a proibição absoluta de azul. Atua como gate de qualidade criativa: nenhuma peça publicável sai do squad sem passar por ele.
 
 ### Tier 1, Orquestração Operacional
 
@@ -79,7 +79,7 @@ Traduz estratégia em execução.
 
 ### Tier 3, Execução (Aquisição, Engajamento e Conversão, Retenção)
 
-Onde os 4 Pilares V4 viram ação.
+Onde os 4 Pilares viram ação.
 
 - **Aquisição** (Pilar Tráfego): `traffic-hunter`, `fabricante-aquisicao`, `growth-strategist`.
 - **Engajamento e Conversão** (Pilares 2 e 3): `conversion-optimizer`, `maquina-comercial`.
@@ -117,7 +117,7 @@ Quatro meta-agents em um tier acima do Chief, focados no portfólio e na saúde 
 
 Abaixo do conselho e da orquestração, os especialistas vivem em fluxos. Cada fluxo mapeia para um pilar ou trava.
 
-| Fluxo | Tier | Pilar V4 | Travas cobertas | Agents |
+| Fluxo | Tier | Pilar | Travas cobertas | Agents |
 |-------|:----:|----------|-----------------|--------|
 | Diagnóstico | 2 | (transversal) | Cegueira (T1) | diagnosticador, especialista-spiced, estrategista-receita |
 | Aquisição | 3 | Tráfego | Exposição (T8), Atenção (T7), Interesse (T6) | traffic-hunter, fabricante-aquisicao, growth-strategist |
@@ -125,7 +125,7 @@ Abaixo do conselho e da orquestração, os especialistas vivem em fluxos. Cada f
 | Retenção | 3 | Retenção | Retenção (T2) | retention-architect, guardiao-retencao |
 | Inteligência e Performance | 4 | (mensuração) | (todas, via métrica) | roi-analyst, growth-planner, revenue-team-architect |
 | Produto Destrava Receita | 5 | (execução) | (todas, via produto) | destrava-receita-consultant, ai-marketing-engineer, content-engine, ops-dr |
-| Brand e Design | 0 | (governança visual) | (gate criativo) | baziotti |
+| Brand e Design | 0 | (governança visual) | (gate criativo) | experience-designer |
 
 ---
 
@@ -134,10 +134,10 @@ Abaixo do conselho e da orquestração, os especialistas vivem em fluxos. Cada f
 Toda missão percorre a mesma sequência. Ela é a materialização do protocolo chief-first: o comando entra pelo topo, o Chief planeja, e só então a execução acontece.
 
 1. **Master Advisor (Goldratt).** Aplica a Teoria das Restrições ao problema: identifica o constraint (gargalo de Throughput), decide como explorar e subordinar, e reporta a análise ao Chief.
-2. **Chief (Dener Lippert).** Aplica o Protocolo de Consultoria de 5 passos (Diagnóstico com 3 perguntas, Provocação Estratégica com analogias, Framework Aplicável, Matemática do Negócio, Próximo Passo Claro) e decide qual fluxo estratégico ativar.
+2. **Chief (Cientista de Marketing).** Aplica o Protocolo de Consultoria de 5 passos (Diagnóstico com 3 perguntas, Provocação Estratégica com analogias, Framework Aplicável, Matemática do Negócio, Próximo Passo Claro) e decide qual fluxo estratégico ativar.
 3. **Sub-Orchestrator (fabrica-de-receita-master).** Roteia para os especialistas do fluxo ativado, coordena a execução, agrega os outputs e retorna a síntese.
 4. **Specialists.** Executam a task específica seguindo seus templates, skills e data. Reportam ao sub-orquestrador.
-5. **Brand Chief (Baziotti).** Acionado quando o output envolve peça visual ou copy publicável. Aplica o checklist de brand compliance e emite um veredito: aprovado, correções menores ou reprovado. Se reprovado, a peça volta ao especialista com feedback estruturado.
+5. **Brand Chief (Experience Designer).** Acionado quando o output envolve peça visual ou copy publicável. Aplica o checklist de brand compliance e emite um veredito: aprovado, correções menores ou reprovado. Se reprovado, a peça volta ao especialista com feedback estruturado.
 
 O único desvio permitido é o acesso direto a UM especialista isolado, sem orquestração de squad, para tarefas pontuais. Qualquer coisa que envolva mais de um especialista ou planejamento passa pelo Chief.
 
@@ -166,7 +166,7 @@ Sete regras codificam a matemática dura do método. Cada uma se ancora em um Qu
 | BR-002 | 1 trava por ciclo | QG-002 | sim | Cada ciclo de 90 dias ataca exatamente 1 trava, trocar exige aprovação do Chief |
 | BR-003 | Diagnóstico 2 de 3 | QG-002 | sim | Trava só é confirmada quando 2 dos 3 métodos de diagnóstico convergem |
 | BR-004 | Idioma e voz | QG-004 | sim | Acentuação completa, zero travessão, tom de voz canônico em todos os agentes |
-| BR-005 | Brand compliance | QG-003 | sim | Zero azul, logo oficial nunca recriado, contraste WCAG AA validado |
+| BR-005 | Brand compliance | QG-003 | sim | Paleta do brandbook, logo oficial nunca recriado, contraste WCAG AA validado |
 | BR-006 | Zero preço no repositório | QG-004 | sim | Nenhum valor monetário de produto, investimento sob consulta comercial |
 | BR-007 | Benchmarks de funil como referência | QG-001 | não | Todo diagnóstico compara métricas atuais com os benchmarks canônicos da base de conhecimento |
 
@@ -180,15 +180,15 @@ Por que um manifesto único:
 
 - **Sem divergência.** Não existe uma segunda lista que possa ficar dessincronizada. A validação (`scripts/validate-squad.sh`) confere que cada componente listado no manifesto existe no disco e vice-versa.
 - **Um lugar para auditar.** Quem quer entender o squad lê um arquivo, não caça a verdade em vários pontos.
-- **Command e agents amarrados ao manifesto.** O comando `/fdr-v4` carrega o manifesto, faz health check dos agents declarados, adota a persona do Chief (arquivo canônico em `agents/`) e delega. O comando não reimplementa a hierarquia, ele a lê.
+- **Command e agents amarrados ao manifesto.** O comando `/fdr-` carrega o manifesto, faz health check dos agents declarados, adota a persona do Chief (arquivo canônico em `agents/`) e delega. O comando não reimplementa a hierarquia, ele a lê.
 
 ### Como command e agents se relacionam
 
-O comando `/fdr-v4` é fino de propósito. Ele não sabe estratégia de receita: ele sabe carregar o manifesto e entrar pelo Chief. Toda a inteligência vive nos arquivos de persona em `agents/`. O comando faz 4 coisas:
+O comando `/fdr-` é fino de propósito. Ele não sabe estratégia de receita: ele sabe carregar o manifesto e entrar pelo Chief. Toda a inteligência vive nos arquivos de persona em `agents/`. O comando faz 4 coisas:
 
 1. Carrega o manifesto `squad.yaml`.
 2. Valida no filesystem os agents declarados em `components.agents`.
-3. Adota a persona do Chief (`agents/dener-lippert.md`), o entry agent canônico.
+3. Adota a persona do Chief (`agents/cientista-de-marketing.md`), o entry agent canônico.
 4. A partir daí, o Chief planeja e delega, seguindo o protocolo de invocação de 5 passos.
 
-Assim, editar a inteligência do squad significa editar os arquivos de persona e o manifesto, nunca o comando. O comando permanece estável enquanto o método evolui.
+Assim, editar a inteligência do squad significa editar os arquivos de persona e o manifesto, nunca o comando. O comando permanece estável enquanto método evolui.

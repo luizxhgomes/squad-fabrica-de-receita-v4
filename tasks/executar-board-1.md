@@ -30,7 +30,7 @@ Checklist:
 ```yaml
 task_id: executar-board-1
 agent: dr-chief
-squad: destrava-v4
+squad: destrava
 version: 1.0.0
 estimated_time: 120min
 prerequisite: diagnosticar-trava

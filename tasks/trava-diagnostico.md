@@ -105,14 +105,14 @@ Para cada trava, avaliar de 0 a 10 (0 = trava crítica, 10 = sem problema):
 
 | Trava | Score (0-10) | Evidências | Sintomas Identificados |
 |-------|-------------|------------|----------------------|
-| CEGUEIRA | ? | | |
-| RETENÇÃO | ? | | |
-| DECISÃO | ? | | |
-| COMPROMISSO | ? | | |
-| QUALIFICAÇÃO | ? | | |
-| INTERESSE | ? | | |
-| ATENÇÃO | ? | | |
-| EXPOSIÇÃO | ? | | |
+| CEGUEIRA |? | | |
+| RETENÇÃO |? | | |
+| DECISÃO |? | | |
+| COMPROMISSO |? | | |
+| QUALIFICAÇÃO |? | | |
+| INTERESSE |? | | |
+| ATENÇÃO |? | | |
+| EXPOSIÇÃO |? | | |
 
 **Critérios de Score:**
 - 0-3: Trava crítica: impacto imediato na receita

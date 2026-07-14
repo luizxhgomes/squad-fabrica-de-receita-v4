@@ -27,7 +27,7 @@ Checklist:
 
 **Agent:** @traffic-hunter
 **Trigger:** `*traffic-strategy`
-**Objetivo:** Criar estratégia completa de tráfego para o Pilar 1 V4: mínimo CAC, máximo volume qualificado
+**Objetivo:** Criar estratégia completa de tráfego para o Pilar 1: mínimo CAC, máximo volume qualificado
 
 ---
 

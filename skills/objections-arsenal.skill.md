@@ -28,10 +28,10 @@ Tratar objeções de fechamento do DR-X sem improviso. Cada objeção é classif
 ### Passo 1: Aplicar o framework LAER
 
 ```
-L, Listen      (Ouvir sem interromper)
+L, Listen (Ouvir sem interromper)
 A, Acknowledge (Reconhecer sem concordar)
-E, Explore     (Explorar a objeção com perguntas)
-R, Respond     (Responder com evidência)
+E, Explore (Explorar a objeção com perguntas)
+R, Respond (Responder com evidência)
 ```
 
 ### Passo 2: Classificar a objeção contra as 10 do arsenal e responder

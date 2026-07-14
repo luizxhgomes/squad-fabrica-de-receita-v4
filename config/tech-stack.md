@@ -1,4 +1,4 @@
-# Tech Stack: Squad Fábrica de Receita V4
+# Tech Stack: Squad Fábrica de Receita
 
 ## MarTech Stack Recomendado (AI-First)
 

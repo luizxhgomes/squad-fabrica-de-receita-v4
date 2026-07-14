@@ -1,7 +1,7 @@
-# MOTION-SYSTEM.md: Sistema de animação do squad fabrica-de-receita-v4
+# MOTION-SYSTEM.md: Sistema de animação do squad fabrica-de-receita
 
 > Framework oficial: **Remotion** (React Video Framework).
-> Brand authority: agente baziotti.
+> Brand authority: agente experience-designer.
 > Manual aplicável a toda animação produzida pelo squad: landing pages, redes sociais, dashboards, design system, vídeos institucionais, audiograms.
 > Compliance 100% ao DESIGN.md, REBRANDING-RULES.md e às regras de orquestração do squad.
 
@@ -18,7 +18,7 @@ Animação não é exceção ao brandbook. Todas as cores vêm de `design/tokens
 Toda animação responde a uma das três funções:
 
 - **Atenção:** chamar o olho para o elemento mais importante (hero, CTA, número impactante).
-- **Hierarquia:** ordenar a leitura ao revelar elementos em sequência (timeline das 8 travas, steps do método V4).
+- **Hierarquia:** ordenar a leitura ao revelar elementos em sequência (timeline das 8 travas, steps do método).
 - **Narrativa:** contar uma história em movimento (jornada do diagnóstico, transformação de receita).
 
 Animação sem função é decoração pura. Decoração pura é proibida.
@@ -86,7 +86,7 @@ Aplicação típica em landing pages do Destrava Receita.
 Sequência:
 
 1. Background gradient hero (`--grad-brand-primary`: `#560303` para `#7A0A02` para `#FB2E0A`) entra com fade in 600ms.
-2. Logo V4 (PNG branco) entra com scale de 0.92 para 1.0, fade in 500ms, delay 200ms.
+2. Logo (PNG branco) entra com scale de 0.92 para 1.0, fade in 500ms, delay 200ms.
 3. Headline entra de baixo para cima 24px, fade in 500ms, delay 400ms.
 4. Subheadline entra de baixo para cima 16px, fade in 400ms, delay 600ms.
 5. CTA primário com glow vermelho pulsando lento (4s loop), delay 800ms.
@@ -100,7 +100,7 @@ Para números impactantes (100x, 800k, 82%, NRR 118%).
 - Conta de 0 até o valor final em 1.2 segundos.
 - Easing ease-out (rápido no início, desacelera no fim).
 - Tipografia Morganite Bold em tamanho de impacto (clamp até 115px desktop).
-- Cor `--v4-red-primary` (#E50914) sobre fundo claro, ou branco sobre fundo escuro.
+- Cor `---red-primary` (#E50914) sobre fundo claro, ou branco sobre fundo escuro.
 - Sufixo (x, k, %) entra fade in 200ms depois do número alcançar o valor final.
 
 ### 3.3 Step reveal (timeline das 8 travas)
@@ -128,14 +128,14 @@ Para sections internas de LP. Usar IntersectionObserver:
 - Animação: fade in 500ms, slide up 32px, delay zero.
 - Stagger entre filhos diretos: 100ms.
 
-### 3.6 Audiogram (trecho de podcast Dener)
+### 3.6 Audiogram (trecho de podcast Cientista de Marketing)
 
-Aplicação para Reels e TikTok do Dener falando.
+Aplicação para Reels e TikTok do Cientista de Marketing falando.
 
 - Background vermelho profundo sólido (`#280000`).
 - Forma de onda animada acompanhando a faixa de áudio (cor `#E50914`).
 - Legenda (caption) sincronizada, fonte IBM Plex Sans Bold 32pt branco.
-- Logo V4 em canto inferior direito, fixo, branco.
+- Logo em canto inferior direito, fixo, branco.
 - Duração: 15 a 60 segundos.
 - Output: 1080x1920 a 30 fps, MP4 H.264.
 
@@ -172,7 +172,7 @@ A página `design/preview.html` ganha animações suaves de entrada:
 
 ### 4.4 Redes sociais
 
-- Reels e TikTok do Dener: produzir via Remotion com `remotion-animator`. Output 1080x1920 a 30 fps.
+- Reels e TikTok do Cientista de Marketing: produzir via Remotion com `remotion-animator`. Output 1080x1920 a 30 fps.
 - Carrosséis Instagram: capa com hero animado em PNG sequence, slides internos estáticos.
 - Stories: motion de 5 a 10 segundos com headline animada e CTA.
 
@@ -188,8 +188,8 @@ A página `design/preview.html` ganha animações suaves de entrada:
 ### 5.1 Ativação
 
 1. Specialist do squad identifica que a peça precisa de motion.
-2. Solicita aprovação ao brand-chief baziotti antes de animar.
-3. Baziotti valida que a animação tem função (atenção, hierarquia, narrativa) e cabe no orçamento performance.
+2. Solicita aprovação ao brand-chief experience-designer antes de animar.
+3. Experience Designer valida que a animação tem função (atenção, hierarquia, narrativa) e cabe no orçamento performance.
 
 ### 5.2 Execução
 
@@ -200,19 +200,19 @@ A página `design/preview.html` ganha animações suaves de entrada:
 
 ### 5.3 Validação
 
-Antes de publicar, baziotti aplica o checklist:
+Antes de publicar, experience-designer aplica o checklist:
 
 - [ ] Cores vêm de `design/tokens/tokens.json`. Nada fora da paleta.
 - [ ] Tipografia respeita a stack oficial (Morganite/Fjalla One display de impacto, IBM Plex Sans sistema/body).
 - [ ] Logo é arquivo PNG ou SVG real, nunca recriação tipográfica.
-- [ ] Nomenclatura V4 Company correta (padrão Sobrenome&Co do rebranding). Sem nomes de exemplo didático do manual em produção.
+- [ ] Nomenclatura a assessoria correta (padrão Sobrenome&Co do rebranding). Sem nomes de exemplo didático do manual em produção.
 - [ ] Timing dentro do range oficial (seção 1.3).
 - [ ] Versão reduced-motion existe.
 - [ ] 60 fps em mobile.
 - [ ] Tamanho do arquivo dentro do budget.
 - [ ] Português impecável.
 - [ ] Zero travessão em legendas.
-- [ ] Zero azul.
+- [ ] Paleta do brandbook.
 
 ---
 
@@ -220,13 +220,13 @@ Antes de publicar, baziotti aplica o checklist:
 
 ```
 design/motion/
-├── MOTION-SYSTEM.md        Este documento, fonte da verdade
-├── examples/               Snippets e mini-projetos de referência
-│   ├── hero-entrance.tsx   (futuro) componente Remotion para hero
-│   ├── stat-counter.tsx    (futuro) componente Remotion para counters
-│   ├── audiogram.tsx       (futuro) template de audiogram do Dener
-│   └── README.md           (futuro) índice navegável dos exemplos
-└── output/                 (gerado por workflows, gitignored)
+├── MOTION-SYSTEM.md Este documento, fonte da verdade
+├── examples/ Snippets e mini-projetos de referência
+│ ├── hero-entrance.tsx (futuro) componente Remotion para hero
+│ ├── stat-counter.tsx (futuro) componente Remotion para counters
+│ ├── audiogram.tsx (futuro) template de audiogram do Cientista de Marketing
+│ └── README.md (futuro) índice navegável dos exemplos
+└── output/ (gerado por workflows, gitignored)
 ```
 
 ---
@@ -241,4 +241,4 @@ design/motion/
 
 ---
 
-*MOTION-SYSTEM.md, versão 1.0.0, criado em 2026-05-08 por aiox-master sob direção do brand-chief baziotti. Owner permanente: baziotti.*
+*MOTION-SYSTEM.md, versão 1.0.0, criado em 2026-05-08 por aiox-master sob direção do brand-chief experience-designer. Owner permanente: experience-designer.*

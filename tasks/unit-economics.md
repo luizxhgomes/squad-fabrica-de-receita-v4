@@ -22,7 +22,7 @@ checklist:
   - "[ ] Payback de CAC comparado ao ciclo de caixa"
   - "[ ] Veredito e ação prioritária registrados"
 quality_gates: [QG-001, QG-004]
-usado_por_workflows: [wf-onboarding-cliente, wf-roi-hunters-review]
+usado_por_workflows: [wf-onboarding-cliente, wf-roi-first-review]
 ---
 # Task: unit-economics
 
@@ -42,10 +42,10 @@ ausente vira pendência de instrumentação (T1 Cegueira), não suposição.
 ### Passo 2: Cálculo canônico
 
 ```
-LTV  = ticket médio x margem de contribuição x tempo de vida (meses)
-CAC  = (mídia + time de marketing/vendas + ferramentas) / novos clientes do período
+LTV = ticket médio x margem de contribuição x tempo de vida (meses)
+CAC = (mídia + time de marketing/vendas + ferramentas) / novos clientes do período
 LTV:CAC = LTV / CAC
-Payback = CAC / (ticket médio x margem de contribuição)   [em meses]
+Payback = CAC / (ticket médio x margem de contribuição) [em meses]
 ```
 
 Regras de rigor:

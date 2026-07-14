@@ -1,6 +1,6 @@
 # Fábrica de Receita: Knowledge Base Completa
 
-> Fonte: V4 Company, Metodologia Estratégica 2026
+> Fonte: a assessoria, Metodologia Estratégica 2026
 > Produto: Destrava Receita | Site: https://v0-2026-destrava-receita.vercel.app/
 
 ---
@@ -301,7 +301,7 @@ Acúmulo maior: 400 MQLs → 50 SQLs = Trava de QUALIFICAÇÃO ou DECISÃO
 
 ## Arquitetura de Receita (Revenue Architecture)
 
-A V4 Company integra 3 times em um único Revenue Team:
+A a assessoria integra 3 times em um único Revenue Team:
 
 ```
 MARKETING + VENDAS + CUSTOMER SUCCESS = Revenue Team
@@ -325,7 +325,7 @@ Um problema de CS afeta retenção que afeta CAC (precisa adquirir mais para com
 ### DR-X: Destrava Raio-X
 - **Formato:** Diagnóstico de 45 dias (tier de entrada do portfólio)
 - **Elimina:** T1 Cegueira
-- **Condutor:** Franquia V4
+- **Condutor:** Franquia
 - **Entregáveis:**
   1. Diagnóstico completo das 8 travas
   2. Mapeamento do fluxo de receita atual
@@ -349,7 +349,7 @@ Um problema de CS afeta retenção que afeta CAC (precisa adquirir mais para com
 
 ### DR-E: Destrava Estratégico
 - **Formato:** Recorrência anual
-- **Recursos:** Tudo do DR-T + acesso C-Level V4 + especialistas opcionais + SLA de resposta 12h
+- **Recursos:** Tudo do DR-T + acesso C-Level + especialistas opcionais + SLA de resposta 12h
 - **Diferencial:** Ritmo 75% mais rápido que o DR-O
 - **Para quem:** Scale-ups e empresas acima de 200 mil reais por mês de faturamento
 
@@ -386,9 +386,9 @@ Um problema de CS afeta retenção que afeta CAC (precisa adquirir mais para com
 
 ---
 
-## A Garantia V4
+## A Garantia
 
-- **Garantia de Entrada:** V4 valida se o cliente está pronto antes de começar
+- **Garantia de Entrada:** valida se o cliente está pronto antes de começar
 - **Cashback de Crescimento:** Mecanismo de devolução se metas não forem atingidas
 
 ---

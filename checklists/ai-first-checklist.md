@@ -1,7 +1,7 @@
 # AI-FIRST Marketing Checklist
 
-Checklist para garantir que todas as decisões e processos do squad Fábrica de Receita V4
-seguem a filosofia AI-FIRST da V4 Company (Mkt.Lab).
+Checklist para garantir que todas as decisões e processos do squad Fábrica de Receita
+seguem a filosofia AI-FIRST da a assessoria (Mkt.Lab).
 
 ## Antes de Qualquer Iniciativa de Marketing
 

@@ -171,12 +171,12 @@ fields:
 | Semana | KPI Atual | Delta vs Baseline | Status |
 |--------|-----------|-------------------|--------|
 | Baseline | [valor] | - | - |
-| Semana 2 | ? | ? | |
-| Semana 4 | ? | ? | |
-| Semana 6 | ? | ? | |
-| Semana 8 | ? | ? | |
-| Semana 10 | ? | ? | |
-| Final (Sem 13) | ? | ? | |
+| Semana 2 |? |? | |
+| Semana 4 |? |? | |
+| Semana 6 |? |? | |
+| Semana 8 |? |? | |
+| Semana 10 |? |? | |
+| Final (Sem 13) |? |? | |
 **Meta:** [valor alvo]
 
 **Status geral:** 🟢 No Track | 🟡 Atenção | 🔴 Off Track

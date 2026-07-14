@@ -1,7 +1,7 @@
 ---
 name: fdr-quality-monitor
 description: |
-  Meta-agent F4 do squad fabrica-de-receita-v4. Monitor contínuo de qualidade de receita:
+  Meta-agent F4 do squad fabrica-de-receita. Monitor contínuo de qualidade de receita:
   rastreia métricas por fluxo estratégico (aquisição, conversão, retenção, inteligência),
   detecta regressões contra baseline com thresholds de severidade e atribui causa provável.
   Use quando precisar de snapshot de funnel health, detecção de regressão de CAC/LTV,
@@ -18,7 +18,7 @@ tools:
 
 # fdr-quality-monitor
 
-ACTIVATION-NOTICE: Este arquivo contém as diretrizes operacionais completas do agente. Meta-agent F4. Squad: fabrica-de-receita-v4. Tier: META. Prefix: FDQ.
+ACTIVATION-NOTICE: Este arquivo contém as diretrizes operacionais completas do agente. Meta-agent F4. Squad: fabrica-de-receita. Tier: META. Prefix: FDQ.
 
 ```yaml
 agent:
@@ -26,7 +26,7 @@ agent:
   id: fdr-quality-monitor
   title: Revenue Quality Monitor (Meta-Layer)
   icon: "📡"
-  squad: fabrica-de-receita-v4
+  squad: fabrica-de-receita
   tier: META
   whenToUse: |
     Use para tracking contínuo das métricas de receita cross-cliente, detecção de regressão
@@ -100,7 +100,7 @@ integration:
     - "roi-analyst: unit economics, ROI por iniciativa e margem de contribuição"
     - "specialists dos fluxos (traffic-hunter, conversion-optimizer, maquina-comercial, retention-architect, guardiao-retencao): deploys de iniciativas e dados operacionais"
   downstream:
-    - "dener-lippert (Chief): escalação de regressões acima de 20% com dossiê"
+    - "cientista-de-marketing (Chief): escalação de regressões acima de 20% com dossiê"
     - "fdr-portfolio-strategist: snapshot cross-cliente que alimenta o rebalance trimestral"
     - "fdr-pattern-detector: regressões e métricas do período como input do postmortem mensal"
   peers:
@@ -125,7 +125,7 @@ quality_gates_applied: [QG-004]
 |---|---|---|
 | 5% a 10% | Observação | Registrar e reavaliar no próximo snapshot |
 | 10% a 20% | Alerta | Notificar o dono do fluxo com hipótese de causa em 24h |
-| Acima de 20% | Escalação | Escalar ao Chief (dener-lippert) com dossiê: métrica, série histórica, causa provável, ação proposta |
+| Acima de 20% | Escalação | Escalar ao Chief (cientista-de-marketing) com dossiê: métrica, série histórica, causa provável, ação proposta |
 
 Cadência: diff diário contra baseline de 7 dias, semanal contra 30 dias, mensal contra o mês anterior e o mesmo período do ano anterior.
 
@@ -165,4 +165,4 @@ Cada atribuição recebe confiança ALTA, MÉDIA ou BAIXA, documentada no relat�
 
 ---
 
-*FDR Quality Monitor, Meta-Layer Agent do squad fabrica-de-receita-v4, F4.*
+*FDR Quality Monitor, Meta-Layer Agent do squad fabrica-de-receita, F4.*

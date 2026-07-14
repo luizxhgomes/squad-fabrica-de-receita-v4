@@ -24,7 +24,7 @@ Checklist:
 
 # Task: revenue-architecture
 
-**Agent:** @fabrica-de-receita-master (Fabio) | @revenue-team-architect (Rian)
+**Agent:** @fabrica-de-receita-master (Fabio) | @revenue-team-architect (Rui)
 **Trigger:** `*revenue-architecture`
 **Objetivo:** Projetar arquitetura de Revenue Team unificado (Marketing + Vendas + CS)
 
@@ -74,10 +74,10 @@ Para cada par de times, identificar:
 #### SCORE DE INTEGRAÇÃO ATUAL:
 | Elo | Score (0-10) | Principal Problema |
 |----|-------------|-------------------|
-| Marketing → Vendas | ? | |
-| Vendas → CS | ? | |
-| CS → Marketing | ? | |
-| **Total / 30** | ? | |
+| Marketing → Vendas |? | |
+| Vendas → CS |? | |
+| CS → Marketing |? | |
+| **Total / 30** |? | |
 ```
 
 ---
@@ -98,11 +98,11 @@ Exemplos: MRR, Receita Total, NRR (Net Revenue Retention)
 ```
 Revenue Leader (CRO ou equivalente)
 ├── Marketing Team
-│   ├── KPIs próprios: [CAC, MQL, CPL...]
-│   └── SLA para Vendas: [definição de MQL + prazo de entrega]
+│ ├── KPIs próprios: [CAC, MQL, CPL...]
+│ └── SLA para Vendas: [definição de MQL + prazo de entrega]
 ├── Sales Team
-│   ├── KPIs próprios: [Taxa de fechamento, ciclo, ACV...]
-│   └── SLA para CS: [handoff document + prazo]
+│ ├── KPIs próprios: [Taxa de fechamento, ciclo, ACV...]
+│ └── SLA para CS: [handoff document + prazo]
 └── CS Team
     ├── KPIs próprios: [Churn, NPS, Expansion...]
     └── SLA para Marketing: [casos de sucesso + feedback loop]

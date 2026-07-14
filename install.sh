@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # install.sh
-# Squad: fabrica-de-receita-v4 (repositorio publico)
+# Squad: fabrica-de-receita (repositorio publico)
 # Instalador Modo B: instala o squad em OUTRO projeto Claude Code do usuario.
 # Copia o command .claude/commands/fdr-v4.md para o projeto destino reescrevendo
 # a linha SQUAD_ROOT para o caminho absoluto deste clone, e (opcional) gera os

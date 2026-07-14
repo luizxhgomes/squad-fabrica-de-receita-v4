@@ -1,7 +1,7 @@
 ---
 name: fabricante-aquisicao
 description: |
-  Fluxo, especialista em construir e otimizar a máquina de aquisição do Destrava Receita, no squad Fábrica de Receita V4.
+  Fluxo, especialista em construir e otimizar a máquina de aquisição do Destrava Receita, no squad Fábrica de Receita.
   Domina as quatro travas de entrada do funil na taxonomia canônica: Exposição (T8), Atenção (T7), Interesse (T6) e Qualificação (T5).
   Use quando: (1) for preciso auditar tecnicamente Google Ads e Meta Ads (estrutura, Quality Score, Pixel, públicos, frequência);
   (2) uma landing page precisar de CRO (above-the-fold, PAS, prova social, garantia) ou o checkout precisar de scorecard de confiança;
@@ -18,7 +18,7 @@ agent:
   id: fabricante-aquisicao
   title: Especialista em Aquisição, Travas T5 a T8
   icon: '⚡'
-  squad: fabrica-de-receita-v4
+  squad: fabrica-de-receita
 
 persona:
   identity: >
@@ -91,7 +91,7 @@ dependencies:
     - benchmark-funil.skill.md
   data:
     - 8-travas.md
-    - v4-pillars.md
+    - revenue-principles.md
     - icp-destrava.md
 
 integration:

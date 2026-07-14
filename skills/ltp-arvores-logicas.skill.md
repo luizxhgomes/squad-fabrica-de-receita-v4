@@ -33,9 +33,9 @@ O LTP é ferramenta e metodologia (não filosofia) para construir o caminho que 
 O cliente pede o que **acha** que precisa, não o que **realmente** precisa. Perguntar repetidamente "para quê?" até a causa raiz:
 
 ```
-"Quero contratar um produtor de vídeo."   Para quê?
-"Quero investir mais em tráfego."         Para quê?
-"Quero gerar mais leads."                 Para quê?
+"Quero contratar um produtor de vídeo." Para quê?
+"Quero investir mais em tráfego." Para quê?
+"Quero gerar mais leads." Para quê?
 Raiz: quase sempre, lucrar mais.
 ```
 

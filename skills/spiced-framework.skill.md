@@ -42,7 +42,7 @@ Médico bom: investiga → descobre estresse crônico → trata a causa
 
 VENDAS FUNCIONA IGUAL:
 Sintoma = o que o cliente DIZ ("preciso de mais leads")
-Doença  = a dor REAL ("não consigo converter os leads que já tenho")
+Doença = a dor REAL ("não consigo converter os leads que já tenho")
 Remédio = a solução CERTA (otimizar conversão, não gerar mais tráfego)
 ```
 
@@ -291,16 +291,16 @@ DECISÃO → Seção "Próximos passos / Processo"
 
 ### Exercício 1: Traduza necessidade em dor
 Para cada frase do cliente, encontre a dor real:
-1. "Preciso de um site novo" → ?
-2. "Quero investir em Google Ads" → ?
-3. "Preciso contratar uma agência" → ?
-4. "Quero mais seguidores no Instagram" → ?
+1. "Preciso de um site novo" →?
+2. "Quero investir em Google Ads" →?
+3. "Preciso contratar uma agência" →?
+4. "Quero mais seguidores no Instagram" →?
 
 ### Exercício 2: Quantifique o impacto
 Para um cliente que fatura R$[F]/mês:
-- Se resolver a dor, quanto ele GANHA a mais? → ?
-- Se NÃO resolver, quanto PERDE por mês? → ?
-- Qual a MELHORIA operacional? → ?
+- Se resolver a dor, quanto ele GANHA a mais? →?
+- Se NÃO resolver, quanto PERDE por mês? →?
+- Qual a MELHORIA operacional? →?
 
 ### Exercício 3: Roleplay de discovery
 Simule uma call de 15 minutos usando SPICED:

@@ -2,8 +2,8 @@
 name: benchmark-funil
 description: |
   Comparação das métricas atuais do funil contra os benchmarks de
-  referência da knowledge base e os benchmarks V4 (mentalidade ROI
-  Hunters V4). Devolve os gaps por métrica com severidade e as travas
+  referência da knowledge base e os benchmarks (mentalidade ROI
+  Hunters). Devolve os gaps por métrica com severidade e as travas
   candidatas associadas a cada gap, como entrada para o diagnóstico
   das 8 travas.
 inputs:
@@ -13,7 +13,7 @@ outputs:
   - travas_candidatas: "travas associadas aos maiores gaps"
 wraps:
   - data/fabrica-de-receita-kb.md
-  - data/v4-pillars.md
+  - data/revenue-principles.md
 applies_to_qg: QG-001
 business_rule: BR-007
 agent_origin: roi-analyst
@@ -46,13 +46,13 @@ Operacionaliza o Método 2 de diagnóstico científico (Comparação de Benchmar
 | Churn Mensal | >5% | 2-3% | <1% |
 | LTV:CAC | <2:1 | 3:1 | 5:1+ |
 
-### Passo 3: Aplicar os benchmarks V4 (mentalidade ROI Hunters V4)
+### Passo 3: Aplicar os benchmarks (mentalidade ROI-first)
 
 - LTV:CAC ratio: 3:1 saudável, 5:1 excelente
 - Payback period: menos de 12 meses saudável, menos de 6 meses excelente
 - ROAS mínimo: 3x para e-commerce, 2x para serviços
 
-Princípios ROI Hunters V4 que regem a leitura:
+Princípios ROI-first que regem a leitura:
 - ROI é a única métrica que importa no final
 - Toda decisão de marketing precisa ser justificada por dados
 - Se o ROAS está abaixo do mínimo, a campanha morre, sem exceções
@@ -61,7 +61,7 @@ Princípios ROI Hunters V4 que regem a leitura:
 
 ### Passo 4: Classificar a severidade de cada gap
 
-- CRÍTICO: métrica na faixa "Abaixo" do benchmark (ou ROAS abaixo do mínimo V4)
+- CRÍTICO: métrica na faixa "Abaixo" do benchmark (ou ROAS abaixo do mínimo)
 - ATENÇÃO: métrica na faixa de mercado mas distante do "Excelente"
 - SAUDÁVEL: métrica na faixa de mercado ou acima
 
@@ -127,6 +127,6 @@ Executar na fase de diagnóstico (Identificar) e nos check-ins do ciclo de 90 di
 ## Reference
 
 - Benchmarks de referência e Método 2 de diagnóstico: `data/fabrica-de-receita-kb.md`
-- Benchmarks V4, princípios ROI Hunters V4 e as 9 Leis do Marketing (Dener Lippert): `data/v4-pillars.md`
+- Benchmarks, princípios ROI-first e as 9 Leis do Marketing (Cientista de Marketing): `data/revenue-principles.md`
 - BR-007 (benchmarks de funil como referência, non-blocking): `squad.yaml` business_rules
 - Handoff: travas candidatas → skill `diagnostico-8-travas` (confirmação com regra 2 de 3)

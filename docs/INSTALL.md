@@ -1,6 +1,6 @@
 # Instalação
 
-O Squad Fábrica de Receita V4 roda dentro do Claude Code. Há 2 formas de usar: trabalhar direto no repositório clonado (Modo A) ou instalar o squad dentro de um projeto seu (Modo B). Escolha uma.
+O Squad Fábrica de Receita roda dentro do Claude Code. Há 2 formas de usar: trabalhar direto no repositório clonado (Modo A) ou instalar o squad dentro de um projeto seu (Modo B). Escolha uma.
 
 ---
 
@@ -19,15 +19,15 @@ Opcional: **Python 3.12** com `pyyaml`, apenas se você quiser rodar a validaç�
 O caminho mais rápido. Você clona o repositório e trabalha dentro dele. O Claude Code descobre a config local do próprio squad por descoberta ascendente de diretórios.
 
 ```bash
-git clone https://github.com/luizxhgomes/squad-fabrica-de-receita-v4.git
-cd squad-fabrica-de-receita-v4
+git clone https://github.com/luizxhgomes/squad-fabrica-de-receita.git
+cd squad-fabrica-de-receita
 claude
 ```
 
 Dentro do Claude Code, acione o squad:
 
 ```
-/fdr-v4 quero diagnosticar onde minha receita está travando
+/fdr- quero diagnosticar onde minha receita está travando
 ```
 
 Use o Modo A quando o objetivo é explorar o squad, estudar o método ou tocar uma missão de receita de forma isolada.
@@ -66,7 +66,7 @@ bash install.sh --target ~/meu-projeto --with-agents
 bash install.sh --target ~/meu-projeto --uninstall
 ```
 
-Depois de instalar, abra o Claude Code no seu projeto e o comando `/fdr-v4` estará disponível ali.
+Depois de instalar, abra o Claude Code no seu projeto e o comando `/fdr-` estará disponível ali.
 
 ---
 
@@ -77,7 +77,7 @@ O squad opera **sem nenhuma integração externa**. As integrações são opcion
 Se você for usar alguma integração, configure as chaves localmente:
 
 ```bash
-cp .env.example .env
+cp.env.example.env
 ```
 
 Abra o `.env` e preencha apenas as chaves que a sua operação usa. Regras de segurança:
@@ -93,14 +93,14 @@ Abra o `.env` e preencha apenas as chaves que a sua operação usa. Regras de se
 
 ### Por que os subagents têm prefixo `fdr-`?
 
-Alguns agents da camada meta usam o prefixo `fdr-` (por exemplo `fdr-quality-monitor`) para evitar colisão de nome quando o squad convive com outros squads no mesmo workspace. O prefixo é um namespace: garante que `fdr-quality-monitor` não seja confundido com um monitor de qualidade de outro contexto. Os nomes internos do squad permanecem estáveis, o prefixo só resolve unicidade global.
+Alguns agents da camada meta usam o prefixo `fdr-` (por exemplo `fdr-quality-monitor`) para evitar colisão de nome quando squad convive com outros squads no mesmo workspace. O prefixo é um namespace: garante que `fdr-quality-monitor` não seja confundido com um monitor de qualidade de outro contexto. Os nomes internos do squad permanecem estáveis, o prefixo só resolve unicidade global.
 
-### Como atualizo o squad?
+### Como atualizo squad?
 
 No Modo A, um `git pull` traz a versão mais recente:
 
 ```bash
-cd squad-fabrica-de-receita-v4
+cd squad-fabrica-de-receita
 git pull
 ```
 

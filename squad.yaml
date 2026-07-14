@@ -1,19 +1,19 @@
-name: fabrica-de-receita-v4
+name: fabrica-de-receita
 version: 3.0.0
-maturity: F4  # Institutional (F0→F4 via /squad-modernize 2026-05-14, P-FDR-4)
+maturity: F4 # Institutional (F0→F4 via /squad-modernize 2026-05-14, P-FDR-4)
 patternPrefix: FDR
 description: |
-  Squad estratégico de Receita V4. Evolução de um squad interno de growth
+  Squad estratégico de Receita . Evolução de um squad interno de growth
   fundido com a metodologia Fábrica de Receita, promovido a squad autônomo
   com hierarquia de comando reorganizada por fluxos estratégicos.
 
   Arquitetura de comando:
     - Master Advisor: Goldratt (TOC, Throughput, Conselheiro do Chief)
-    - Chief: Dener Lippert (Cientista do Marketing, fundador V4 Company)
+    - Chief: Cientista de Marketing (Cientista do Marketing, fundador a assessoria)
     - Sub-Orchestrator: fabrica-de-receita-master (coordenação operacional)
     - Specialists: 19 agentes organizados em 7 fluxos estratégicos
 
-  Combina os 4 Pilares V4 (Tráfego, Engajamento, Conversão, Retenção),
+  Combina os 4 Pilares (Tráfego, Engajamento, Conversão, Retenção),
   metodologia Fábrica de Receita (8 Travas + STEP + Ciclos 90 dias),
   Teoria das Restrições (TOC) aplicada a receita, e produtos
   Destrava Receita (DR-X, DR-O, DR-T, DR-E).
@@ -24,7 +24,7 @@ author: Luiz Henrique
 author_instagram: "@luizhenriquexpro"
 maintainer: "Luiz Henrique (@luizhenriquexpro), github.com/luizxhgomes"
 license: MIT
-slashPrefix: fdr-v4
+slashPrefix: fdr-
 category: revenue-strategy
 
 aiox:
@@ -36,7 +36,7 @@ heritage:
   promoted_at: "2026-05-08"
   promoted_by: aiox-master
   rationale: |
-    A metodologia V4 e os agentes de receita servem múltiplos contextos.
+    A metodologia e os agentes de receita servem múltiplos contextos.
     Promovido a squad autônomo e reorganizado com hierarquia de chief e
     advisor explícita.
 
@@ -111,23 +111,23 @@ orchestration_rules:
   voice_manual:
     severity: NON_NEGOTIABLE
     scope: "Tom de voz de TODOS os agentes deste squad"
-    canonical_source: data/dener-voice-manual.md
-    fallback_source: agents/dener-lippert.md
+    canonical_source: data/revenue-principles.md
+    fallback_source: agents/cientista-de-marketing.md
     rule: |
       Todo texto produzido por qualquer agente deste squad deve seguir o tom de voz
-      do Dener Lippert, conforme manual extraído de fontes públicas e adaptado em
-      data/dener-voice-manual.md. Os specialists modulam para sua função, mas
+      do Cientista de Marketing, conforme manual extraído de fontes públicas e adaptado em
+      data/revenue-principles.md. Os specialists modulam para sua função, mas
       preservam vocabulário, ritmo, princípios e anti-padrões definidos no manual.
     integration:
-      - "Antes de gerar qualquer output, o agente DEVE consultar data/dener-voice-manual.md"
-      - "O Chief (dener-lippert) opera no tom completo, com plena autoridade"
+      - "Antes de gerar qualquer output, o agente DEVE consultar data/revenue-principles.md"
+      - "O Chief (cientista-de-marketing) opera no tom completo, com plena autoridade"
       - "O Master Advisor (goldratt) modula para o registro do conselheiro estratégico, preservando a base"
       - "Os tiers operacionais herdam vocabulário e princípios, ajustam ritmo conforme contexto"
 
   design_system:
     severity: NON_NEGOTIABLE
     scope: "Identidade visual de TODOS os outputs visuais e copy do squad"
-    authority: baziotti
+    authority: experience-designer
     artifacts:
       master_doc: design/DESIGN.md
       tokens: design/tokens/tokens.json
@@ -137,20 +137,20 @@ orchestration_rules:
       - id: HIERARQUIA_INSTITUCIONAL
         severity: NON_NEGOTIABLE
         rule: |
-          Hierarquia de marca: V4 Company é a referência máxima. Toda peça produzida
-          pelo squad usa a identidade Fábrica de Receita sob o umbrella V4 Company.
+          Hierarquia de marca: a assessoria é a referência máxima. Toda peça produzida
+          pelo squad usa a identidade Fábrica de Receita sob o umbrella a assessoria.
           Nomes de franquias nominais aparecem apenas em material didático de
           rebranding como exemplos. NUNCA usar em produção.
-        owner: baziotti
+        owner: experience-designer
       - id: REBRANDING_COMPLIANCE
         severity: NON_NEGOTIABLE
         rule: |
-          Compliance 100% ao Manual de Rebranding V4 Company (2022).
+          Compliance 100% ao Manual de Rebranding a assessoria (2022).
           Documento canônico em design/references/REBRANDING-RULES.md.
-          PPTX original em design/references/rebranding-v4-co-previa.pptx.
+          PPTX original em design/references/rebranding--co-previa.pptx.
           12 slides em design/references/rebranding-slides/slide-01.jpg a slide-12.jpg.
           Inclui regras de proporção (3X horizontal, 10X vertical), tipografia (Work Sans Semibold para sobrenome, Light para "&"), nomenclatura (Sobrenome&Co, máximo 2 sobrenomes) e os 6 anti-padrões de "O que NÃO fazer".
-        owner: baziotti
+        owner: experience-designer
       - id: NUNCA_INVENTAR_LOGO
         severity: NON_NEGOTIABLE
         rule: |
@@ -161,31 +161,31 @@ orchestration_rules:
           Proibido: traçar a logo manualmente em SVG ou Figma.
           Se o asset correto não estiver disponível em design/logos/, parar a produção e solicitar ao brand-chief.
           Esta regra é a primeira a ser checada antes de qualquer publicação.
-        owner: baziotti
+        owner: experience-designer
       - id: ZERO_AZUL
         severity: NON_NEGOTIABLE
-        rule: "Proibição absoluta de azul. A paleta é vermelha (#E50914 Vermelho V4, brand 2026) com neutros."
-        owner: baziotti
+        rule: "Proibição absoluta de azul. A paleta é vermelha (#E50914 Vermelho , brand 2026) com neutros."
+        owner: experience-designer
       - id: PALETA_OFICIAL
         rule: "Apenas cores documentadas em design/tokens/tokens.json. Nada inventado."
-        owner: baziotti
+        owner: experience-designer
       - id: TIPOGRAFIA_OFICIAL
         rule: |
-          Brand V4 Company 2026: Morganite (display e impacto, pesos 500/600/700) com Fjalla One (display alternativa).
+          Brand a assessoria 2026: Morganite (display e impacto, pesos 500/600/700) com Fjalla One (display alternativa).
           Sistema, heading e body: IBM Plex Sans (400/500/600). Self-hosted em design-system/fonts/.
           Máximo de 2 fontes por peça. Morganite é pontual, em chamadas de impacto.
-        owner: baziotti
+        owner: experience-designer
       - id: WCAG_AA
         rule: "Contraste mínimo 4.5:1 para body, 3:1 para large text. Validar antes de publicar."
-        owner: baziotti
+        owner: experience-designer
       - id: LOGO_INTACTO
         rule: |
           Logos oficiais sem rotação, distorção, mudança de cor ou efeito.
           Variantes permitidas: vermelho, branco, preto.
-          Composição obrigatória: isotipo V4, separador vertical, "Sobrenome&Co".
+          Composição obrigatória: isotipo , separador vertical, "Sobrenome&Co".
           Ordem nunca invertida. Proporção 3X (horizontal) ou 10X (vertical) preservada.
           Máximo 2 sobrenomes na composição.
-        owner: baziotti
+        owner: experience-designer
       - id: GRID_PROPORTIONALITY
         severity: NON_NEGOTIABLE
         rule: |
@@ -215,7 +215,7 @@ orchestration_rules:
             default_gap: 64px
             generous_gap: 96px
             compact_gap: 32px
-        owner: baziotti
+        owner: experience-designer
         applies_to: "Toda interface produzida pelo squad: preview do design system, LPs, dashboards, redes sociais, slides, banners, decks."
 
       - id: RESPONSIVE_PROPORTIONALITY
@@ -239,11 +239,11 @@ orchestration_rules:
           2. HIERARQUIA DE 5 NÍVEIS. Toda peça reconhece e respeita 5 níveis de respiro,
              em proporção fixa (ratio ≈ 2):
 
-             - section (entre blocos macro):       --space-section
-             - block   (interno de seção / card):  --space-block      ≈ section / 2
-             - group   (entre grupos dentro):      --space-group      ≈ block / 1.5
-             - element (entre elementos):          --space-element    ≈ group / 1.5
-             - tight   (gap pequeno):              --space-tight      ≈ element / 2
+             - section (entre blocos macro): --space-section
+             - block (interno de seção / card): --space-block ≈ section / 2
+             - group (entre grupos dentro): --space-group ≈ block / 1.5
+             - element (entre elementos): --space-element ≈ group / 1.5
+             - tight (gap pequeno): --space-tight ≈ element / 2
 
              Não inventar valores fora dessa escala. Tokens canônicos em
              config/tokens.yaml seção `spacing.fluid`.
@@ -277,21 +277,21 @@ orchestration_rules:
           - "Todo padding/gap em container responsivo é clamp() ou var() de token fluido"
           - "Razão entre níveis de respiro é constante (≈2) em qualquer viewport"
           - "min-width:0 em todo filho de grid; max-width em ch para colunas de texto"
-        owner: baziotti
+        owner: experience-designer
         applies_to: "Toda interface responsiva: brandbooks HTML, LPs, dashboards, decks digitais, dashboards de cliente, previews de design system."
   motion_system:
     severity: NON_NEGOTIABLE
     scope: "Animações e motion graphics em landing pages, dashboards, redes sociais e o próprio design system do squad"
-    authority: baziotti
+    authority: experience-designer
     framework: Remotion
     skills:
       - id: remotion-animator
         purpose: "Criação de vídeos programáticos, motion graphics, animações, audiograms, TikTok/Reels com captions, carrosséis animados, conteúdo visual em geral"
         when_to_use: |
-          Quando o squad precisar produzir:
+          Quando squad precisar produzir:
           - Vídeo programático (LP hero, anúncio, carousel animado)
           - Motion graphics com tipografia animada
-          - Audiograma de podcast ou trecho do Dener
+          - Audiograma de podcast ou trecho do Cientista de Marketing
           - TikTok ou Reels com captions automáticas
           - Walkthrough animado de produto Destrava Receita
           - Pré-visualizações motion do design system do squad
@@ -316,10 +316,10 @@ orchestration_rules:
       - id: PERFORMANCE_BUDGET
         rule: "Mobile first. 60fps obrigatório. Vídeos exportados em H.264 para web, max 5MB por trecho de até 6 segundos."
     use_cases:
-      lp_hero: "Animação de entrada do logo V4 + headline"
+      lp_hero: "Animação de entrada do logo + headline"
       stat_counter: "Contagem animada de números impactantes (100x, 800k, 82%)"
       step_reveal: "Progressão das 8 Travas como timeline animada"
-      audiogram: "Trecho de podcast do Dener com waveform e legenda"
+      audiogram: "Trecho de podcast do Cientista de Marketing com waveform e legenda"
       product_walkthrough: "Demonstração do produto DR-X em vídeo de até 60 segundos"
       design_system_intro: "Animação de abertura do preview.html mostrando paleta, logo e gradient hero"
 
@@ -384,7 +384,7 @@ business_rules:
     name: "Idioma e voz"
     applies_to: QG-004
     blocking: true
-    source: data/dener-voice-manual.md
+    source: data/revenue-principles.md
     rules:
       - "Acentuação completa do português em todo output"
       - "Zero travessão em qualquer texto renderizável"
@@ -423,8 +423,8 @@ business_rules:
 
 tiers:
   master_advisor: goldratt
-  chief: dener-lippert
-  brand_chief: baziotti
+  chief: cientista-de-marketing
+  brand_chief: experience-designer
   tier_1_orquestracao: [fabrica-de-receita-master, orchestrator, dr-chief]
   tier_2_diagnostico: [diagnosticador, especialista-spiced, estrategista-receita]
   tier_3_execucao: [traffic-hunter, fabricante-aquisicao, growth-strategist, conversion-optimizer, maquina-comercial, retention-architect, guardiao-retencao]
@@ -436,9 +436,9 @@ tags:
   - growth-marketing
   - performance
   - ai-first
-  - v4-methodology
+  - -methodology
   - cientista-do-marketing
-  - dener-lippert
+  - cientista-de-marketing
   - goldratt
   - toc
   - teoria-das-restricoes
@@ -463,18 +463,18 @@ tags:
 # ============================================================================
 
 master_advisor: goldratt
-entry_agent: dener-lippert
+entry_agent: cientista-de-marketing
 sub_orchestrator: fabrica-de-receita-master
-brand_chief: baziotti
+brand_chief: experience-designer
 
 activation:
-  command: /fdr-v4
+  command: /fdr-
   aliases:
-    - /dener
+    - /cientista-de-marketing
     - /fdr
-    - /fabrica-v4
-    - /destrava-v4
-    - /v4-receita
+    - /fabrica-
+    - /destrava
+    - /-receita
     - /cientista-marketing
 
 # ============================================================================
@@ -489,25 +489,25 @@ strategic_flows:
     description: |
       Camada-mestre de pensamento estratégico. Goldratt aconselha o Chief em
       decisões de Throughput, identificação do Constraint real (TOC) e
-      Effect-Cause-Effect logic. Dener decide com base em Vantagem Competitiva,
+      Effect-Cause-Effect logic. Cientista de Marketing decide com base em Vantagem Competitiva,
       LTV/CAC, Flywheel e Pirâmide de Decisão.
     role: "Decisão de alto nível e direção estratégica"
     agents:
-      - goldratt              # Master Advisor (TOC, Throughput, Constraint)
-      - dener-lippert         # Chief (Cientista do Marketing V4)
+      - goldratt # Master Advisor (TOC, Throughput, Constraint)
+      - cientista-de-marketing # Chief (Cientista do Marketing )
 
   - id: BRAND_AND_DESIGN
     tier: 0
     name: Brand e Design (autoridade visual)
     description: |
-      Autoridade visual do squad. Baziotti governa identidade, brandbook
+      Autoridade visual do squad. Experience Designer governa identidade, brandbook
       compliance, tipografia, acessibilidade WCAG AA, hierarquia visual e a
       proibição absoluta de azul. Atua como gate de qualidade criativa antes
       de qualquer peça sair do squad. Trabalha com base em design/DESIGN.md,
       design/tokens/tokens.json e design/preview.html.
     role: "Gate de qualidade criativa e governança visual"
     agents:
-      - baziotti              # Brand Chief (Human Experience Designer)
+      - experience-designer # Brand Chief (Human Experience Designer)
 
   - id: ORCHESTRATION
     tier: 1
@@ -519,9 +519,9 @@ strategic_flows:
       dos produtos Destrava Receita.
     role: "Tradução estratégia → execução"
     agents:
-      - fabrica-de-receita-master  # Sub-orchestrator principal
-      - orchestrator               # Routing entre specialists
-      - dr-chief                   # Chief produto Destrava
+      - fabrica-de-receita-master # Sub-orchestrator principal
+      - orchestrator # Routing entre specialists
+      - dr-chief # Chief produto Destrava
 
   - id: DIAGNOSTICO
     tier: 2
@@ -533,52 +533,52 @@ strategic_flows:
     travas_v4: ["Cegueira (T1)"]
     role: "Identificar gargalo real (constraint)"
     agents:
-      - diagnosticador           # Diagnóstico das 8 Travas
-      - especialista-spiced      # Framework SPICED (Situation/Pain/Impact/Critical Event/Decision)
-      - estrategista-receita     # Mapeamento estratégico de receita
+      - diagnosticador # Diagnóstico das 8 Travas
+      - especialista-spiced # Framework SPICED (Situation/Pain/Impact/Critical Event/Decision)
+      - estrategista-receita # Mapeamento estratégico de receita
 
   - id: AQUISICAO
     tier: 3
-    name: Aquisição (Pilar V4. Tráfego)
+    name: Aquisição (Pilar . Tráfego)
     description: |
-      Pilar 1 V4: atrair o público certo com o menor CAC possível.
+      Atrair o público certo com o menor CAC possível.
       Cobre as Travas 7 (Atenção) e 8 (Exposição). Caminho: exposição, atenção, lead.
-      "V2: Vender para MAIS PESSOAS" do método V4.
+      "V2: Vender para MAIS PESSOAS" do método .
     pilar_v4: Tráfego
     travas_v4: ["Exposição (T8)", "Atenção (T7)", "Interesse (T6)"]
     role: "Encher o topo do funil com qualidade"
     agents:
-      - traffic-hunter           # Performance / mídia paga
-      - fabricante-aquisicao     # Sistema de aquisição
-      - growth-strategist        # Estratégia macro de growth
+      - traffic-hunter # Performance / mídia paga
+      - fabricante-aquisicao # Sistema de aquisição
+      - growth-strategist # Estratégia macro de growth
 
   - id: ENGAJAMENTO_CONVERSAO
     tier: 3
-    name: Engajamento & Conversão (Pilares V4 2+3)
+    name: Engajamento & Conversão (Pilares 2+3)
     description: |
-      Pilares 2 e 3 V4: criar conexão/confiança e transformar atenção em receita.
+      Criar conexão/confiança e transformar atenção em receita.
       Cobre as Travas 5 (Qualificação), 4 (Compromisso) e 3 (Decisão).
       "V3: Vender MAIS VEZES" via melhor conversão.
     pilar_v4: ["Engajamento", "Conversão"]
     travas_v4: ["Qualificação (T5)", "Compromisso (T4)", "Decisão (T3)"]
     role: "Transformar tráfego em receita"
     agents:
-      - conversion-optimizer     # CRO técnico (funil/landings/checkouts)
-      - maquina-comercial        # Comercial estruturado (SDR/Closer)
+      - conversion-optimizer # CRO técnico (funil/landings/checkouts)
+      - maquina-comercial # Comercial estruturado (SDR/Closer)
 
   - id: RETENCAO
     tier: 3
-    name: Retenção e LTV (Pilar V4. Retenção)
+    name: Retenção e LTV (Pilar . Retenção)
     description: |
-      Pilar 4 V4: maximizar LTV e transformar clientes em promotores.
-      Cobre a Trava 2 (Retenção). "V4: Vender pelo MAIOR VALOR."
+      Maximizar LTV e transformar clientes em promotores.
+      Cobre a Trava 2 (Retenção). Vender pelo maior valor.
       Onde mora o lucro real. NRR maior que 100% é a meta.
     pilar_v4: Retenção
     travas_v4: ["Retenção (T2)"]
     role: "Maximizar LTV, prevenir churn"
     agents:
-      - retention-architect      # Arquitetura de retenção/LTV
-      - guardiao-retencao        # Guardião do CS/churn
+      - retention-architect # Arquitetura de retenção/LTV
+      - guardiao-retencao # Guardião do CS/churn
 
   - id: INTELIGENCIA_PERFORMANCE
     tier: 4
@@ -589,9 +589,9 @@ strategic_flows:
       e o time que opera o flywheel.
     role: "Medir, otimizar, desenhar o sistema"
     agents:
-      - roi-analyst              # Análise de ROI / unit economics
-      - growth-planner           # Planejamento de growth
-      - revenue-team-architect   # Arquitetura do time de receita
+      - roi-analyst # Análise de ROI / unit economics
+      - growth-planner # Planejamento de growth
+      - revenue-team-architect # Arquitetura do time de receita
 
   - id: PRODUTO_DESTRAVA
     tier: 5
@@ -608,10 +608,10 @@ strategic_flows:
       - "Investimento: sob consulta comercial (valores não fazem parte deste repositório)"
     role: "Entregar o produto, com IA no centro"
     agents:
-      - destrava-receita-consultant  # Consultoria DR
-      - ai-marketing-engineer        # IA aplicada a marketing
-      - content-engine               # Engine de conteúdo
-      - ops-dr                       # Operações Destrava
+      - destrava-receita-consultant # Consultoria DR
+      - ai-marketing-engineer # IA aplicada a marketing
+      - content-engine # Engine de conteúdo
+      - ops-dr # Operações Destrava
 
 # ============================================================================
 # COMPONENTES (referenciam arquivos físicos no squad)
@@ -621,9 +621,9 @@ components:
   agents:
     # Tier 0. Strategic Counsel
     - goldratt.md
-    - dener-lippert.md
+    - cientista-de-marketing.md
     # Tier 0. Brand and Design (autoridade visual)
-    - baziotti.md
+    - experience-designer.md
     # Tier 1. Orchestration
     - fabrica-de-receita-master.md
     - orchestrator.md
@@ -675,7 +675,7 @@ components:
     - 90-day-cycle.md
     - revenue-architecture.md
     - destrava-pitch.md
-    # Destrava V4 Tasks
+    # Destrava Tasks
     - diagnosticar-trava.md
     - executar-board-1.md
     - executar-board-2.md
@@ -687,7 +687,7 @@ components:
 
   workflows:
     # Ciclos e rituais de growth
-    - wf-v4-growth-cycle.yaml
+    - wf-growth-cycle.yaml
     - wf-performance-sprint.yaml
     - wf-roi-hunters-review.yaml
     # Jornadas Fábrica de Receita
@@ -698,7 +698,7 @@ components:
     # Meta-Layer e governança
     - wf-fdr-portfolio-rebalance.yaml
     - wf-fdr-postmortem-institutional.yaml
-    - wf-v4-compliance-check.yaml
+    - wf-compliance-check.yaml
 
   checklists:
     - growth-audit-checklist.md
@@ -728,18 +728,18 @@ components:
     - benchmark-funil.skill.md
 
   data:
-    - v4-laws.md
-    - v4-pillars.md
+    - revenue-principles.md
+    - revenue-principles.md
     - fabrica-de-receita-kb.md
     - 8-travas.md
     - icp-destrava.md
-    - dener-voice-manual.md
+    - revenue-principles.md
     - toc-ltp-fieldbook.md
-    - v4-social-playbook.md
+    - revenue-principles.md
 
   tools: []
   scripts:
-    - v4-compliance-check.sh
+    - compliance-check.sh
 
 # ============================================================================
 # CONFIGURAÇÃO
@@ -781,9 +781,9 @@ dependencies:
   python: []
   squads:
     # Squads relacionados (compartilham agentes/conceitos)
-    - negocios   # Goldratt também serve o Rockefeller dream-team (cópia, não link)
-    - sales      # Sales Squad para execução B2B (MEDDPICC, SPICED)
-    - copy       # Copy Squad para messaging das ofertas DR
+    - negocios # Goldratt também serve o Rockefeller dream-team (cópia, não link)
+    - sales # Sales Squad para execução B2B (MEDDPICC, SPICED)
+    - copy # Copy Squad para messaging das ofertas DR
 
 brand:
   primary_color: "#E50914"
@@ -815,7 +815,7 @@ philosophy:
       4. Quando o constraint mudar, VOLTAR ao passo 1.
 
   chief_principle:
-    name: "Cientista do Marketing (Dener)"
+    name: "Cientista do Marketing (Cientista de Marketing)"
     hierarquia_de_valores:
       - "1. Vantagem Competitiva (mencionar em TODA análise)"
       - "2. Dados > Opinião"
@@ -836,11 +836,6 @@ philosophy:
     - name: Retenção
       description: "Maximizar LTV e transformar clientes em promotores"
 
-  v4_meaning:
-    v1: "Vender o produto"
-    v2: "Vender para mais pessoas"
-    v3: "Vender mais vezes"
-    v4: "Vender pelo maior valor"
 
   fabrica_de_receita:
     conceito: "Toda empresa é uma Fábrica de Receita. O produto final é a receita, não o serviço."
@@ -886,11 +881,11 @@ invocation_protocol:
       2. Decidir como explorar/subordinar o constraint
       3. Reportar análise ao Chief
   - step: 2
-    actor: chief (dener-lippert)
+    actor: chief (cientista-de-marketing)
     action: |
       Aplicar Protocolo de Consultoria 5 Passos:
       1. DIAGNÓSTICO (3 perguntas: Vantagem Competitiva? LTV/CAC? Gargalo?)
-      2. PROVOCAÇÃO ESTRATÉGICA (analogias: Blockbuster, Apple, V4)
+      2. PROVOCAÇÃO ESTRATÉGICA (analogias: Blockbuster, Apple, )
       3. FRAMEWORK APLICÁVEL (3-5 passos)
       4. MATEMÁTICA DO NEGÓCIO (volta aos números)
       5. PRÓXIMO PASSO CLARO (1 ação + 1 teste + 1 prazo)
@@ -906,10 +901,10 @@ invocation_protocol:
       Executam a task específica seguindo seus templates/skills/data.
       Reportam ao sub_orchestrator.
   - step: 5
-    actor: brand_chief (baziotti)
+    actor: brand_chief (experience-designer)
     when: "Output envolve qualquer peça visual ou copy publicável"
     action: |
-      Aplica o checklist Baziotti (ver design/DESIGN.md, seção 8):
+      Aplica o checklist Experience Designer (ver design/DESIGN.md, seção 8):
       1. Identidade (logo, paleta, proibição de azul, proporções).
       2. Tipografia (máx duas fontes, hierarquia, WCAG AA).
       3. Elementos (radius, glow, iconografia, data viz).
@@ -926,7 +921,7 @@ related_squads:
   - slot: negocios
     relationship: shares_agent
     shared: goldratt
-    note: "Goldratt vive em ambos. Em negocios é conselheiro do Rockefeller; aqui é conselheiro do Dener."
+    note: "Goldratt vive em ambos. Em negocios é conselheiro do Rockefeller; aqui é conselheiro do Cientista de Marketing."
   - slot: sales
     relationship: complementary
     use_when: "Execução B2B detalhada (MEDDPICC, SPIN, Discovery profunda)"

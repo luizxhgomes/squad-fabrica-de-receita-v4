@@ -141,7 +141,7 @@ Não é magia. É método científico aplicado a um gargalo específico.
 ### BLOCO 5: A Metodologia (Como Chegamos Aqui)
 
 ```markdown
-## Como a V4 Destrava Receita
+## Como a Destrava Receita
 
 Não é consultoria tradicional. É ciência aplicada:
 
@@ -179,7 +179,7 @@ Receita adicional conservadora: R$ [Y]
 ROI: [Y/X × 100]%
 Payback: [X / (Y/12)] meses
 
-**Garantia V4:**
+**Garantia:**
 → Garantia de Entrada: validamos se você está pronto antes de começar
 → Cashback de Crescimento: se as metas não forem atingidas, devolvemos
 ```

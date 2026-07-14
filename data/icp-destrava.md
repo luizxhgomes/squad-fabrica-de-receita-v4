@@ -4,18 +4,18 @@
 
 ### Firmográfico
 ```
-Faturamento mensal:    de 100 mil a 2 milhões de reais por mês
-Modelo de negócio:     B2B / Híbrido (B2B + B2C)
-Setor:                 Serviços, SaaS, Educação, Saúde, Consultoria, E-commerce B2B
-Tamanho da empresa:    5 a 100 funcionários
-Maturidade digital:    3-4/5 (tem presença digital, usa CRM básico ou planilha)
-Tempo no mercado:      Mínimo 2 anos (validou produto/serviço)
+Faturamento mensal: de 100 mil a 2 milhões de reais por mês
+Modelo de negócio: B2B / Híbrido (B2B + B2C)
+Setor: Serviços, SaaS, Educação, Saúde, Consultoria, E-commerce B2B
+Tamanho da empresa: 5 a 100 funcionários
+Maturidade digital: 3-4/5 (tem presença digital, usa CRM básico ou planilha)
+Tempo no mercado: Mínimo 2 anos (validou produto/serviço)
 ```
 
 ### Situacional
 ```
 Estágio de crescimento: Scale-up ou empresa estabelecida estagnada
-Estrutura de vendas:    1 a 10 vendedores (SDR + closers ou inside sales)
+Estrutura de vendas: 1 a 10 vendedores (SDR + closers ou inside sales)
 Investimento mensal em marketing: de 5 mil a 100 mil reais (tem budget, não está começando)
 Situação comum:
   → "Estamos gastando em tráfego mas as vendas não crescem no mesmo ritmo"
@@ -38,16 +38,16 @@ Impacto financeiro médio da dor: de 50 mil a 500 mil reais por ano em oportunid
 
 ### Dimensão de Compra
 ```
-Decisor:              CEO, CSO (Diretor Comercial) ou CMO
-Processo de decisão:  1-2 reuniões (decisão rápida quando urgência confirmada)
+Decisor: CEO, CSO (Diretor Comercial) ou CMO
+Processo de decisão: 1-2 reuniões (decisão rápida quando urgência confirmada)
 Objeções típicas:
   → "Já tentei consultoria antes e não funcionou"
   → "Não tenho equipe para implementar"
   → "O preço é alto"
   → "Preciso ver resultado antes de me comprometer"
 
-Budget disponível:    budget compatível com o tier de entrada confirmado
-Gatilho de compra:    Alta temporada chegando, sócio pressionando por resultado,
+Budget disponível: budget compatível com o tier de entrada confirmado
+Gatilho de compra: Alta temporada chegando, sócio pressionando por resultado,
                       perdeu cliente grande, contratou VP comercial novo
 ```
 
@@ -95,6 +95,6 @@ EXCLUIR se:
 
 ```
 Score 10-14: ICP PERFEITO, prioridade máxima
-Score 6-9:   BOM FIT, avançar com qualificação adicional
-Score < 6:   MAU FIT, não avançar, redirecionar
+Score 6-9: BOM FIT, avançar com qualificação adicional
+Score < 6: MAU FIT, não avançar, redirecionar
 ```

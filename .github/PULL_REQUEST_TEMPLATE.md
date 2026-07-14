@@ -12,7 +12,7 @@ Descreva a mudança em 1 ou 2 frases.
 ## Checklist
 
 - [ ] `bash scripts/validate-squad.sh` retorna exit 0
-- [ ] `bash scripts/check-public-safety.sh .` retorna exit 0
+- [ ] `bash scripts/check-public-safety.sh.` retorna exit 0
 - [ ] Sem travessão em texto renderizável (vírgula, dois-pontos ou parênteses)
 - [ ] Acentuação pt-BR completa e correta
 - [ ] Números como dígitos em copy

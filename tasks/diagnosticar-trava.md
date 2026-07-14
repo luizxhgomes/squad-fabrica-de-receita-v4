@@ -31,7 +31,7 @@ Checklist:
 ```yaml
 task_id: diagnosticar-trava
 agent: diagnosticador
-squad: destrava-v4
+squad: destrava
 version: 1.0.0
 estimated_time: 60-90min
 ```

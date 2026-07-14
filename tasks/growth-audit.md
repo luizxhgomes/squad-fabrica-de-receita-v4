@@ -1,6 +1,6 @@
 ---
 task: growth-audit
-titulo: "Growth Audit V4 Completo"
+titulo: "Growth Audit Completo"
 responsavel: "@orchestrator"
 responsavel_type: agent
 atomic_layer: task
@@ -10,23 +10,23 @@ entrada: |
   - periodo_analise: Período de dados (padrão: últimos 90 dias)
   - focos_prioritarios: Pilares com maior dor (opcional)
 saida: |
-  - audit_report: Relatório completo dos 4 pilares V4
+  - audit_report: Relatório completo dos 4 pilares
   - gap_analysis: Gaps identificados por pilar
   - quick_wins: Top 3 ações de impacto imediato
   - roadmap_90d: Roadmap priorizado por ROI potencial
 checklist:
-  - "[ ] Dados coletados para os 4 pilares V4"
+  - "[ ] Dados coletados para os 4 pilares "
   - "[ ] Score de cada pilar calculado (0-10)"
   - "[ ] Top 3 quick wins identificados com impacto estimado"
   - "[ ] Roadmap de 90 dias priorizado por ROI"
 quality_gates: [QG-001, QG-002]
-usado_por_workflows: [wf-v4-growth-cycle]
+usado_por_workflows: [wf-growth-cycle]
 ---
 
 # Task: growth-audit
 
 **Trigger:** `*audit`
-**Objetivo:** Auditoria científica completa dos 4 Pilares V4: Tráfego, Engajamento, Conversão e Retenção. Baseada na metodologia do Cientista do Marketing de Dener Lippert.
+**Objetivo:** Auditoria científica completa dos 4 Pilares: Tráfego, Engajamento, Conversão e Retenção. Baseada na metodologia do Cientista do Marketing de Cientista de Marketing.
 
 ## Processo de Elicitação
 
@@ -142,7 +142,7 @@ Priorização:
 **Data:** [data]
 **Período:** [período analisado]
 
-## Scorecard V4
+## Scorecard
 | Pilar | Score | Status |
 |-------|-------|--------|
 | Tráfego | /10 | 🔴/🟡/🟢 |

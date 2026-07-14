@@ -1,28 +1,28 @@
-id: wf-v4-compliance-check
-name: V4 Compliance Check (Selo Baziotti automatizado)
+id: wf-compliance-check
+name: Compliance Check (Selo Experience Designer automatizado)
 version: 1.0.0
 created: 2026-05-15
-owner: baziotti
-squad: fabrica-de-receita-v4
+owner: experience-designer
+squad: fabrica-de-receita
 severity: NON_NEGOTIABLE
 status: active
 
 description: |
-  Workflow automatizado que valida toda peça HTML V4 contra as 9 regras
+  Workflow automatizado que valida toda peça HTML contra as 9 regras
   NON_NEGOTIABLE do design system antes de emitir o selo de aprovação do brand-chief
-  Baziotti. Substitui validação manual por gate determinístico via script CLI.
+  Experience Designer. Substitui validação manual por gate determinístico via script CLI.
 
-  Aciona o validador `scripts/v4-compliance-check.sh` (path relativo à raiz do squad)
+  Aciona o validador `scripts/compliance-check.sh` (path relativo à raiz do squad)
   e decide o curso de ação baseado no resultado:
   - PASS total: emite selo, peça pode ser publicada
   - WARN não-blocking: emite selo com ressalvas, peça pode ser publicada após revisão
   - FAIL blocking: bloqueia publicação, gera story de correção via @sm
 
 trigger:
-  - command: "/v4-compliance-check <path>"
-  - command: "@baziotti *check <path>"
-  - event: "Após @dev terminar HTML V4 e antes de @qa receber"
-  - event: "Pre-deploy de qualquer peça V4"
+  - command: "/compliance-check <path>"
+  - command: "@experience-designer *check <path>"
+  - event: "Após @dev terminar HTML e antes de @qa receber"
+  - event: "Pre-deploy de qualquer peça "
 
 inputs:
   required:
@@ -37,19 +37,19 @@ regras_validadas:
     severity: NON_NEGOTIABLE
     fonte: "DESIGN.md §10"
   - id: R2
-    name: "Zero azul na paleta"
+    name: "Paleta do brandbook na paleta"
     severity: NON_NEGOTIABLE
-    fonte: "DESIGN.md §0 (autoridade baziotti)"
+    fonte: "DESIGN.md §0 (autoridade experience-designer)"
   - id: R3
     name: "Zero travessão na copy"
     severity: NON_NEGOTIABLE
-    fonte: "manual Dener (data/dener-voice-manual.md)"
+    fonte: "manual Cientista de Marketing (data/revenue-principles.md)"
   - id: R4
-    name: "Favicon V4 obrigatório"
+    name: "Favicon obrigatório"
     severity: NON_NEGOTIABLE
     fonte: "DESIGN.md §1.2.2"
   - id: R5
-    name: "Localização V4 (path em V4_Company/)"
+    name: "Localização (path em V4_Company/)"
     severity: NON_NEGOTIABLE
     fonte: "CLAUDE.md raiz"
   - id: R6
@@ -72,7 +72,7 @@ regras_validadas:
 steps:
   - id: step-1
     name: "Validar inputs e localizar peça"
-    agent: baziotti
+    agent: experience-designer
     action: |
       1. Confirmar que o argumento `path` foi fornecido
       2. Verificar que o arquivo/pasta existe
@@ -81,12 +81,12 @@ steps:
 
   - id: step-2
     name: "Executar validador CLI"
-    agent: baziotti
+    agent: experience-designer
     action: |
       Acionar o script de validação (a partir da raiz do squad):
 
       ```bash
-      bash scripts/v4-compliance-check.sh <path>
+      bash scripts/compliance-check.sh <path>
       ```
 
       Capturar:
@@ -104,14 +104,14 @@ steps:
 
   - id: step-3
     name: "Decidir veredito"
-    agent: baziotti
+    agent: experience-designer
     decision_matrix:
       - condition: "exit_code == 0 AND warn_count == 0"
         verdict: APPROVED
-        action: "Emitir selo Baziotti completo"
+        action: "Emitir selo Experience Designer completo"
       - condition: "exit_code == 0 AND warn_count > 0"
         verdict: APPROVED_WITH_NOTES
-        action: "Emitir selo Baziotti com observações. Documentar warnings."
+        action: "Emitir selo Experience Designer com observações. Documentar warnings."
       - condition: "exit_code == 1"
         verdict: REJECTED
         action: "Bloquear publicação. Encaminhar para @sm gerar story de correção."
@@ -122,10 +122,10 @@ steps:
   - id: step-4a
     name: "Caso APPROVED · emitir selo"
     when: "verdict == APPROVED or verdict == APPROVED_WITH_NOTES"
-    agent: baziotti
+    agent: experience-designer
     action: |
       1. Gravar artefato de selo em:
-         `<path-parent>/qa/baziotti-selo-{timestamp}.md`
+         `<path-parent>/qa/experience-designer-selo-{timestamp}.md`
       2. Conteúdo do selo:
          - Path da peça
          - Data e hora
@@ -139,18 +139,18 @@ steps:
   - id: step-4b
     name: "Caso REJECTED · gerar story de correção"
     when: "verdict == REJECTED"
-    agent: baziotti
+    agent: experience-designer
     handoff_to: "@sm"
     action: |
       1. Compilar artefato de falha em:
-         `<path-parent>/qa/baziotti-rejection-{timestamp}.md`
+         `<path-parent>/qa/experience-designer-rejection-{timestamp}.md`
       2. Conteúdo:
          - Path da peça reprovada
          - Lista de FAILURES com referência à regra (R1-R9) e doc canônico
          - Sugestão concreta de correção por regra
       3. Acionar @sm para criar story de correção com:
-         - Título: "Refatorar <peça> para conformidade V4 (compliance check FAIL)"
-         - Acceptance criteria: "Rodar v4-compliance-check.sh e obter exit_code 0"
+         - Título: "Refatorar <peça> para conformidade (compliance check FAIL)"
+         - Acceptance criteria: "Rodar compliance-check.sh e obter exit_code 0"
          - Prioridade: HIGH (peça bloqueada para publicação)
          - Owner sugerido: @dev (ou agente que produziu a peça)
     outputs:
@@ -159,7 +159,7 @@ steps:
 
   - id: step-5
     name: "Persistir auditoria"
-    agent: baziotti
+    agent: experience-designer
     action: |
       Anexar entrada ao log de compliance do squad em:
       `qa/compliance-log.jsonl` (path relativo à raiz do squad)
@@ -192,12 +192,12 @@ output:
 
 dependencies:
   scripts:
-    - "scripts/v4-compliance-check.sh (v1.0.1+, path relativo à raiz do squad; script a ser criado)"
+    - "scripts/compliance-check.sh (v1.0.1+, path relativo à raiz do squad; script a ser criado)"
   docs:
     - "design/DESIGN.md (v1.2.0+)"
     - "design/RESPONSIVE-PROPORTIONALITY.md (v3.2+)"
   agents:
-    - baziotti (executor)
+    - experience-designer (executor)
     - "@sm (handoff em caso de REJECTED)"
 
 quality_gates:
@@ -210,7 +210,7 @@ quality_gates:
     name: "Validador executável"
     type: tooling
     blocking: true
-    check: "v4-compliance-check.sh existe e é executável"
+    check: "compliance-check.sh existe e é executável"
   - id: QG-003
     name: "Zero violações blocking"
     type: execution
@@ -227,24 +227,24 @@ cross_squad_handoffs:
     when: "verdict == REJECTED"
     payload: "Path da peça + lista de FAILURES + sugestão de correção"
   - from: "@dev"
-    trigger: "Ao terminar HTML V4 antes de pedir review"
+    trigger: "Ao terminar HTML antes de pedir review"
     payload: "Path do arquivo produzido"
   - from: "@aiox-master"
-    trigger: "Pre-deploy de qualquer peça V4"
+    trigger: "Pre-deploy de qualquer peça "
     payload: "Path do arquivo a publicar"
 
 uso_exemplo: |
   # Via CLI direto (a partir da raiz do squad)
-  bash scripts/v4-compliance-check.sh path/to/peca.html
+  bash scripts/compliance-check.sh path/to/peca.html
 
-  # Via slash command (quando configurado em .claude/commands/)
-  /v4-compliance-check path/to/peca.html
+  # Via slash command (quando configurado em.claude/commands/)
+  /compliance-check path/to/peca.html
 
   # Via agente
-  @baziotti *check path/to/peca.html
+  @experience-designer *check path/to/peca.html
 
   # Em lote (pasta inteira recursiva)
-  bash scripts/v4-compliance-check.sh <pasta-com-pecas>/
+  bash scripts/compliance-check.sh <pasta-com-pecas>/
 
   # Modo strict (warnings viram falhas)
-  bash scripts/v4-compliance-check.sh --strict path/to/peca.html
+  bash scripts/compliance-check.sh --strict path/to/peca.html

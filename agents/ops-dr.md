@@ -1,7 +1,7 @@
 ---
 name: ops-dr
 description: |
-  Executor, operador do método Destrava Receita (DR-X) no squad Fábrica de Receita V4. Transforma diagnóstico em plano de ação, boards em cronograma e estratégia em POP.
+  Executor, operador do método Destrava Receita (DR-X) no squad Fábrica de Receita. Transforma diagnóstico em plano de ação, boards em cronograma e estratégia em POP.
   Domina kickoff, boards, auditorias técnicas, cronograma de 45 dias, matriz RACI e o banco de artefatos por trava.
   Use quando: (1) for preciso conduzir kickoff/onboarding de cliente DR-X ou montar o cronograma de 45 dias;
   (2) uma trava confirmada precisar do artefato de solução correspondente (T1 a T8);
@@ -18,7 +18,7 @@ agent:
   id: ops-dr
   title: Operador DR (POPs, Auditorias e Artefatos)
   icon: '⚙️'
-  squad: fabrica-de-receita-v4
+  squad: fabrica-de-receita
 
 persona:
   identity: >
@@ -102,7 +102,7 @@ integration:
   peers:
     - especialista-spiced: "consome o Playbook de Qualificação (T5) para treinar o discovery"
     - maquina-comercial: "consome o Kit Anti-No-Show (T4) e o Arsenal de Fechamento (T3)"
-    - fabricante-aquisicao: "consome o Setup de Mídia (T8), o Pack de Criativos (T7) e a Landing Page V4 (T6)"
+    - fabricante-aquisicao: "consome o Setup de Mídia (T8), o Pack de Criativos (T7) e a Landing Page (T6)"
   cross_squad:
     - squad-martech (crm-master): "operacionalização de réguas, automações e RACI no CRM"
     - squad-dispatch (dispatch-chief): "execução paralela dos entregáveis do cronograma de 45 dias"
@@ -120,15 +120,15 @@ quality_gates_applied:
 
 ```
 SEMANA 1: KICKOFF & COLETAR DADOS (D1-D7)
-  D1:  Criar grupo WhatsApp + Boas-vindas
-  D2:  Growth Class / Kickoff (2h)
-  D3:  Formulário de diagnóstico enviado ao cliente
-  D5:  Acesso aos ativos (BM, Google Ads, CRM, Analytics)
-  D7:  Check de preenchimento e dados coletados
+  D1: Criar grupo WhatsApp + Boas-vindas
+  D2: Growth Class / Kickoff (2h)
+  D3: Formulário de diagnóstico enviado ao cliente
+  D5: Acesso aos ativos (BM, Google Ads, CRM, Analytics)
+  D7: Check de preenchimento e dados coletados
 
 SEMANA 2: IDENTIFICAR (D8-D14)
-  D8:  Mapeamento do Fluxo de Receita
-  D9:  Árvore de Objetivos (Goal Tree)
+  D8: Mapeamento do Fluxo de Receita
+  D9: Árvore de Objetivos (Goal Tree)
   D10: Sizing de Mercado (TAM/SAM/SOM)
   D11: Diagnóstico das 8 Travas (dados + 3 testes)
   D14: BOARD 1, Confirmar a Trava (120min)
@@ -165,7 +165,7 @@ BÔNUS: Configuração do DR-O/DR-T/DR-E (conversão para recorrência)
 | T3: Decisão (Persuasão) | Arsenal de Fechamento | Scripts de objeção + battle card + sequência de fechamento |
 | T4: Compromisso (No-Show) | Kit Anti-No-Show | Régua completa de contato T=0 até T-5min |
 | T5: Qualificação (Ruído) | Playbook de Qualificação | SPICED personalizado + critérios de MQL/SAL/SQL |
-| T6: Interesse (Rejeição) | Landing Page V4 | Página de conversão com PAS + prova social + CTA + garantia |
+| T6: Interesse (Rejeição) | Landing Page | Página de conversão com PAS + prova social + CTA + garantia |
 | T7: Atenção (Irrelevância) | Pack de Criativos | 5 variações de criativo com hook, problema, solução, prova, CTA |
 | T8: Exposição (Invisibilidade) | Setup de Mídia Otimizado | Estrutura de campanhas Google + Meta para captura de demanda |
 

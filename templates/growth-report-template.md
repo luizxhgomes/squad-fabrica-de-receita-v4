@@ -1,4 +1,4 @@
-# Growth Report: squad Fábrica de Receita V4
+# Growth Report: squad Fábrica de Receita
 
 > Template: Relatório mensal/trimestral de performance de growth
 
@@ -7,7 +7,7 @@
 **Período:** [DD/MM/AAAA]: [DD/MM/AAAA]
 **Gerado por:** @orchestrator
 **Data de geração:** [data]
-**Ciclo:** [Ciclo #X do Growth Cycle V4]
+**Ciclo:** [Ciclo #X do Growth Cycle ]
 
 ---
 
@@ -24,7 +24,7 @@
 
 ---
 
-## Scorecard V4
+## Scorecard
 
 | Pilar | Métrica Principal | Meta | Resultado | Status |
 |-------|------------------|------|-----------|--------|
@@ -133,5 +133,5 @@
 
 ---
 
-*Gerado pelo squad Fábrica de Receita V4: Metodologia V4 Company + AI-FIRST*
+*Gerado pelo squad Fábrica de Receita: Metodologia a assessoria + AI-FIRST*
 *"Vender para mais pessoas, mais vezes, pelo maior valor"*

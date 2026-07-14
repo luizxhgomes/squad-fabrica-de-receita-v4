@@ -31,7 +31,7 @@ Acumulado do Ciclo 90d: [X]% da meta de 90 dias
 
 ## 2. Resumo de ROI por Pilar
 
-| Pilar V4 | Investimento | Receita Gerada | ROI | Status |
+| Pilar | Investimento | Receita Gerada | ROI | Status |
 |---------|-------------|----------------|-----|--------|
 | Tráfego | R$ | R$ | X:1 | 🟢🟡🔴 |
 | Engajamento | R$ | R$ | X:1 | 🟢🟡🔴 |

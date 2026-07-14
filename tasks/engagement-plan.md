@@ -27,7 +27,7 @@ Checklist:
 
 **Agent:** @content-engine
 **Trigger:** `*engagement-plan`
-**Objetivo:** Criar plano de engajamento para o Pilar 2 V4: construir conexão, confiança e valor percebido em escala
+**Objetivo:** Criar plano de engajamento para o Pilar 2: construir conexão, confiança e valor percebido em escala
 
 ---
 
@@ -70,7 +70,7 @@ fields:
 ### FASE 2: Estratégia de Conteúdo por Pilar
 
 ```markdown
-#### MATRIX DE CONTEÚDO (V4 Method):
+#### MATRIX DE CONTEÚDO ( Method):
 
 **Conteúdo de ATENÇÃO (Top of Funnel):**
 - Objetivo: parar o scroll, criar curiosidade

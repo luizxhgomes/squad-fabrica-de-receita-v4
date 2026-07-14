@@ -1,8 +1,8 @@
 # ============================================================
 # WF-FDR-PORTFOLIO-REBALANCE, Rebalance Trimestral de Portfólio
 # Cadência: TRIMESTRAL
-# Hierarquia: goldratt (advisor) -> dener-lippert (chief) ->
-#             fdr-portfolio-strategist (orchestrator deste workflow)
+# Hierarquia: goldratt (advisor) -> cientista-de-marketing (chief) ->
+# fdr-portfolio-strategist (orchestrator deste workflow)
 # ============================================================
 
 id: wf-fdr-portfolio-rebalance
@@ -12,7 +12,7 @@ maturity: F4
 tier: institutional
 cadence: TRIMESTRAL
 orchestrator: fdr-portfolio-strategist
-approver: dener-lippert
+approver: cientista-de-marketing
 
 description: |
   Cross-client revenue portfolio rebalance trimestral. Budget reallocation
@@ -69,7 +69,7 @@ phases:
     agents:
       - id: fdr-portfolio-strategist
         role: "Aplica a decision_matrix e monta a proposta de realocação"
-      - id: dener-lippert
+      - id: cientista-de-marketing
         role: "Aprova a realocação final (gate do chief)"
     activities:
       - "KEEP/EXTEND/SUNSET per channel"
@@ -85,7 +85,7 @@ phases:
       - id: fdr-knowledge-architect
         role: "Registra decisões e racional na knowledge base do squad"
     activities:
-      - "V4 Method refresh"
+      - " Method refresh"
       - "Destrava Receita playbook updated"
     outputs:
       - "KB atualizada com decisões do rebalance e thresholds observados"

@@ -17,7 +17,7 @@ jobs:
   integrity:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -29,15 +29,15 @@ jobs:
   public-safety:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@
       - name: Gate de seguranca de conteudo publico
-        run: bash scripts/check-public-safety.sh .
+        run: bash scripts/check-public-safety.sh.
 
   style:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -46,4 +46,4 @@ jobs:
           pip install yamllint
           yamllint -d relaxed squad.yaml workflows/*.yaml config/tokens.yaml || true
       - name: Heuristica de acentuacao (aviso)
-        run: bash scripts/check-public-safety.sh --accent-heuristic . || true
+        run: bash scripts/check-public-safety.sh --accent-heuristic. || true

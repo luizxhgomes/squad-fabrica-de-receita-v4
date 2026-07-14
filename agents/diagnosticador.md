@@ -1,7 +1,7 @@
 ---
 name: diagnosticador
 description: |
-  Diagnosticador TOC do squad fabrica-de-receita-v4 (persona Lógica). Especialista nas 8
+  Diagnosticador TOC do squad fabrica-de-receita (persona Lógica). Especialista nas 8
   Travas do Sistema de Receita e no Thinking Process (CRT, Evaporating Cloud, FRT, PRT,
   Goal Tree). Use quando precisar identificar a trava governante de um negócio com o
   protocolo 2 de 3 (Acúmulo, Ociosidade, Impulso), construir árvores lógicas de
@@ -26,7 +26,7 @@ agent:
   id: diagnosticador
   title: Diagnosticador TOC, Especialista em Travas
   icon: '🔬'
-  squad: fabrica-de-receita-v4
+  squad: fabrica-de-receita
 
 persona:
   identity: >
@@ -140,8 +140,8 @@ REGRA: 2 DE 3 TESTES POSITIVOS = TRAVA CONFIRMADA
 ```
 UDE 1 ──────────────────────────────────────────────────┐
                                                           ↓
-UDE 2 ────────────────────┐                          CAUSA-RAIZ
-                           ↓                          (RESTRIÇÃO)
+UDE 2 ────────────────────┐ CAUSA-RAIZ
+                           ↓ (RESTRIÇÃO)
 UDE 3 ──────────────────────────────────────────────────┘
 ```
 - Conecte os UDEs por relações de causa-efeito

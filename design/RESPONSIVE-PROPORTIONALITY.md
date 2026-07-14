@@ -1,7 +1,7 @@
 # Responsive Proportionality: Regra Canônica do Squad
 
 > Severidade: **NON_NEGOTIABLE**
-> Owner: brand-chief baziotti
+> Owner: brand-chief experience-designer
 > Versão: 3.0 (evoluída de v2.0; v3.0 adiciona regramento de preenchimento de tela e anti-overflow após incidente ARK TAX 2026-05-15)
 > Aplicável a: brandbooks HTML, LPs, dashboards, decks digitais, previews de design system, qualquer interface responsiva produzida pelo squad
 > Companheira de: `GRID_PROPORTIONALITY` (que cobre balanceamento de colunas em coleções)
@@ -53,10 +53,10 @@ Toda peça reconhece e respeita 5 níveis, em **razão fixa ≈ 2** entre nívei
 **Razão verificável:** dividir o `max` de cada nível pelo `max` do nível seguinte. O resultado deve ficar entre 1.5 e 2.5.
 
 ```
-section/block = 140/56 = 2.50  ✓
-block/group   =  56/40 = 1.40  ✓ (limite inferior, OK)
-group/element =  40/24 = 1.67  ✓
-element/tight =  24/14 = 1.71  ✓
+section/block = 140/56 = 2.50 ✓
+block/group = 56/40 = 1.40 ✓ (limite inferior, OK)
+group/element = 40/24 = 1.67 ✓
+element/tight = 24/14 = 1.71 ✓
 ```
 
 Não invente valores fora dessa escala. Use os tokens.
@@ -78,7 +78,7 @@ Componentes que **repetem em múltiplos contextos** (cards de produto que aparec
 
 ```css
 .card { container-type: inline-size; }
-@container (min-width: 480px) { .card-body { padding: var(--space-block); } }
+@container (min-width: 480px) {.card-body { padding: var(--space-block); } }
 ```
 
 Use media query apenas para mudanças topológicas (layout macro). Use container query para mudanças do próprio componente.
@@ -143,18 +143,18 @@ A seção `spacing.fluid` em `config/tokens.yaml` é a fonte da verdade. Bloco a
 :root {
   /* Respiros fluidos: razão ≈ 2 entre níveis */
   --space-section: clamp(56px, 10vw, 140px);
-  --space-block:   clamp(28px, 5vw, 56px);
-  --space-group:   clamp(20px, 3.5vw, 40px);
+  --space-block: clamp(28px, 5vw, 56px);
+  --space-group: clamp(20px, 3.5vw, 40px);
   --space-element: clamp(12px, 2vw, 24px);
-  --space-tight:   clamp(8px, 1.2vw, 14px);
+  --space-tight: clamp(8px, 1.2vw, 14px);
 
   /* Gutter lateral único */
   --gutter: clamp(14px, 4vw, 32px);
 
   /* Gaps de grid (atalhos sobre os respiros acima) */
-  --gap-grid:        var(--space-element);          /* default */
-  --gap-grid-loose:  var(--space-group);            /* generoso */
-  --gap-grid-tight:  var(--space-tight);            /* compacto */
+  --gap-grid: var(--space-element); /* default */
+  --gap-grid-loose: var(--space-group); /* generoso */
+  --gap-grid-tight: var(--space-tight); /* compacto */
 
   /* Travas tipográficas */
   --max-w-shell: 1320px;
@@ -180,17 +180,17 @@ A seção `spacing.fluid` em `config/tokens.yaml` é a fonte da verdade. Bloco a
 /* ❌ Padding fixo + 4 breakpoints discretos */
 section { padding: 140px 32px; }
 @media (max-width: 1024px) { section { padding: 100px 28px; } }
-@media (max-width: 768px)  { section { padding: 80px 22px; } }
-@media (max-width: 600px)  { section { padding: 64px 18px; } }
-@media (max-width: 420px)  { section { padding: 52px 14px; } }
+@media (max-width: 768px) { section { padding: 80px 22px; } }
+@media (max-width: 600px) { section { padding: 64px 18px; } }
+@media (max-width: 420px) { section { padding: 52px 14px; } }
 
 /* ❌ Gap fixo grande que não escala */
 .master-grid { gap: 80px; }
 
 /* ❌ Cada seção definindo seu próprio padding lateral */
-.hero        { padding: 140px 32px; }
-.onliness    { padding: 140px 32px; }
-.principles  { padding: 140px 32px; }
+.hero { padding: 140px 32px; }
+.onliness { padding: 140px 32px; }
+.principles { padding: 140px 32px; }
 
 /* ❌ Valores inventados fora do scale */
 .card { padding: 17px 23px; gap: 11px; }
@@ -217,12 +217,12 @@ section { padding-inline: var(--gutter); }
 
 /* ✅ Coleção fechada com trava */
 .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-grid); }
-@media (max-width: 720px) { .cards { grid-template-columns: 1fr; } }
+@media (max-width: 720px) {.cards { grid-template-columns: 1fr; } }
 ```
 
 ---
 
-## 5. Checklist de validação Baziotti pré-publicação
+## 5. Checklist de validação Experience Designer pré-publicação
 
 Antes de qualquer interface responsiva sair do squad:
 
@@ -286,7 +286,7 @@ Headlines grandes NUNCA contém `<br />` manual. A quebra de linha é responsabi
 |---|---|
 | `text-wrap: balance` | Em toda `h1`, `h2`, `h3`, `.headline`, `.section-title` |
 | `max-width` em `ch` (seção 8.5) | Calibrado para o `font-size` máximo da viewport |
-| `&nbsp;` (non-breaking space) | Entre palavras que NUNCA devem ser separadas (par ênfase + acento, "ARK TAX", "V4 Company", "30 dias") |
+| `&nbsp;` (non-breaking space) | Entre palavras que NUNCA devem ser separadas (par ênfase + acento, "ARK TAX", "a assessoria", "30 dias") |
 | `<span class="line">` block | Pattern canônico para sentenças semanticamente distintas (ver 8.1.1) |
 
 **Por que `<br />` é proibido:** `<br />` é breakpoint estático. Quando a viewport muda, ele quebra no lugar errado e produz órfãs verticais (1-2 palavras por linha). É o anti-padrão clássico documentado na seção 2.7 que continua sendo violado por reflexo. Esta proibição é defesa em profundidade.
@@ -318,13 +318,13 @@ Quando uma headline contém DUAS ou mais sentenças semanticamente distintas que
   display: flex;
   flex-direction: column;
   gap: clamp(4px, 0.6vw, 10px);
-  max-width: 22ch;             /* calibrado pela tabela 8.5 */
+  max-width: 22ch; /* calibrado pela tabela 8.5 */
 }
-.headline-multi .line {
+.headline-multi.line {
   display: block;
   text-wrap: balance;
 }
-.headline-multi .line.accent {
+.headline-multi.line.accent {
   font-family: 'Times New Roman', Georgia, serif;
   font-style: italic;
   font-weight: 400;
@@ -365,13 +365,13 @@ Toda página DEVE conter no `:root` ou no reset:
 
 ```css
 html, body {
-  overflow-x: clip;          /* clip > hidden, mantém position:sticky funcionando */
+  overflow-x: clip; /* clip > hidden, mantém position:sticky funcionando */
 }
 * {
   box-sizing: border-box;
 }
 [class*="grid"] > * {
-  min-width: 0;              /* defesa contra explosão de filhos em flex e grid */
+  min-width: 0; /* defesa contra explosão de filhos em flex e grid */
 }
 ```
 
@@ -440,7 +440,7 @@ Layout responsivo correto preenche o viewport horizontalmente com conteúdo sign
 <!-- ❌ Section sem overflow-x:clip global e sem min-width:0 em filhos -->
 <style>
   body { /* sem overflow-x: clip */ }
-  .grid > * { /* sem min-width: 0 */ }
+.grid > * { /* sem min-width: 0 */ }
 </style>
 ```
 
@@ -471,9 +471,9 @@ Antes de publicar qualquer hero, seção crítica ou painel, comparar visualment
 
 | Arquivo | Status | O que ensina |
 |---|---|---|
-| `desktop-correto.png` | ✅ Modelo | Painel V4 em desktop. Logo centralizado, eyebrow centralizado, headline em duas linhas com `text-wrap: balance`, subtexto preenchendo largura, stats grid 4×1 preenchendo 100% do shell, sem buracos verticais. |
+| `desktop-correto.png` | ✅ Modelo | Painel em desktop. Logo centralizado, eyebrow centralizado, headline em duas linhas com `text-wrap: balance`, subtexto preenchendo largura, stats grid 4×1 preenchendo 100% do shell, sem buracos verticais. |
 | `desktop-errado.png` | ❌ Anti-padrão | Hero ARK TAX violando 8.1, 8.2 e 8.5 simultaneamente. `<br/>` forçando 5 quebras manuais. Cada palavra grande (Reconstruímos / o / comercial / da / ARK TAX) em sua linha. Hero ocupa 100vh com baixa densidade de informação. Card lateral "Tese da operação" também com headline quebrada palavra por palavra. |
-| `mobile-correto.png` | ✅ Modelo | Painel V4 em mobile. Logo + eyebrow + título centralizados. Subtexto preenchendo largura total respeitando gutter. Stats em grid 2×2 balanceado. Zero overflow horizontal. Hierarquia clara. |
+| `mobile-correto.png` | ✅ Modelo | Painel em mobile. Logo + eyebrow + título centralizados. Subtexto preenchendo largura total respeitando gutter. Stats em grid 2×2 balanceado. Zero overflow horizontal. Hierarquia clara. |
 | `mobile-errado.png` | ❌ Anti-padrão | Hero ARK TAX em mobile violando 8.3 e 8.4. Subtexto cortado pela direita ("no Mos…", "o t…", "omnichannel"). CTA "Aprovar próximo" cortado. Conteúdo sangra para fora do viewport. Causa raiz: ausência de `overflow-x: clip` global e elementos posicionados sem `right: var(--gutter)`. |
 
 **Regra operacional:** abrir os 4 arquivos lado a lado antes de aprovar qualquer hero novo. Se a peça em produção parece com `*-errado.png`, refatorar imediatamente.
@@ -512,7 +512,7 @@ Componentes que abrigam headlines DEVEM usar container queries quando vivem em m
 
 /* Font-size proporcional ao container */
 .hero-aside-title {
-  font-size: clamp(28px, 9cqi, 56px);   /* 9% do inline-size do container */
+  font-size: clamp(28px, 9cqi, 56px); /* 9% do inline-size do container */
   width: 100%;
 }
 ```
@@ -539,8 +539,8 @@ Quando uma headline está numa única linha (não quebra), ela deve **preencher 
 ```css
 .hero-aside { /* sem container-type */ }
 .hero-aside-title {
-  font-size: clamp(32px, 3.8vw, 52px);  /* baseado em viewport, não no container */
-  max-width: 14ch;                       /* força quebra mesmo com painel largo */
+  font-size: clamp(32px, 3.8vw, 52px); /* baseado em viewport, não no container */
+  max-width: 14ch; /* força quebra mesmo com painel largo */
 }
 ```
 
@@ -550,11 +550,11 @@ Resultado: em desktop 1440px com painel de 580px de largura, headline ficava em 
 
 ```css
 .hero-aside {
-  container-type: inline-size;          /* o painel vira referência */
+  container-type: inline-size; /* o painel vira referência */
 }
 .hero-aside-title {
-  font-size: clamp(32px, 11cqi, 60px);  /* escala com o painel */
-  width: 100%;                          /* preenche o painel */
+  font-size: clamp(32px, 11cqi, 60px); /* escala com o painel */
+  width: 100%; /* preenche o painel */
 }
 ```
 
@@ -585,7 +585,7 @@ Antes de publicar, executar mentalmente (ou via Playwright/DevTools):
 9. Verificar: coluna lateral tem mais de 40% de espaço vazio? → se sim, FALHA (viola 8.4)
 ```
 
-Toda peça nova passa por esse roteiro antes de receber o selo de aprovação Baziotti.
+Toda peça nova passa por esse roteiro antes de receber o selo de aprovação Experience Designer.
 
 ---
 
@@ -593,12 +593,12 @@ Toda peça nova passa por esse roteiro antes de receber o selo de aprovação Ba
 
 | Data | Versão | Mudança | Por |
 |---|---|---|---|
-| 2026-05-08 | 1.0 | `GRID_PROPORTIONALITY` formalizada (balanceamento de colunas + tabela de gaps fixos) | aiox-master sob baziotti |
-| 2026-05-08 | 2.0 | `RESPONSIVE_PROPORTIONALITY` adicionada como evolução: respiros fluidos + hierarquia de 5 níveis + gutter único + container query + scale tipográfica fluida + travas anti-overflow | aiox-master sob baziotti |
-| 2026-05-15 | 3.0 | Seção 8 adicionada (Preenchimento de Tela & Anti-overflow) após incidente ARK TAX: proibição absoluta de `<br/>` em headlines, regra 60%/70% de densidade de hero, garantia anti-overflow horizontal global, tabela canônica font-size × ch, galeria de referência visual em `references/responsive-examples/`, checklist expandido. | aiox-master sob baziotti |
-| 2026-05-15 | 3.1 | Sub-seção 8.1.1 adicionada (Pattern canônico para headline com sentenças distintas) após segundo incidente ARK TAX hero-aside-title ("CRM NÃO É FERRAMENTA. É governança." virando viúva tipográfica). Pattern `<span class="line">` block + flexbox column + `&nbsp;` em pares ênfase formalizado com HTML e CSS de referência. | aiox-master sob baziotti |
-| 2026-05-15 | 3.2 | Seção 8.9 adicionada (Preenchimento antes da quebra · Container-aware typography) após terceiro incidente ARK TAX. Estabelece hierarquia de `max-width`: `100%` ou `none` em headlines dentro de cards/painéis, `<N>ch` apenas em fullbleed sem container limitante. Container queries (`container-type: inline-size`) e unidades `cqi` viram pattern preferido para tipografia adaptativa. Ratio de preenchimento mínimo de 65-75% por tipo de container. Esta regra SOBREPÕE tabela 8.5 quando houver conflito. | aiox-master sob baziotti |
+| 2026-05-08 | 1.0 | `GRID_PROPORTIONALITY` formalizada (balanceamento de colunas + tabela de gaps fixos) | aiox-master sob experience-designer |
+| 2026-05-08 | 2.0 | `RESPONSIVE_PROPORTIONALITY` adicionada como evolução: respiros fluidos + hierarquia de 5 níveis + gutter único + container query + scale tipográfica fluida + travas anti-overflow | aiox-master sob experience-designer |
+| 2026-05-15 | 3.0 | Seção 8 adicionada (Preenchimento de Tela & Anti-overflow) após incidente ARK TAX: proibição absoluta de `<br/>` em headlines, regra 60%/70% de densidade de hero, garantia anti-overflow horizontal global, tabela canônica font-size × ch, galeria de referência visual em `references/responsive-examples/`, checklist expandido. | aiox-master sob experience-designer |
+| 2026-05-15 | 3.1 | Sub-seção 8.1.1 adicionada (Pattern canônico para headline com sentenças distintas) após segundo incidente ARK TAX hero-aside-title ("CRM NÃO É FERRAMENTA. É governança." virando viúva tipográfica). Pattern `<span class="line">` block + flexbox column + `&nbsp;` em pares ênfase formalizado com HTML e CSS de referência. | aiox-master sob experience-designer |
+| 2026-05-15 | 3.2 | Seção 8.9 adicionada (Preenchimento antes da quebra · Container-aware typography) após terceiro incidente ARK TAX. Estabelece hierarquia de `max-width`: `100%` ou `none` em headlines dentro de cards/painéis, `<N>ch` apenas em fullbleed sem container limitante. Container queries (`container-type: inline-size`) e unidades `cqi` viram pattern preferido para tipografia adaptativa. Ratio de preenchimento mínimo de 65-75% por tipo de container. Esta regra SOBREPÕE tabela 8.5 quando houver conflito. | aiox-master sob experience-designer |
 
 ---
 
-*Owner: baziotti. Severidade: NON_NEGOTIABLE. Refatorar peças existentes em ordem de criticidade comercial. Sempre que detectar violação em produção, gerar story de correção imediata via @sm.*
+*Owner: experience-designer. Severidade: NON_NEGOTIABLE. Refatorar peças existentes em ordem de criticidade comercial. Sempre que detectar violação em produção, gerar story de correção imediata via @sm.*

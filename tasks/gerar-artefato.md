@@ -24,7 +24,7 @@ Checklist:
 ```yaml
 task_id: gerar-artefato
 agent: ops-dr
-squad: destrava-v4
+squad: destrava
 version: 1.0.0
 estimated_time: 45-90min (varia por trava)
 prerequisite: diagnosticar-trava
@@ -40,7 +40,7 @@ Gerar o artefato de solução específico para a trava confirmada no Board 1.
 | T1: Cegueira | Dashboard de Decisão | ops-dr |
 | T2: Invisibilidade | Setup de Mídia Otimizado | fabricante-aquisicao |
 | T3: Irrelevância | Pack de Criativos | fabricante-aquisicao |
-| T4: Rejeição | Landing Page V4 | fabricante-aquisicao |
+| T4: Rejeição | Landing Page | fabricante-aquisicao |
 | T5: Ruído | Playbook de Qualificação (SPICED) | fabricante-aquisicao |
 | T6: Compromisso | Kit Anti-No-Show | maquina-comercial |
 | T7: Persuasão | Arsenal de Fechamento | maquina-comercial |
@@ -123,7 +123,7 @@ Deliverable:
 - Guia de uso e teste A/B
 ```
 
-### T4: Landing Page V4
+### T4: Landing Page
 ```
 Inputs necessários:
 - PUV validada

@@ -68,8 +68,8 @@ Situacional:
 
 ```
 Score 10-14: ICP PERFEITO, prioridade máxima
-Score 6-9:   BOM FIT, avançar com qualificação adicional
-Score < 6:   MAU FIT, não avançar, redirecionar
+Score 6-9: BOM FIT, avançar com qualificação adicional
+Score < 6: MAU FIT, não avançar, redirecionar
 ```
 
 ### Check 5: Registrar dor e trava provável

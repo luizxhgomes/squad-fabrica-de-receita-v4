@@ -28,7 +28,7 @@ Checklist:
 
 **Agent:** @conversion-optimizer
 **Trigger:** `*conversion-funnel`
-**Objetivo:** Otimizar o funil de conversão: Pilar 3 V4: transformar atenção em receita com precisão cirúrgica
+**Objetivo:** Otimizar o funil de conversão: Pilar 3: transformar atenção em receita com precisão cirúrgica
 
 ---
 

@@ -30,7 +30,7 @@ Checklist:
 
 **Agent:** @retention-architect
 **Trigger:** `*retention-playbook`
-**Objetivo:** Criar playbook completo de retenção: Pilar 4 V4: maximizar LTV e transformar clientes em promotores
+**Objetivo:** Criar playbook completo de retenção: Pilar 4: maximizar LTV e transformar clientes em promotores
 
 ---
 

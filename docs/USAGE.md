@@ -6,10 +6,10 @@ Este documento mostra como acionar o squad em missões reais. Você descreve o p
 
 ## Como toda missão funciona
 
-O comando é sempre `/fdr-v4` seguido da sua missão em texto livre:
+O comando é sempre `/fdr-` seguido da sua missão em texto livre:
 
 ```
-/fdr-v4 <descreva o problema de receita>
+/fdr- <descreva o problema de receita>
 ```
 
 **Toda missão abre com o plano do Chief antes de executar.** Isso é o protocolo Prioridade 0 (chief-first): o comando carrega o Chief, o Chief roda o Protocolo de Consultoria de 5 passos e apresenta o PLANO DE AÇÃO (quais especialistas entram, com quais tasks, em que ordem). Só depois a execução delegada começa. O comando nunca dispara uma task solta pulando o Chief.
@@ -25,7 +25,7 @@ Cada missão mapeia para um fluxo estratégico. Você não precisa saber qual: o
 ### 1. Diagnóstico de trava (fluxo Diagnóstico)
 
 ```
-/fdr-v4 minha receita estagnou há 8 meses e não sei onde está o gargalo
+/fdr- minha receita estagnou há 8 meses e não sei onde está o gargalo
 ```
 
 **O que esperar:** o Master Advisor aplica a Teoria das Restrições, o fluxo de Diagnóstico roda o teste 2 de 3 sobre as 8 travas e a qualificação SPICED. Saída: a trava confirmada (por exemplo Retenção, T2), a evidência que a confirma, e o próximo passo com 1 ação, 1 teste e 1 prazo.
@@ -33,7 +33,7 @@ Cada missão mapeia para um fluxo estratégico. Você não precisa saber qual: o
 ### 2. Estratégia de tráfego com CAC alvo (fluxo Aquisição)
 
 ```
-/fdr-v4 preciso escalar aquisição mantendo o CAC abaixo do meu alvo, hoje gasto em Meta e Google
+/fdr- preciso escalar aquisição mantendo o CAC abaixo do meu alvo, hoje gasto em Meta e Google
 ```
 
 **O que esperar:** o fluxo de Aquisição (Pilar Tráfego) desenha a estratégia de mídia cobrindo as travas de Exposição, Atenção e Interesse. Saída: plano de canais, hipóteses de criativo, estrutura de campanha e as metas de CAC, ROAS e CPL a monitorar. Tudo comparado aos benchmarks canônicos.
@@ -41,7 +41,7 @@ Cada missão mapeia para um fluxo estratégico. Você não precisa saber qual: o
 ### 3. Funil de conversão (fluxo Engajamento e Conversão)
 
 ```
-/fdr-v4 tenho tráfego bom mas a landing page converte abaixo de 2 por cento
+/fdr- tenho tráfego bom mas a landing page converte abaixo de 2 por cento
 ```
 
 **O que esperar:** o fluxo de Conversão ataca as travas de Interesse e Decisão. Saída: auditoria de fricção da página e do checkout, hipóteses de teste priorizadas, e a matemática de quanto cada ponto de conversão vale em receita.
@@ -49,7 +49,7 @@ Cada missão mapeia para um fluxo estratégico. Você não precisa saber qual: o
 ### 4. Playbook de retenção (fluxo Retenção)
 
 ```
-/fdr-v4 meu churn mensal passou de 3 por cento e o LTV está caindo
+/fdr- meu churn mensal passou de 3 por cento e o LTV está caindo
 ```
 
 **O que esperar:** o fluxo de Retenção (Pilar LTV) trabalha a trava de Retenção (T2), a mais próxima do caixa. Saída: régua de retenção, gatilhos de reativação, desenho de onboarding e as metas de churn, NPS e NRR (a meta é NRR acima de 100 por cento).
@@ -57,7 +57,7 @@ Cada missão mapeia para um fluxo estratégico. Você não precisa saber qual: o
 ### 5. Análise de ROI (fluxo Inteligência e Performance)
 
 ```
-/fdr-v4 quero entender o ROI real das minhas frentes de marketing e onde cortar
+/fdr- quero entender o ROI real das minhas frentes de marketing e onde cortar
 ```
 
 **O que esperar:** o fluxo de Inteligência e Performance calcula unit economics, LTV por CAC, payback e atribuição. Saída: dashboard de ROI com a leitura de cada frente, o que escalar, o que matar, e a regra de ouro aplicada (LTV por CAC maior ou igual a 3 para 1).
@@ -65,7 +65,7 @@ Cada missão mapeia para um fluxo estratégico. Você não precisa saber qual: o
 ### 6. Ciclo de 90 dias (fluxo Diagnóstico e orquestração completa)
 
 ```
-/fdr-v4 monte meu ciclo de 90 dias para atacar a trava que você diagnosticar
+/fdr- monte meu ciclo de 90 dias para atacar a trava que você diagnosticar
 ```
 
 **O que esperar:** o Chief orquestra o ciclo completo com o framework STEP (Saber, Ter, Executar, Performar). Saída: o plano de 90 dias com 1 trava por ciclo, owners definidos, marcos por fase (identificar, otimizar, alinhar, expandir, recomeçar) e o baseline contra o qual o resultado será medido no fim.

@@ -79,7 +79,7 @@ phases:
       - id: fdr-knowledge-architect
         role: "Recebe handoff dos padrões validados e codifica na knowledge base"
     activities:
-      - "V4 Method playbook refresh"
+      - " Method playbook refresh"
       - "22 mind-clones canonicals updated"
     outputs:
       - "Padrões promovidos e codificados em data/fabrica-de-receita-kb.md"

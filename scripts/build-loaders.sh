@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # build-loaders.sh
-# Squad: fabrica-de-receita-v4 (repositorio publico)
+# Squad: fabrica-de-receita (repositorio publico)
 # Gera thin-loaders .claude/agents/fdr-{basename}.md a partir de cada agents/*.md.
 # Cada loader aponta para a persona canonica (fonte da verdade) e NAO a duplica.
 # Por seguranca de terceiros os loaders NAO recebem permissionMode nem memory.
@@ -9,7 +9,7 @@
 #   frontmatter: name=fdr-{basename}, description (1a frase da persona),
 #                tools=[Read, Grep, Glob, Write, Edit, Bash, WebSearch, WebFetch]
 #   corpo: marcador ARQUIVO DERIVADO + Fonte da verdade + instrucao de ativacao.
-#   chief (dener-lippert) e sub-orchestrator (fabrica-de-receita-master) recebem
+#   chief (cientista-de-marketing) e sub-orchestrator (fabrica-de-receita-master) recebem
 #   o bloco Protocolo de Orquestracao Prioridade 0.
 #
 # Usage:
@@ -94,12 +94,12 @@ for f in "$AGENTS_DIR"/*.md; do
   raw="$(extract_desc "$f" || true)"
   # 1a frase: recorta ate o primeiro ponto (inclusive); normaliza espacos.
   desc="$(printf '%s' "$raw" | sed 's/\([^.]*\.\).*/\1/' | tr '\t' ' ' | sed 's/  */ /g; s/^ //; s/ $//')"
-  [ -n "$desc" ] || desc="Especialista do squad fabrica-de-receita-v4."
+  [ -n "$desc" ] || desc="Especialista do squad fabrica-de-receita."
 
   # Bloco de orquestracao apenas para chief e sub-orchestrator.
   orch=""
   case "$b" in
-    dener-lippert|fabrica-de-receita-master)
+    cientista-de-marketing|fabrica-de-receita-master)
       orch='
 
 ## 🔴 Protocolo de Orquestracao, Prioridade 0 (NON_NEGOTIABLE)

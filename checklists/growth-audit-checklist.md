@@ -27,7 +27,7 @@
 
 ---
 
-## BLOCO 2: TRÁFEGO (Pilar 1 V4)
+## BLOCO 2: TRÁFEGO (Pilar 1)
 
 ### Canais e Performance
 - [ ] Canais pagos: estrutura de campanhas auditada
@@ -47,7 +47,7 @@
 
 ---
 
-## BLOCO 3: ENGAJAMENTO (Pilar 2 V4)
+## BLOCO 3: ENGAJAMENTO (Pilar 2)
 
 ### Conteúdo e Relacionamento
 - [ ] Calendário editorial existe e é seguido
@@ -62,7 +62,7 @@
 
 ---
 
-## BLOCO 4: CONVERSÃO (Pilar 3 V4)
+## BLOCO 4: CONVERSÃO (Pilar 3)
 
 ### Funil de Vendas
 - [ ] Playbook de vendas documentado e atualizado
@@ -83,7 +83,7 @@
 
 ---
 
-## BLOCO 5: RETENÇÃO (Pilar 4 V4)
+## BLOCO 5: RETENÇÃO (Pilar 4)
 
 ### Gestão de Clientes
 - [ ] Onboarding estruturado com marcos definidos

@@ -1,6 +1,6 @@
 <!-- ARQUIVO GERADO, nao editar a mao. Rode scripts/build-components-index.sh. -->
 
-# Componentes do squad fabrica-de-receita-v4
+# Componentes do squad fabrica-de-receita
 
 > Indice gerado automaticamente a partir de `squad.yaml` e dos arquivos-fonte.
 > A fonte da verdade sao os arquivos em cada diretorio. Nao edite este indice manualmente.
@@ -9,39 +9,39 @@
 
 | Componente | Titulo / Descricao |
 |---|---|
-| `goldratt.md` | Master Advisor do squad fabrica-de-receita-v4. Clone mental de Eliyahu Goldratt, criador |
-| `dener-lippert.md` | Clone mental do Dener Lippert, Cientista do Marketing. Consultor, mentor e comentador de negócios. |
-| `baziotti.md` | Human Experience Designer e Brand Chief do squad fabrica-de-receita-v4. |
-| `fabrica-de-receita-master.md` | Agente mestre da metodologia Fábrica de Receita V4 (8 Travas + STEP + Ciclos de 90 dias). |
-| `orchestrator.md` | Maestro operacional da Fábrica de Receita V4. Roteia sintomas de receita para o fluxo |
-| `dr-chief.md` | Orquestrador-Chefe do método Destrava Receita da V4 Company (TOC aplicada à receita, |
-| `diagnosticador.md` | Diagnosticador TOC do squad fabrica-de-receita-v4 (persona Lógica). Especialista nas 8 |
-| `especialista-spiced.md` | Diagnosta, especialista no framework SPICED de qualificação comercial do squad Fábrica de Receita V4. |
-| `estrategista-receita.md` | Arquiteto, estrategista de receita da V4 Company no squad Fábrica de Receita V4. |
-| `traffic-hunter.md` | Hunter, especialista em tráfego e aquisição paga e orgânica do squad Fábrica de Receita V4 (Pilar 1: Tráfego). |
-| `fabricante-aquisicao.md` | Fluxo, especialista em construir e otimizar a máquina de aquisição do Destrava Receita, no squad Fábrica de Receita V4. |
-| `growth-strategist.md` | Vitor, Growth Strategist do squad Fábrica de Receita V4. Arquiteto de estratégias de crescimento |
-| `conversion-optimizer.md` | Zara, Conversion Optimizer do squad Fábrica de Receita V4 (Pilar 3: Conversão). Especialista em CRO, |
-| `maquina-comercial.md` | Fechador, especialista comercial do squad Fábrica de Receita V4 nas duas travas mais custosas do funil: T4 Compromisso (No-Show) e T3 Decisão (Persuasão). |
-| `retention-architect.md` | Atlas, Arquiteto de Retenção e LTV do squad Fábrica de Receita V4 (fluxo RETENÇÃO, Tier 3). |
-| `guardiao-retencao.md` | Âncora, Guardião da Retenção do squad Fábrica de Receita V4 (fluxo RETENÇÃO, Tier 3). |
-| `roi-analyst.md` | Data, Cientista de Dados e Analista de ROI do squad Fábrica de Receita V4 (fluxo INTELIGÊNCIA_PERFORMANCE, Tier 4). |
-| `growth-planner.md` | Gabi, Growth Planner do squad Fábrica de Receita V4 (fluxo INTELIGÊNCIA_PERFORMANCE, Tier 4). |
-| `revenue-team-architect.md` | Rui, Revenue Team Architect do squad Fábrica de Receita V4 (fluxo INTELIGÊNCIA_PERFORMANCE, Tier 4). |
-| `destrava-receita-consultant.md` | Deco, Destrava Receita Consultant do squad Fábrica de Receita V4 (fluxo PRODUTO_DESTRAVA, Tier 5). |
-| `ai-marketing-engineer.md` | Ada, AI Marketing Engineer do squad Fábrica de Receita V4 (fluxo PRODUTO_DESTRAVA, Tier 5). |
-| `content-engine.md` | Nova, Content Engine do squad Fábrica de Receita V4 (Pilar 2: Engajamento). Estrategista e executora |
-| `ops-dr.md` | Executor, operador do método Destrava Receita (DR-X) no squad Fábrica de Receita V4. Transforma diagnóstico em plano de ação, boards em cronograma e estratégia em POP. |
-| `fdr-portfolio-strategist.md` | Meta-agent F4 do squad fabrica-de-receita-v4. Estrategista de portfólio de receita |
-| `fdr-quality-monitor.md` | Meta-agent F4 do squad fabrica-de-receita-v4. Monitor contínuo de qualidade de receita: |
-| `fdr-pattern-detector.md` | Meta-agent F4 do squad fabrica-de-receita-v4. Detector de padrões de receita: mantém a |
-| `fdr-knowledge-architect.md` | Meta-agent F4 do squad fabrica-de-receita-v4. Arquiteto da knowledge base de receita: |
+| `goldratt.md` | Master Advisor do squad fabrica-de-receita. Clone mental de Eliyahu Goldratt, criador |
+| `cientista-de-marketing.md` | Cientista de Marketing do squad fabrica-de-receita. Trata marketing como disciplina |
+| `experience-designer.md` | Human Experience Designer do squad fabrica-de-receita. Especialista em auditoria UX/UI ancorada em 8 vieses cognitivos documentados (Lei de Hick, Aversão à Perda, Efeito Zeigarnik,... |
+| `fabrica-de-receita-master.md` | Agente mestre da metodologia Fábrica de Receita (8 Travas + STEP + Ciclos de 90 dias). |
+| `orchestrator.md` | Maestro operacional da Fábrica de Receita. Roteia sintomas de receita para o fluxo |
+| `dr-chief.md` | Orquestrador-Chefe do método Destrava Receita da a assessoria (TOC aplicada à receita, |
+| `diagnosticador.md` | Diagnosticador TOC do squad fabrica-de-receita (persona Lógica). Especialista nas 8 |
+| `especialista-spiced.md` | Diagnosta, especialista no framework SPICED de qualificação comercial do squad Fábrica de Receita. |
+| `estrategista-receita.md` | Arquiteto, estrategista de receita da a assessoria no squad Fábrica de Receita. |
+| `traffic-hunter.md` | Hunter, especialista em tráfego e aquisição paga e orgânica do squad Fábrica de Receita (Pilar 1: Tráfego). |
+| `fabricante-aquisicao.md` | Fluxo, especialista em construir e otimizar a máquina de aquisição do Destrava Receita, no squad Fábrica de Receita. |
+| `growth-strategist.md` | Vitor, Growth Strategist do squad Fábrica de Receita. Arquiteto de estratégias de crescimento |
+| `conversion-optimizer.md` | Zara, Conversion Optimizer do squad Fábrica de Receita (Pilar 3: Conversão). Especialista em CRO, |
+| `maquina-comercial.md` | Fechador, especialista comercial do squad Fábrica de Receita nas duas travas mais custosas do funil: T4 Compromisso (No-Show) e T3 Decisão (Persuasão). |
+| `retention-architect.md` | Atlas, Arquiteto de Retenção e LTV do squad Fábrica de Receita (fluxo RETENÇÃO, Tier 3). |
+| `guardiao-retencao.md` | Âncora, Guardião da Retenção do squad Fábrica de Receita (fluxo RETENÇÃO, Tier 3). |
+| `roi-analyst.md` | Data, Cientista de Dados e Analista de ROI do squad Fábrica de Receita (fluxo INTELIGÊNCIA_PERFORMANCE, Tier 4). |
+| `growth-planner.md` | Gabi, Growth Planner do squad Fábrica de Receita (fluxo INTELIGÊNCIA_PERFORMANCE, Tier 4). |
+| `revenue-team-architect.md` | Rui, Revenue Team Architect do squad Fábrica de Receita (fluxo INTELIGÊNCIA_PERFORMANCE, Tier 4). |
+| `destrava-receita-consultant.md` | Deco, Destrava Receita Consultant do squad Fábrica de Receita (fluxo PRODUTO_DESTRAVA, Tier 5). |
+| `ai-marketing-engineer.md` | Ada, AI Marketing Engineer do squad Fábrica de Receita (fluxo PRODUTO_DESTRAVA, Tier 5). |
+| `content-engine.md` | Nova, Content Engine do squad Fábrica de Receita (Pilar 2: Engajamento). Estrategista e executora |
+| `ops-dr.md` | Executor, operador do método Destrava Receita (DR-X) no squad Fábrica de Receita. Transforma diagnóstico em plano de ação, boards em cronograma e estratégia em POP. |
+| `fdr-portfolio-strategist.md` | Meta-agent F4 do squad fabrica-de-receita. Estrategista de portfólio de receita |
+| `fdr-quality-monitor.md` | Meta-agent F4 do squad fabrica-de-receita. Monitor contínuo de qualidade de receita: |
+| `fdr-pattern-detector.md` | Meta-agent F4 do squad fabrica-de-receita. Detector de padrões de receita: mantém a |
+| `fdr-knowledge-architect.md` | Meta-agent F4 do squad fabrica-de-receita. Arquiteto da knowledge base de receita: |
 
 ## Tasks (22)
 
 | Componente | Titulo / Descricao |
 |---|---|
-| `growth-audit.md` | Growth Audit V4 Completo |
+| `growth-audit.md` | Growth Audit Completo |
 | `traffic-strategy.md` | Traffic Strategy |
 | `engagement-plan.md` | Engagement Plan |
 | `conversion-funnel.md` | Conversion Funnel |
@@ -68,16 +68,16 @@
 
 | Componente | Titulo / Descricao |
 |---|---|
-| `wf-v4-growth-cycle.yaml` | V4 Growth Cycle, Ciclo Completo de Crescimento em 90 Dias |
+| `wf-growth-cycle.yaml` | Growth Cycle, Ciclo Completo de Crescimento em 90 Dias |
 | `wf-performance-sprint.yaml` | Performance Sprint, Ciclo Semanal de Performance |
-| `wf-roi-hunters-review.yaml` | ROI Hunters V4, Review Semanal de Performance |
+| `wf-roi-hunters-review.yaml` | ROI-first, Review Semanal de Performance |
 | `wf-diagnostico-completo.yaml` | Diagnóstico Completo de Receita (8 Travas + TOC + SPICED) |
 | `wf-onboarding-cliente.yaml` | Onboarding de Cliente (Pós-Venda Produto DR) |
 | `wf-fdr-revenue-cycle.yaml` | FDR Revenue Cycle (Institutional) |
-| `wf-fdr-manual-executivo.yaml` | Manual Executivo V4 Elite Deck (LP + PPT + PDF) |
+| `wf-fdr-manual-executivo.yaml` | Manual Executivo Elite Deck (LP + PPT + PDF) |
 | `wf-fdr-portfolio-rebalance.yaml` | FDR Portfolio Rebalance (Institutional) |
 | `wf-fdr-postmortem-institutional.yaml` | FDR Postmortem Institutional (Etsy Blameless) |
-| `wf-v4-compliance-check.yaml` | V4 Compliance Check (Selo Baziotti automatizado) |
+| `wf-compliance-check.yaml` | Compliance Check (Selo Experience Designer automatizado) |
 
 ## Skills (10)
 
@@ -98,21 +98,21 @@
 
 | Componente | Titulo / Descricao |
 |---|---|
-| `v4-laws.md` | As 9 Leis do Marketing: Cientista do Marketing (Dener Lippert / V4 Company) |
-| `v4-pillars.md` | Os 4 Pilares V4: Knowledge Base |
+| `revenue-principles.md` | Princípios de Receita: Knowledge Base |
+| `revenue-principles.md` | Princípios de Receita: Knowledge Base |
 | `fabrica-de-receita-kb.md` | Fábrica de Receita: Knowledge Base Completa |
 | `8-travas.md` | As 8 Travas do Sistema de Receita |
 | `icp-destrava.md` | ICP: Ideal Customer Profile do Destrava Receita |
-| `dener-voice-manual.md` | Manual de Tom de Voz: Dener Lippert |
+| `revenue-principles.md` | Princípios de Receita: Knowledge Base |
 | `toc-ltp-fieldbook.md` | Fieldbook TOC + LTP aplicado a receita |
-| `v4-social-playbook.md` | Playbook de Social Media da Fábrica de Receita |
+| `revenue-principles.md` | Princípios de Receita: Knowledge Base |
 
 ## Templates (6)
 
 | Componente | Titulo / Descricao |
 |---|---|
 | `experiment-brief-template.md` | Template: Experiment Brief |
-| `growth-report-template.md` | Growth Report: squad Fábrica de Receita V4 |
+| `growth-report-template.md` | Growth Report: squad Fábrica de Receita |
 | `roi-dashboard-template.md` | Template: ROI Dashboard |
 | `crt-template.md` | Template: Current Reality Tree (CRT) |
 | `forecast-template.md` | Template: Forecast Anual: Revenue Constraint Engine |
@@ -124,7 +124,7 @@
 |---|---|
 | `growth-audit-checklist.md` | Checklist: growth-audit-checklist |
 | `ai-first-checklist.md` | AI-FIRST Marketing Checklist |
-| `roi-validation-checklist.md` | ROI Validation Checklist: ROI Hunters Standard |
+| `roi-validation-checklist.md` | ROI Validation Checklist: ROI-first Standard |
 | `definition-of-done-drx.md` | Checklist: Definition of Done: DR-X |
 | `validar-diagnostico.md` | Checklist: Validar Diagnóstico |
 

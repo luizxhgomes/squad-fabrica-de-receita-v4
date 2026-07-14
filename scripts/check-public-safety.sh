@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # check-public-safety.sh
-# Squad: fabrica-de-receita-v4 (repositorio publico)
+# Squad: fabrica-de-receita (repositorio publico)
 # Gate de seguranca de conteudo publico: nomes proibidos, infra interna, precos,
 # travessao e segredos. Fonte unica dos FORBIDDEN_PATTERNS (o export-public.sh usa
 # a mesma lista; manter os dois em sincronia).
@@ -41,9 +41,15 @@ Travessao (em/en dash)|||—|–
 Path absoluto local|||/Users/
 Segredo (chave real)|||sk-[A-Za-z0-9]{20}|ghp_[A-Za-z0-9]{20}|github_pat_[A-Za-z0-9]|AKIA[A-Z0-9]{16}|xox[baprs]-[0-9]|-----BEGIN [A-Z ]*PRIVATE KEY|figd_[A-Za-z0-9]|apify_api_[A-Za-z0-9]'
 
+# Nomes de pessoa e marca de terceiro. Checados em TODOS os formatos, incluindo .html,
+# .js e .svg, porque foi exatamente por ai que vazaram antes: o logo estava vetorizado
+# dentro de um .svg e a landing page e .html, e nenhum dos dois era varrido.
+IDENTITY_PATTERNS='Nome de pessoa (terceiro)|||[Dd]ener|[Ll]ippert|[Bb]aziotti
+Marca de terceiro|||\bV4\b|ROI Hunters'
+
 FAILS=0
 FILES=$(find . -type f \( -name '*.md' -o -name '*.yaml' -o -name '*.yml' -o -name '*.json' -o -name '*.sh' \) \
-  -not -path './.git/*' -not -path './node_modules/*' -not -name 'check-public-safety.sh' -not -name 'export-public.sh' 2>/dev/null || true)
+  -not -path './.git/*' -not -path './node_modules/*' -not -path './.claude/agent-memory/*' -not -name 'check-public-safety.sh' -not -name 'export-public.sh' 2>/dev/null || true)
 
 echo "== Public Safety Check: $(pwd) =="
 
@@ -59,6 +65,28 @@ while IFS= read -r line; do
   fi
 done <<EOF
 $FORBIDDEN_PATTERNS
+EOF
+
+# Segunda passada: nome de pessoa e marca de terceiro, varrendo tambem .html, .js e .svg.
+# Estes formatos ficam fora de FILES porque a landing page carrega precos (R$), o que
+# dispararia um falso positivo na regra de preco. Aqui so os padroes de identidade rodam.
+ID_FILES=$(find . -type f \( -name '*.md' -o -name '*.yaml' -o -name '*.yml' -o -name '*.json' \
+  -o -name '*.sh' -o -name '*.html' -o -name '*.js' -o -name '*.svg' -o -name 'AUTHORS' \) \
+  -not -path './.git/*' -not -path './node_modules/*' -not -path './.claude/agent-memory/*' -not -name 'check-public-safety.sh' \
+  -not -name 'export-public.sh' 2>/dev/null || true)
+
+while IFS= read -r line; do
+  [ -z "$line" ] && continue
+  label="${line%%|||*}"
+  regex="${line##*|||}"
+  hits=$(printf '%s\n' $ID_FILES | xargs grep -nEl "$regex" 2>/dev/null || true)
+  if [ -n "$hits" ]; then
+    echo "${RED}[FAIL] ${label}${NC}"
+    printf '%s\n' $ID_FILES | xargs grep -nE "$regex" 2>/dev/null | head -6 | sed 's/^/    /'
+    FAILS=$((FAILS+1))
+  fi
+done <<EOF
+$IDENTITY_PATTERNS
 EOF
 
 if [ "$ACCENT" -eq 1 ]; then

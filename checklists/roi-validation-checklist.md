@@ -1,6 +1,6 @@
-# ROI Validation Checklist: ROI Hunters Standard
+# ROI Validation Checklist: ROI-first Standard
 
-Checklist baseado na metodologia ROI Hunters da V4 Company.
+Checklist baseado na metodologia ROI-first da a assessoria.
 Toda ação de marketing passa por este filtro antes de ser aprovada ou escalada.
 
 ## Pré-Lançamento
@@ -21,7 +21,7 @@ Toda ação de marketing passa por este filtro antes de ser aprovada ou escalada
 
 ## Durante a Execução
 
-### Monitoramento Semanal (ROI Hunters Review)
+### Monitoramento Semanal (ROI-first Review)
 - [ ] CAC desta semana vs semana anterior: está estável ou melhorando?
 - [ ] ROAS por canal: algum abaixo do mínimo?
 - [ ] Há anomalias nos dados? (queda súbita, spike anormal?)
@@ -43,7 +43,7 @@ Toda ação de marketing passa por este filtro antes de ser aprovada ou escalada
 - [ ] Há efeito colateral positivo (halo effect) não esperado?
 - [ ] Há efeito colateral negativo (canibalizações) não esperado?
 
-### Decisão de Escala (Filtro ROI Hunters)
+### Decisão de Escala (Filtro ROI-first)
 - [ ] WIN confirmado com dados? → Documentar, preparar escala
 - [ ] LTV:CAC acima de 3:1? → Aprovado para escala
 - [ ] Payback < 12 meses? → Aprovado para escala

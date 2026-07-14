@@ -19,8 +19,8 @@ workflow:
   recurrence: "weekly (toda segunda-feira ou início de semana)"
 
   metadata:
-    squad: "fabrica-de-receita-v4"
-    chief: "dener-lippert"
+    squad: "fabrica-de-receita"
+    chief: "cientista-de-marketing"
     master_advisor: "goldratt"
     routing: "orchestrator"
     origem: "convertido do workflow legado performance-sprint.md"
@@ -177,7 +177,7 @@ cross_squad_handoffs:
 
 cross_references:
   data:
-    - "data/v4-pillars.md"
+    - "data/revenue-principles.md"
     - "data/fabrica-de-receita-kb.md"
   skills:
     - "skills/benchmark-funil.skill.md"

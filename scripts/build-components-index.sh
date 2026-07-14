@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # build-components-index.sh
-# Squad: fabrica-de-receita-v4 (repositorio publico)
+# Squad: fabrica-de-receita (repositorio publico)
 # Gera docs/COMPONENTS.md a partir do squad.yaml e dos arquivos-fonte. Para cada
 # categoria (agents, tasks, workflows, skills, data, templates, checklists) lista
 # os componentes declarados em components: com o titulo/descricao de 1 linha

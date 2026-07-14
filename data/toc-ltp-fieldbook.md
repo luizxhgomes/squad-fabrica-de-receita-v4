@@ -156,9 +156,9 @@ Resumo canônico da sequência: mapear o objetivo (IOMAP), simular a aplicação
 Perguntar repetidamente "para quê?" até chegar à causa raiz do pedido:
 
 ```
-"Quero contratar um produtor de vídeo."   Para quê?
-"Quero investir mais em tráfego."         Para quê?
-"Quero gerar mais leads."                 Para quê?
+"Quero contratar um produtor de vídeo." Para quê?
+"Quero investir mais em tráfego." Para quê?
+"Quero gerar mais leads." Para quê?
 Raiz: quase sempre, lucrar mais.
 ```
 

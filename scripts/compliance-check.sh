@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# v4-compliance-check.sh
-# Squad: fabrica-de-receita-v4
-# Gate de compliance de marca e conteúdo V4 sobre uma peça ou diretório.
+# compliance-check.sh
+# Squad: fabrica-de-receita
+# Gate de compliance de marca e conteúdo de marca sobre uma peça ou diretório.
 # Verifica as regras NON_NEGOTIABLE do design system: zero azul, zero travessão,
 # logo nunca inventado, numeros como digitos, acentuacao pt-BR, sem preco de produto.
 #
 # Usage:
-#   scripts/v4-compliance-check.sh <arquivo-ou-diretorio> [--strict]
-#   scripts/v4-compliance-check.sh --help
+#   scripts/compliance-check.sh <arquivo-ou-diretorio> [--strict]
+#   scripts/compliance-check.sh --help
 #
 # Exit codes: 0 = PASS (ou so avisos), 1 = FAIL (violacao blocking), 2 = uso incorreto
 set -euo pipefail
@@ -63,7 +63,7 @@ check() {
   fi
 }
 
-echo "== V4 Compliance Check: ${TARGET} =="
+echo "== Compliance Check: ${TARGET} =="
 
 # R1 ZERO_AZUL: hex de azul e palavras de cor azul (fora de contexto de proibicao)
 check "ZERO_AZUL (hex azul #3B82F6 e familia)" "#3[0-9A-Fa-f]82[0-9A-Fa-f]{2}|#1D4ED8|#2563EB|#60A5FA" 1

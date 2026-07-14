@@ -21,7 +21,7 @@ checklist:
   - "[ ] Decisões da semana documentadas (escalar/matar/pivotar/manter)"
   - "[ ] Top 3 prioridades definidas com responsáveis e prazos"
 quality_gates: [QG-004]
-usado_por_workflows: [wf-performance-sprint, wf-v4-growth-cycle]
+usado_por_workflows: [wf-performance-sprint, wf-growth-cycle]
 ---
 
 # Task: weekly-performance

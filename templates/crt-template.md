@@ -10,20 +10,20 @@ EFEITO INDESEJÁVEL CENTRAL (EIC)
 "[O principal sintoma que o cliente relata]"
          ↑ causado por
     ┌────┴────────────────────────────────────┐
-    │                                          │
-EI-1: [sintoma secundário 1]    EI-2: [sintoma secundário 2]
-         ↑ causado por                    ↑ causado por
-    ┌────┴────┐                      ┌────┴────┐
-    │         │                      │         │
-EI-1a       EI-1b                  EI-2a    EI-2b
+    │ │
+EI-1: [sintoma secundário 1] EI-2: [sintoma secundário 2]
+         ↑ causado por ↑ causado por
+    ┌────┴────┐ ┌────┴────┐
+    │ │ │ │
+EI-1a EI-1b EI-2a EI-2b
          ↑ causado por ─────────────────┘
     TRAVA GOVERNANTE: T[X]: [Nome]
     "[Causa-raiz identificada]"
          ↑ causado por
     ┌────┴────────────────────────────────────┐
-    │                          │              │
-CAUSA-RAIZ 1             CAUSA-RAIZ 2   CAUSA-RAIZ 3
-"[causa]"                "[causa]"      "[causa]"
+    │ │ │
+CAUSA-RAIZ 1 CAUSA-RAIZ 2 CAUSA-RAIZ 3
+"[causa]" "[causa]" "[causa]"
 ```
 
 ## Preenchimento

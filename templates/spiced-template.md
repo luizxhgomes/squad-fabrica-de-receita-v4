@@ -4,11 +4,11 @@
 Framework de vendas consultivas que substitui o BANT tradicional. Foca em entender o contexto completo do cliente antes de apresentar qualquer solução.
 
 ```
-S: Situation      (Situação atual do negócio)
-P: Pain           (Dor específica e impacto)
-I: Impact         (Impacto financeiro quantificado)
+S: Situation (Situação atual do negócio)
+P: Pain (Dor específica e impacto)
+I: Impact (Impacto financeiro quantificado)
 C: Critical Event (Prazo ou evento que força decisão)
-E: Decision       (Processo de decisão e stakeholders)
+E: Decision (Processo de decisão e stakeholders)
 ```
 
 ## Script de Qualificação SPICED
@@ -122,18 +122,18 @@ Dados a capturar:
 Após o SPICED, pontuar cada dimensão:
 
 ```
-S: Situation:    [1-3] (3 = contexto claro e completo)
-P: Pain:         [1-3] (3 = dor aguda, específica, confirmada)
-I: Impact:       [1-3] (3 = impacto mensal acima de 30 mil reais ou 3x o investimento)
-C: Critical:     [1-3] (3 = prazo claro em < 60 dias)
-E: Decision:     [1-3] (3 = decisor presente, processo simples)
+S: Situation: [1-3] (3 = contexto claro e completo)
+P: Pain: [1-3] (3 = dor aguda, específica, confirmada)
+I: Impact: [1-3] (3 = impacto mensal acima de 30 mil reais ou 3x o investimento)
+C: Critical: [1-3] (3 = prazo claro em < 60 dias)
+E: Decision: [1-3] (3 = decisor presente, processo simples)
 
 TOTAL: ___ / 15
 
 Classificação:
 12-15: HOT: avançar imediatamente
-8-11:  WARM: nurturing e próxima reunião
-< 8:   COLD: não avançar agora, colocar em nutrição
+8-11: WARM: nurturing e próxima reunião
+< 8: COLD: não avançar agora, colocar em nutrição
 ```
 
 ## Critérios de MQL/SAL/SQL

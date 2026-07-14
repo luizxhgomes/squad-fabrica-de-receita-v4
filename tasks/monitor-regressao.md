@@ -44,7 +44,7 @@ semanal contra o baseline e classifica cada desvio por severidade, com atribuiç
 |---|---|---|
 | 5% a 10% | Observação | Registrar; reavaliar no próximo snapshot |
 | 10% a 20% | Alerta | Notificar o dono do fluxo com hipótese de causa em 24h |
-| Acima de 20% | Escalação | Escalar ao Chief (@dener-lippert) com dossiê: métrica, série, causa provável, ação proposta |
+| Acima de 20% | Escalação | Escalar ao Chief (@cientista-de-marketing) com dossiê: métrica, série, causa provável, ação proposta |
 
 Regras:
 1. 2 semanas consecutivas em "observação" na mesma métrica sobem para "alerta".

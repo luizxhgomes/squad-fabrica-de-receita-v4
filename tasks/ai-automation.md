@@ -22,7 +22,7 @@ elicit: true
 
 # *ai-automation-plan: Blueprint de Automação AI-First
 
-Inspirado no Mkt.Lab da V4 Company: automatizar o manual, escalar o que funciona,
+Inspirado no Mkt.Lab da a assessoria: automatizar o manual, escalar o que funciona,
 usar IA como sistema nervoso central do marketing.
 
 ## Princípio Mkt.Lab
@@ -68,7 +68,7 @@ Fase 3 (Semana 5-6): [ativação e testes]
 Fase 4 (Semana 7+): [monitoramento e otimização]
 ```
 
-## Automações AI-First Prioritárias por Pilar V4
+## Automações AI-First Prioritárias por Pilar
 
 ### Tráfego
 1. **Bid optimization automático**: IA ajusta lances em tempo real por ROAS alvo

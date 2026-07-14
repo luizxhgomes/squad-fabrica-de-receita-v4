@@ -35,8 +35,8 @@ baseado na metodologia do Cientista do Marketing.
 **Então** [resultado esperado]
 **Porque** [raciocínio baseado em dados/teoria]
 
-## Pilar V4
-[ ] Tráfego  [ ] Engajamento  [ ] Conversão  [ ] Retenção
+## Pilar
+[ ] Tráfego [ ] Engajamento [ ] Conversão [ ] Retenção
 
 ## ICE Score
 - Impact (1-10): [Qual o impacto se der certo?]

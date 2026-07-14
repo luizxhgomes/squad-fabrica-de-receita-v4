@@ -1,24 +1,24 @@
 # Brandbook aplicado da Fábrica de Receita
 
-> Guia de aplicação da identidade visual do squad `fabrica-de-receita-v4`.
+> Guia de aplicação da identidade visual do squad `fabrica-de-receita`.
 > Fonte da verdade dos tokens: `design/tokens/tokens.json` (espelho YAML em `config/tokens.yaml`).
-> Documento mestre do design system: `design/DESIGN.md`. Autoridade: baziotti.
+> Documento mestre do design system: `design/DESIGN.md`. Autoridade: experience-designer.
 
 ---
 
 ## 1. Identidade e hierarquia de marca
 
 ### Hierarquia institucional
-- **V4 Company é a referência máxima.** Toda peça produzida pelo squad usa a identidade **Fábrica de Receita** sob o umbrella V4 Company.
+- **a assessoria é a referência máxima.** Toda peça produzida pelo squad usa a identidade **Fábrica de Receita** sob o umbrella a assessoria.
 - Nomes de franquias nominais aparecem apenas em material didático de rebranding, como exemplos. Nunca em produção.
-- Compliance 100% ao Manual de Rebranding V4 Company: regras canônicas em `design/references/REBRANDING-RULES.md`.
+- Compliance 100% ao Manual de Rebranding a assessoria: regras canônicas em `design/references/REBRANDING-RULES.md`.
 
 ### Logos oficiais (regra NUNCA_INVENTAR_LOGO, NON_NEGOTIABLE)
-- Usar **somente** os arquivos existentes em `design/logos/` (ícone V4 em vermelho, branco e preto).
+- Usar **somente** os arquivos existentes em `design/logos/` (ícone em vermelho, branco e preto).
 - Proibido: recriar a logo em texto (Morganite, IBM Plex Sans, Fjalla One ou qualquer tipografia), gerar logo via IA, traçar manualmente em SVG ou Figma.
 - Logo sempre intacta: sem rotação, distorção, mudança de cor ou efeito.
 - Se o asset correto não existir em `design/logos/`, parar a produção e solicitar ao brand-chief.
-- Favicon obrigatório em toda página HTML: `design/logos/v4-icon-preto.jpg`.
+- Favicon obrigatório em toda página HTML: `design/logos/-icon-preto.jpg`.
 
 ### Essência da marca
 - **Precisão cirúrgica:** não fazemos tudo, fazemos o que importa.
@@ -36,8 +36,8 @@ Regra ZERO_AZUL (NON_NEGOTIABLE): proibição absoluta de azul em qualquer papel
 
 | Nome | Hex | Uso | Contraste (aprox.) |
 |------|-----|-----|--------------------|
-| Vermelho V4 (primária) | `#E50914` | Logo, destaques, links, filete de assinatura | Branco sobre ele: 4.8:1 (AA body). Sobre `#050505`: 4.3:1 (AA texto grande/bold) |
-| Preto V4 (dark) | `#050505` | Texto principal, backgrounds escuros | Branco sobre ele: 20:1 (AAA) |
+| Vermelho (primária) | `#E50914` | Logo, destaques, links, filete de assinatura | Branco sobre ele: 4.8:1 (AA body). Sobre `#050505`: 4.3:1 (AA texto grande/bold) |
+| Preto (dark) | `#050505` | Texto principal, backgrounds escuros | Branco sobre ele: 20:1 (AAA) |
 | Flame (accent) | `#FB2E0A` | Stop final de gradientes, glow quente, ênfase gráfica | Sobre `#050505`: uso gráfico e texto grande |
 | Accent DR | `#FF003F` | Exclusivo da linha Destrava Receita (deck oficial do produto): destaques e grafismos de peças DR | Sobre `#050505`: 5.2:1 (AA body). Sobre branco: 3.9:1 (só texto grande) |
 
@@ -83,7 +83,7 @@ Rampa exclusivamente vermelho/laranja/âmbar + neutros (a regra ZERO_AZUL proíb
 |-------|-----|------------------|
 | T1 Cegueira | `#050505` | Neutro máximo: sem dados não há diagnóstico nem cor |
 | T2 Retenção | `#C41E08` | Vermelho profundo: perder cliente caro é dupla penalidade, máxima proximidade da receita |
-| T3 Decisão | `#E50914` | Vermelho V4 pleno: prospect qualificado que não fecha |
+| T3 Decisão | `#E50914` | Vermelho pleno: prospect qualificado que não fecha |
 | T4 Compromisso | `#FB2E0A` | Vermelho alaranjado: abandono no momento crítico |
 | T5 Qualificação | `#FF4820` | Laranja avermelhado (stop do gradiente ember): leads errados no pipeline |
 | T6 Interesse | `#FF6200` | Laranja: visitante não vira lead |
@@ -117,7 +117,7 @@ As fontes são **self-hosted pelo usuário** (arquivos woff2 próprios, fora des
 
 ## 5. Voz e tom
 
-A voz canônica do squad é a do Chief. Antes de gerar qualquer copy, o agente consulta o manual de voz: **`data/dener-voice-manual.md`** (ponte obrigatória, não duplicar o conteúdo aqui).
+A voz canônica do squad é a do Chief. Antes de gerar qualquer copy, o agente consulta o manual de voz: **`data/revenue-principles.md`** (ponte obrigatória, não duplicar o conteúdo aqui).
 
 Princípios aplicados:
 1. **Direto ao ponto:** nunca enrola, nunca vende sem substância.

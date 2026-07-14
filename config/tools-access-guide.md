@@ -1,4 +1,4 @@
-# Squad Fábrica de Receita V4: Guia de Ferramentas e Acessos
+# Squad Fábrica de Receita: Guia de Ferramentas e Acessos
 > Referência completa de quais ferramentas cada agent precisa, o que já está disponível
 > e como configurar o que ainda falta. Gerenciamento via @devops.
 
@@ -191,14 +191,14 @@ O AIOX já tem a seguinte infraestrutura de ferramentas configurada:
 
 #### 1. Google Analytics 4 (Data API v1)
 **Quem usa:** Orchestrator, Hunter, Zara, Data, Fabio, Gabi
-**O que desbloqueia:** Dados reais de funil para TODOS os pilares V4
+**O que desbloqueia:** Dados reais de funil para TODOS os pilares
 **Como configurar:**
 ```bash
 # 1. Acessar: console.cloud.google.com
 # 2. Criar projeto GCP dedicado (ou reutilizar um projeto existente da operação)
 # 3. Ativar: Google Analytics Data API
 # 4. Criar Service Account → baixar JSON key
-# 5. Adicionar ao .env:
+# 5. Adicionar ao.env:
 GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json
 GA4_PROPERTY_ID=properties/XXXXXXXXX
 ```
@@ -219,7 +219,7 @@ GA4_PROPERTY_ID=properties/XXXXXXXXX
 # 2. Criar App → tipo "Business"
 # 3. Solicitar permissões: ads_read, ads_management
 # 4. Gerar Access Token de longa duração
-# 5. Adicionar ao .env:
+# 5. Adicionar ao.env:
 META_APP_ID=xxxxxxxxxxxx
 META_APP_SECRET=xxxxxxxxxxxxxxxxxxxx
 META_ACCESS_TOKEN=EAAxxxxxxxxxxxx...
@@ -235,10 +235,10 @@ META_AD_ACCOUNT_ID=act_xxxxxxxxxx
 ```bash
 # 1. Acessar: app.hubspot.com → Settings → Integrations → API key
 # 2. Ou criar Private App com scopes:
-#    crm.objects.contacts.read/write
-#    crm.objects.deals.read/write
-#    crm.objects.companies.read/write
-# 3. Adicionar ao .env:
+# crm.objects.contacts.read/write
+# crm.objects.deals.read/write
+# crm.objects.companies.read/write
+# 3. Adicionar ao.env:
 HUBSPOT_API_KEY=pat-na1-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
@@ -344,9 +344,9 @@ Para cada ferramenta acima, delegar ao @devops:
 
 ---
 
-## ARQUIVO .ENV RECOMENDADO
+## ARQUIVO.ENV RECOMENDADO
 
-Nunca commitar valores reais: copie para .env local (protegido por .gitignore).
+Nunca commitar valores reais: copie para.env local (protegido por.gitignore).
 
 Adicionar ao `.env` do projeto (nunca commitar):
 
@@ -408,7 +408,7 @@ SEMANA 1 (Tier 1, Crítico):
 [ ] 3. Conectar GA4 Property ao projeto
 [ ] 4. Criar Meta App → gerar access token
 [ ] 5. Gerar HubSpot Private App token
-[ ] 6. Criar .env com todas as keys do Tier 1
+[ ] 6. Criar.env com todas as keys do Tier 1
 [ ] 7. Testar cada integração com um script simples via Aria (@ai-marketing-engineer)
 
 SEMANA 2 (Tier 2, Alto Valor):
@@ -467,5 +467,5 @@ SEMANA 3+ (Tier 3, Escala):
 3. **GA4 é a prioridade #1**: desbloqueia dados para 8 dos 12 agents
 4. **HubSpot CRM** é o hub central para Fábrica de Receita e Destrava Receita
 5. **Hostinger API** disponível para gestão de infraestrutura e domínios
-6. **Nunca commitar .env**: usar `.env.example` com chaves vazias no repositório
+6. **Nunca commitar.env**: usar `.env.example` com chaves vazias no repositório
 7. **Toda configuração de MCP passa pelo @devops**: nunca diretamente por outros agents

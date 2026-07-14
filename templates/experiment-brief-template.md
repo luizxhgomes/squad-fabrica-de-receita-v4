@@ -10,7 +10,7 @@
 **Data:** [YYYY-MM-DD]
 **Autor:** [@agente]
 **Status:** Planejando | Em Execução | Concluído | Cancelado
-**Pilar V4:** Tráfego | Engajamento | Conversão | Retenção
+**Pilar:** Tráfego | Engajamento | Conversão | Retenção
 
 ---
 

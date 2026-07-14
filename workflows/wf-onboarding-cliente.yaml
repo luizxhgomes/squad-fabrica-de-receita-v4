@@ -1,8 +1,8 @@
 # ============================================================
 # WF-ONBOARDING-CLIENTE, Pós-Venda de um Produto DR
 # Duração: 3-5 semanas até operação contínua
-# Hierarquia: goldratt (advisor) -> dener-lippert (chief) ->
-#             fabrica-de-receita-master (sub-orchestrator) -> specialists
+# Hierarquia: goldratt (advisor) -> cientista-de-marketing (chief) ->
+# fabrica-de-receita-master (sub-orchestrator) -> specialists
 # ============================================================
 
 id: wf-onboarding-cliente
@@ -11,7 +11,7 @@ version: 1.0.0
 maturity: F4
 tier: institutional
 orchestrator: fabrica-de-receita-master
-approver: dener-lippert
+approver: cientista-de-marketing
 advisor: goldratt
 
 description: |

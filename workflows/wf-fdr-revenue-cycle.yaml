@@ -1,8 +1,8 @@
 # ============================================================
 # WF-FDR-REVENUE-CYCLE, Ciclo Institucional de Revenue Engineering
-# Duração: multi-trimestre (por cliente V4)
-# Hierarquia: goldratt (advisor) -> dener-lippert (chief) ->
-#             fabrica-de-receita-master (sub-orchestrator) -> specialists
+# Duração: multi-trimestre (por cliente)
+# Hierarquia: goldratt (advisor) -> cientista-de-marketing (chief) ->
+# fabrica-de-receita-master (sub-orchestrator) -> specialists
 # ============================================================
 
 id: wf-fdr-revenue-cycle
@@ -11,11 +11,11 @@ version: 1.1.0
 maturity: F4
 tier: institutional
 orchestrator: fabrica-de-receita-master
-approver: dener-lippert
+approver: cientista-de-marketing
 advisor: goldratt
 
 description: |
-  Multi-quarter cycle de revenue engineering per cliente V4.
+  Multi-quarter cycle de revenue engineering per cliente.
   Diagnóstico → travas → fábrica → escala → institucionalização.
   Cada fase é um pipeline executável com agents donos, inputs e outputs
   explícitos, tasks mapeadas e quality gates aplicados. O ciclo opera
@@ -62,7 +62,7 @@ phases:
         role: "Coordena a estratégia de destravamento do produto DR"
       - id: specialist-da-trava-ativa
         role: "Specialist dono da trava confirmada em F1 (roteado pelo sub-orchestrator)"
-      - id: dener-lippert
+      - id: cientista-de-marketing
         role: "Aprova o plano STEP (gate de aprovação do chief)"
     activities:
       - "Especialista SPICED qualifica"

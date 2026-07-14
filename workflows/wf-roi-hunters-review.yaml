@@ -1,17 +1,17 @@
 # ============================================================
-# WF-ROI-HUNTERS-REVIEW, Review Semanal de ROI (padrão ROI Hunters V4)
+# WF-ROI-HUNTERS-REVIEW, Review Semanal de ROI (padrão ROI-first)
 # Duração: 30-60 minutos · Recorrência: semanal (toda sexta-feira)
 # Owner: roi-analyst (executor principal) sob orquestração do
 # fabrica-de-receita-master
 # ============================================================
 
 workflow:
-  id: wf-roi-hunters-review
-  name: "ROI Hunters V4, Review Semanal de Performance"
+  id: wf-roi-first-review
+  name: "ROI-first, Review Semanal de Performance"
   version: "1.0.0"
   orchestrator: "fabrica-de-receita-master"
   description: |
-    Review semanal de ROI no padrão ROI Hunters V4: honesta, baseada em
+    Review semanal de ROI no padrão ROI-first: honesta, baseada em
     dados, sem eufemismos. O que funcionou, o que não funcionou, o que
     fazer diferente e para onde vai o budget.
 
@@ -23,11 +23,11 @@ workflow:
   recurrence: "weekly (toda sexta-feira)"
 
   metadata:
-    squad: "fabrica-de-receita-v4"
-    chief: "dener-lippert"
+    squad: "fabrica-de-receita"
+    chief: "cientista-de-marketing"
     master_advisor: "goldratt"
     routing: "orchestrator"
-    origem: "convertido do workflow legado roi-hunters-review.md"
+    origem: "convertido do workflow legado roi-first-review.md"
 
 # ============================================================
 # PHASES
@@ -120,7 +120,7 @@ phases:
 # ============================================================
 
 report_structure: |
-  # ROI Hunters V4 Review, Semana [X] ([Data])
+  # ROI-first Review, Semana [X] ([Data])
 
   ## North Star Metric da Semana
   [Valor] vs Meta [Valor] → Status: VERDE / AMARELO / VERMELHO
@@ -128,11 +128,11 @@ report_structure: |
   ## Scorecard Semanal
   | Métrica | Esta Semana | Semana Anterior | Variação |
   |---------|-------------|-----------------|----------|
-  | CAC     | R$          | R$              | %        |
-  | ROAS    | x           | x               | %        |
-  | CVR     | %           | %               | pp       |
-  | Churn   | %           | %               | pp       |
-  | ROI     | %           | %               | pp       |
+  | CAC | R$ | R$ | % |
+  | ROAS | x | x | % |
+  | CVR | % | % | pp |
+  | Churn | % | % | pp |
+  | ROI | % | % | pp |
 
   ## Top Win da Semana
   [O que funcionou melhor e por quê]
@@ -189,9 +189,9 @@ cross_squad_handoffs:
 
 cross_references:
   data:
-    - "data/v4-laws.md"
+    - "data/revenue-principles.md"
     - "data/fabrica-de-receita-kb.md"
-    - "data/v4-pillars.md"
+    - "data/revenue-principles.md"
   skills:
     - "skills/benchmark-funil.skill.md"
     - "skills/toc-aplicada.skill.md"

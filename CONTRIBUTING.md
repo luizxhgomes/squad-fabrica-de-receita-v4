@@ -1,4 +1,4 @@
-# Contribuindo com o Squad Fábrica de Receita V4
+# Contribuindo com o Squad Fábrica de Receita
 
 Obrigado pelo interesse em contribuir. Este squad é uma infraestrutura de orquestração de agentes
 de IA para Claude Code, e a qualidade do conteúdo é o que o torna útil.
@@ -46,6 +46,6 @@ Sempre registre o componente novo no `squad.yaml` (bloco `components`) e regener
 
 ## Atribuição e método
 
-O método Fábrica de Receita e a metodologia V4 permanecem com atribuição aos seus titulares. As
-personas nomeadas (Goldratt, Dener Lippert, Baziotti) são representações educacionais baseadas em
+O método Fábrica de Receita e a metodologia permanecem com atribuição aos seus titulares. As
+personas nomeadas (Goldratt, Cientista de Marketing, Experience Designer) são representações educacionais baseadas em
 obra e material público. Este repositório não representa afiliação oficial.

@@ -1,8 +1,8 @@
 # ============================================================
 # WF-DIAGNOSTICO-COMPLETO, Jornada de Entrada Padrão do Squad
 # Duração: 2-4 semanas
-# Hierarquia: goldratt (advisor) -> dener-lippert (chief) ->
-#             fabrica-de-receita-master (sub-orchestrator) -> specialists
+# Hierarquia: goldratt (advisor) -> cientista-de-marketing (chief) ->
+# fabrica-de-receita-master (sub-orchestrator) -> specialists
 # ============================================================
 
 id: wf-diagnostico-completo
@@ -11,7 +11,7 @@ version: 1.0.0
 maturity: F4
 tier: institutional
 orchestrator: fabrica-de-receita-master
-approver: dener-lippert
+approver: cientista-de-marketing
 advisor: goldratt
 
 description: |
@@ -140,9 +140,9 @@ phases:
     agents:
       - id: destrava-receita-consultant
         role: "Monta e apresenta o pitch de devolutiva com tiers de investimento"
-      - id: dener-lippert
+      - id: cientista-de-marketing
         role: "Valida a voz e o tom da devolutiva (gate do chief)"
-      - id: baziotti
+      - id: experience-designer
         role: "Valida o visual e a experiência da peça de devolutiva"
     tasks:
       - tasks/destrava-pitch.md
@@ -151,7 +151,7 @@ phases:
     activities:
       - "Consolidar diagnóstico, validação e plano em narrativa de devolutiva"
       - "Aplicar tiers de precificação do produto DR"
-      - "Passar pela validação de voz (chief) e visual (baziotti)"
+      - "Passar pela validação de voz (chief) e visual (experience-designer)"
     outputs:
       - artefato: "f5-devolutiva-destrava.md"
         conteudo: "Pitch de devolutiva aprovado em voz e visual, pronto para apresentação"
@@ -173,7 +173,7 @@ quality_gates_applied:
   QG-004:
     name: "Qualidade de Saída"
     blocking: false
-    check: "Devolutiva validada em voz pelo chief e em visual pelo baziotti"
+    check: "Devolutiva validada em voz pelo chief e em visual pelo experience-designer"
 
 success_metrics:
   primary:

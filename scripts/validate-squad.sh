@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # validate-squad.sh
-# Squad: fabrica-de-receita-v4 (repositorio publico)
+# Squad: fabrica-de-receita (repositorio publico)
 # Validacao de integridade estrutural do squad. Espelho exato do job de CI.
 #
 # Usage:
@@ -32,7 +32,7 @@ warn() { echo "${YEL}[WARN]${NC} $1"; }
 PY=python3
 command -v "$PY" >/dev/null 2>&1 || { echo "python3 necessario" >&2; exit 2; }
 
-echo "== Validate Squad: fabrica-de-receita-v4 =="
+echo "== Validate Squad: fabrica-de-receita =="
 
 # [1] Estrutura fisica
 for d in agents tasks workflows skills data config templates checklists scripts; do
@@ -110,10 +110,10 @@ PYRC=$?
 [ "$PYRC" -eq 0 ] && pass "integridade YAML e components ok" || fail "integridade YAML/components (ver acima)"
 
 # [5] Banner Prioridade 0 no command distribuido
-if [ -f .claude/commands/fdr-v4.md ]; then
-  grep -q "Prioridade 0" .claude/commands/fdr-v4.md && pass "command fdr-v4 tem banner Prioridade 0" || fail "command fdr-v4 sem banner Prioridade 0"
+if [ -f .claude/commands/fdr.md ]; then
+  grep -q "Prioridade 0" .claude/commands/fdr.md && pass "command fdr-v4 tem banner Prioridade 0" || fail "command fdr-v4 sem banner Prioridade 0"
 else
-  warn ".claude/commands/fdr-v4.md ausente (ok fora do export)"
+  warn ".claude/commands/fdr.md ausente (ok fora do export)"
 fi
 
 # [6] COMPONENTS.md sem drift (se o gerador existir)

@@ -1,5 +1,5 @@
 ---
-task: ROI Analysis: ROI Hunters Style
+task: ROI Analysis: ROI-first Style
 responsavel: "@roi-analyst"
 responsavel_type: agent
 atomic_layer: task
@@ -21,10 +21,10 @@ Checklist:
 elicit: true
 ---
 
-# *roi-review: Análise de ROI ao Estilo ROI Hunters
+# *roi-review: Análise de ROI ao Estilo ROI-first
 
-Revisão científica de ROI inspirada no podcast ROI Hunters da V4 Company
-no padrão ROI Hunters V4, com o rigor do Dener Lippert. Sem achismos: só dados.
+Revisão científica de ROI inspirada no podcast ROI-first da a assessoria
+no padrão ROI-first, com o rigor do Cientista de Marketing. Sem achismos: só dados.
 
 ## Processo de Coleta de Dados
 
@@ -45,7 +45,7 @@ no padrão ROI Hunters V4, com o rigor do Dener Lippert. Sem achismos: só dados
 ? Você tem dados de LTV e Churn?
 ```
 
-## Framework ROI Hunters
+## Framework ROI-first
 
 ### 1. ROI Básico por Canal
 
@@ -91,10 +91,10 @@ ROI Real:
 Para medir: Use holdout groups ou períodos de controle.
 ```
 
-## Output: ROI Hunters Report
+## Output: ROI-first Report
 
 ```markdown
-# ROI Hunters Report: [Período]
+# ROI-first Report: [Período]
 **Gerado por:** @roi-analyst (Data)
 **Data:** [data]
 
@@ -113,7 +113,7 @@ Para medir: Use holdout groups ou períodos de controle.
 | Email | R$ | R$ | % | ∞ | R$ |
 | **TOTAL** | **R$** | **R$** | **%** | **x** | **R$** |
 
-## Veredicto ROI Hunters (ao estilo do podcast)
+## Veredicto ROI-first (ao estilo do podcast)
 [Análise honesta e direta do que está funcionando e o que precisa mudar]
 
 ## Realocação de Budget Recomendada

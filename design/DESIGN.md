@@ -1,7 +1,7 @@
 # DESIGN.md: Design System da Fábrica de Receita (v3.0.0)
 
-> Documento mestre e autocontido do design system do squad `fabrica-de-receita-v4`,
-> baseado na identidade V4 Company 2026. Autoridade: baziotti (brand chief).
+> Documento mestre e autocontido do design system do squad `fabrica-de-receita`,
+> baseado na identidade a assessoria 2026. Autoridade: experience-designer (brand chief).
 > Fonte da verdade dos tokens: `design/tokens/tokens.json` (espelho YAML: `config/tokens.yaml`).
 > Aplicação prática: `config/brandbook.md`. Responsividade: `design/RESPONSIVE-PROPORTIONALITY.md`.
 > Motion: `design/motion/MOTION-SYSTEM.md`. Preview: `design/preview.html`.
@@ -23,7 +23,7 @@
 
 | Token | Hex | Uso |
 |---|---|---|
-| brand.red-v4 | `#E50914` | Primária: logo, destaques, links, filete de assinatura |
+| brand.red- | `#E50914` | Primária: logo, destaques, links, filete de assinatura |
 | brand.flame | `#FB2E0A` | Stop final de gradientes, glow quente |
 | brand.red | `#C41E08` | Stop intermediário de gradientes |
 | brand.red-mid | `#8B1205` | Stop do gradiente subtle |
@@ -52,7 +52,7 @@ Gradiente primário: `135deg, #560303 para #7A0A02 para #FB2E0A`.
 | accent.yellow | `#FDFF87` | Realce pontual |
 | accent_dr | `#FF003F` | Accent exclusivo da linha Destrava Receita (deck oficial) |
 
-### 2.4 Código de cores das 8 Travas (rampa quente, zero azul)
+### 2.4 Código de cores das 8 Travas (rampa quente, paleta do brandbook)
 
 T1 é o neutro máximo (cegueira: sem dados, sem cor). De T8 para T2 a rampa esquenta do âmbar ao
 vermelho: quanto mais perto da receita, mais vermelha a trava.
@@ -61,7 +61,7 @@ vermelho: quanto mais perto da receita, mais vermelha a trava.
 |---|---|---|
 | T1 Cegueira | `#050505` | Neutro máximo: sem dados não há diagnóstico |
 | T2 Retenção | `#C41E08` | Vermelho profundo: máxima proximidade da receita |
-| T3 Decisão | `#E50914` | Vermelho V4 pleno |
+| T3 Decisão | `#E50914` | Vermelho pleno |
 | T4 Compromisso | `#FB2E0A` | Vermelho alaranjado |
 | T5 Qualificação | `#FF4820` | Laranja avermelhado |
 | T6 Interesse | `#FF6200` | Laranja |
@@ -123,7 +123,7 @@ equivalente. 60fps mobile-first. Detalhe: `design/motion/MOTION-SYSTEM.md`.
 
 ## 7. Assets
 
-Logos oficiais em `design/logos/` (ícones V4 nas variantes vermelho, branco e preto). A regra
+Logos oficiais em `design/logos/` (ícones nas variantes vermelho, branco e preto). A regra
 NUNCA_INVENTAR_LOGO se aplica integralmente: se o asset necessário não existir, a produção para
 e o brand chief é acionado; em instalações de terceiros, os assets de logo são fornecidos pelo
 usuário final. Regras de nomenclatura e proporção: `design/references/REBRANDING-RULES.md`.

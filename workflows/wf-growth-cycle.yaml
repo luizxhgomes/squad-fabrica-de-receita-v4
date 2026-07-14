@@ -1,13 +1,13 @@
 # ============================================================
-# WF-V4-GROWTH-CYCLE, Ciclo Completo de Crescimento (90 dias)
+# WF--GROWTH-CYCLE, Ciclo Completo de Crescimento (90 dias)
 # Duração: 90 dias por ciclo
 # Owner: fabrica-de-receita-master (orquestrador operacional)
-# Chief: dener-lippert · Master Advisor: goldratt
+# Chief: cientista-de-marketing · Master Advisor: goldratt
 # ============================================================
 
 workflow:
-  id: wf-v4-growth-cycle
-  name: "V4 Growth Cycle, Ciclo Completo de Crescimento em 90 Dias"
+  id: wf-growth-cycle
+  name: " Growth Cycle, Ciclo Completo de Crescimento em 90 Dias"
   version: "1.0.0"
   orchestrator: "fabrica-de-receita-master"
   description: |
@@ -25,11 +25,11 @@ workflow:
   recurrence: "trimestral (o fechamento de um ciclo é o ponto de partida do próximo)"
 
   metadata:
-    squad: "fabrica-de-receita-v4"
-    chief: "dener-lippert (aprova OKRs e decisões estratégicas do ciclo)"
+    squad: "fabrica-de-receita"
+    chief: "cientista-de-marketing (aprova OKRs e decisões estratégicas do ciclo)"
     master_advisor: "goldratt (TOC aplicada: priorizar o constraint do sistema)"
     routing: "orchestrator"
-    origem: "convertido do workflow legado v4-growth-cycle.md"
+    origem: "convertido do workflow legado -growth-cycle.md"
 
 # ============================================================
 # PHASES
@@ -75,7 +75,7 @@ phases:
       - id: growth-strategist
         role: "Dias 11-14: backlog de experimentos. Listar hipóteses de crescimento, aplicar ICE Score em todos os experimentos e selecionar Top 3 para executar no ciclo (templates/experiment-brief-template.md)"
         tasks: ["growth-experiment", "forecast-receita"]
-      - id: dener-lippert
+      - id: cientista-de-marketing
         role: "Chief: aprova os OKRs do ciclo. Dias 8-10: North Star Metric com target numérico, Key Results mensuráveis por pilar, budget allocation por canal e por pilar"
         commands: ["aprovar OKRs", "validar North Star Metric"]
       - id: goldratt
@@ -147,7 +147,7 @@ phases:
       - id: roi-analyst
         role: "ROI Review do ciclo: comparação Metas (OKRs) vs Resultados, evolução de LTV:CAC no ciclo, performance da alocação de budget"
         tasks: ["roi-analysis"]
-      - id: dener-lippert
+      - id: cientista-de-marketing
         role: "Chief: valida o relatório final do ciclo e aprova as apostas do próximo ciclo"
         commands: ["aprovar fechamento de ciclo"]
     output: "Relatório final do ciclo em templates/growth-report-template.md + plano do próximo ciclo aprovado"
@@ -203,8 +203,8 @@ cross_squad_handoffs:
 
 cross_references:
   data:
-    - "data/v4-pillars.md"
-    - "data/v4-laws.md"
+    - "data/revenue-principles.md"
+    - "data/revenue-principles.md"
     - "data/fabrica-de-receita-kb.md"
     - "data/8-travas.md"
     - "data/toc-ltp-fieldbook.md"
@@ -215,10 +215,10 @@ cross_references:
     - "skills/toc-aplicada.skill.md"
     - "skills/icp-scoring.skill.md"
   scripts:
-    - "scripts/v4-compliance-check.sh (gate de compliance para artefatos HTML gerados no ciclo)"
+    - "scripts/compliance-check.sh (gate de compliance para artefatos HTML gerados no ciclo)"
   agents:
     - "fabrica-de-receita-master (orquestrador operacional)"
-    - "dener-lippert (chief) + goldratt (master advisor)"
+    - "cientista-de-marketing (chief) + goldratt (master advisor)"
     - "orchestrator (routing) + roi-analyst"
     - "Especialistas dos 4 pilares: traffic-hunter, content-engine, conversion-optimizer, retention-architect"
     - "growth-strategist + ai-marketing-engineer + fdr-quality-monitor"

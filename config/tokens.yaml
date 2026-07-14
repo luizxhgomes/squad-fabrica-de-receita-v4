@@ -1,16 +1,16 @@
-# Fábrica de Receita V4, Design Tokens
-# Fonte da verdade: design/tokens/tokens.json (paleta V4 Company 2026, v2.1.0)
-# Regenerado em 2026-07-02. Autoridade: baziotti (design system do squad).
+# Fábrica de Receita, Design Tokens
+# Fonte da verdade: design/tokens/tokens.json (paleta a assessoria 2026, v2.1.0)
+# Regenerado em 2026-07-02. Autoridade: experience-designer (design system do squad).
 # Regra ZERO_AZUL: proibição absoluta de azul em qualquer papel da paleta.
 # CTA é verde (#00A86B), nunca vermelho. Logos oficiais intactas em design/logos/, nunca recriar.
 # Tipografia oficial: Morganite e Fjalla One (display) + IBM Plex Sans (body). Nunca serif.
 
 meta:
-  name: "Fábrica de Receita V4, Design Tokens"
+  name: "Fábrica de Receita, Design Tokens"
   version: "3.0.0"
   source: "design/tokens/tokens.json"
   updated: "2026-07-02"
-  owner: "baziotti"
+  owner: "experience-designer"
   notes: >
     Derivado 100% do tokens.json canônico do squad. Em caso de divergência,
     o tokens.json prevalece. Este YAML existe para consumo rápido por agentes
@@ -25,7 +25,7 @@ colors:
 
   # --- Marca (rampa vermelha 2026) ---
   brand:
-    red-v4:
+    red-:
       value: "#E50914"
       description: Primária da marca (brand book 2026)
       usage: Logo, CTAs textuais, destaques, links, filete de assinatura
@@ -136,7 +136,7 @@ colors:
       usage: Vermelho profundo. Perder cliente caro é dupla penalidade
     t3-decisao:
       value: "#E50914"
-      usage: Vermelho V4 pleno. Prospect qualificado que não fecha
+      usage: Vermelho pleno. Prospect qualificado que não fecha
     t4-compromisso:
       value: "#FB2E0A"
       usage: Vermelho alaranjado. Abandono no momento crítico
@@ -287,20 +287,20 @@ spacing:
   # do squad.yaml). Razão de aproximadamente 2 entre níveis adjacentes.
   # Doc canônico: design/RESPONSIVE-PROPORTIONALITY.md
   fluid:
-    section: "clamp(56px, 10vw, 140px)"   # entre blocos macro
-    block:   "clamp(28px, 5vw, 56px)"     # interno de cards grandes / blocos de seção
-    group:   "clamp(20px, 3.5vw, 40px)"   # entre grupos
-    element: "clamp(12px, 2vw, 24px)"     # entre elementos
-    tight:   "clamp(8px, 1.2vw, 14px)"    # gap pequeno (label-valor, icon-text)
-    gutter:  "clamp(14px, 4vw, 32px)"     # padding lateral único de seções fullbleed
+    section: "clamp(56px, 10vw, 140px)" # entre blocos macro
+    block: "clamp(28px, 5vw, 56px)" # interno de cards grandes / blocos de seção
+    group: "clamp(20px, 3.5vw, 40px)" # entre grupos
+    element: "clamp(12px, 2vw, 24px)" # entre elementos
+    tight: "clamp(8px, 1.2vw, 14px)" # gap pequeno (label-valor, icon-text)
+    gutter: "clamp(14px, 4vw, 32px)" # padding lateral único de seções fullbleed
 
   # Máximos canônicos para containers de prose e shell
   max_width:
-    shell: "1320px"     # container principal
-    wide:  "1440px"     # heros e showcases
-    prose: "60ch"       # body text legível
-    title: "14ch"       # quebra natural de títulos longos
-    label: "36ch"       # subtitles, deck
+    shell: "1320px" # container principal
+    wide: "1440px" # heros e showcases
+    prose: "60ch" # body text legível
+    title: "14ch" # quebra natural de títulos longos
+    label: "36ch" # subtitles, deck
 
 # ============================================================
 # BORDER RADIUS
@@ -308,12 +308,12 @@ spacing:
 
 radius:
   sm: "10px"
-  md: "15px"            # padrão legado para cards
+  md: "15px" # padrão legado para cards
   lg: "25px"
-  pill: "9999px"        # botões pill, chips
-  card: "36px"          # card dominante
-  sphere: "30px"        # card escuro sphere
-  card-glass: "22px"    # glass card da linha DR
+  pill: "9999px" # botões pill, chips
+  card: "36px" # card dominante
+  sphere: "30px" # card escuro sphere
+  card-glass: "22px" # glass card da linha DR
 
 # ============================================================
 # EASING E SOMBRAS
@@ -357,8 +357,8 @@ effects:
     hero: "linear-gradient(90deg, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.55) 45%, rgba(5,5,5,0) 100%)"
     name-band: "linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0) 100%)"
   fallback:
-    surface-card-dark: "rgba(255,255,255,0.03)"   # fallback do glass sem backdrop-filter
-    border-card-dark: "rgba(255,255,255,0.08)"    # fallback do stroke glass
+    surface-card-dark: "rgba(255,255,255,0.03)" # fallback do glass sem backdrop-filter
+    border-card-dark: "rgba(255,255,255,0.08)" # fallback do stroke glass
 
 # ============================================================
 # LOGOS (assets oficiais, NUNCA recriar)
@@ -372,14 +372,14 @@ logos:
     Se o asset correto não existir, parar a produção e solicitar ao brand-chief.
   assets:
     icon-vermelho:
-      file: "design/logos/v4-icon-vermelho.jpg"
-      usage: Ícone V4 vermelho, uso primário sobre fundo claro
+      file: "design/logos/-icon-vermelho.jpg"
+      usage: Ícone vermelho, uso primário sobre fundo claro
     icon-branco:
-      file: "design/logos/v4-icon-branco.png"
-      usage: Ícone V4 branco, sobre fundo escuro ou vermelho
+      file: "design/logos/-icon-branco.png"
+      usage: Ícone branco, sobre fundo escuro ou vermelho
     icon-preto:
-      file: "design/logos/v4-icon-preto.jpg"
-      usage: Ícone V4 preto, impressão P&B e fundos neutros claros
+      file: "design/logos/-icon-preto.jpg"
+      usage: Ícone preto, impressão P&B e fundos neutros claros
   favicon:
-    file: "design/logos/v4-icon-preto.jpg"
+    file: "design/logos/-icon-preto.jpg"
     rule: Favicon obrigatório em toda página HTML produzida pelo squad
